@@ -1,0 +1,97 @@
+{
+  "name": "vue-notus",
+  "homepage": "https://demos.creative-tim.com/vue-notus/",
+  "version": "1.1.0",
+  "description": "Vue Notus - A free Tailwind CSS and VueJS UI Kit and Admin by Creative Tim.",
+  "repository": "https://github.com/creativetimofficial/vue-notus",
+  "license": "MIT",
+  "engines": {
+    "node": "16.0.0"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build && gulp licenses",
+    "start": "node server.js",
+    "all": "vue-cli-service build && gulp licenses && node server.js",
+    "lint": "vue-cli-service lint",
+    "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "@popperjs/core": "2.9.1",
+    "@tailwindcss/forms": "0.2.1",
+    "@vue/compiler-sfc": "3.0.7",
+    "@websanova/vue-auth": "^4.1.1",
+    "accordion-js": "^3.1.1",
+    "axios": "^0.21.1",
+    "badger-accordion": "^1.2.4",
+    "chart.js": "2.9.4",
+    "cookie-parser": "^1.4.5",
+    "core-js": "3.9.1",
+    "cors": "^2.8.5",
+    "easy-responsive-tabs": "^0.0.2",
+    "express": "^4.17.1",
+    "express-recaptcha": "^5.0.2",
+    "firebase": "^8.5.0",
+    "firebase-admin": "^9.8.0",
+    "git": "^0.1.5",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "handorgel": "^0.5.0",
+    "heroku": "^7.53.0",
+    "jquery": "^3.6.0",
+    "json-formatter-js": "^2.3.4",
+    "mongodb": "^3.6.6",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.0",
+    "quasar": "^1.15.15",
+    "serve-static": "^1.14.1",
+    "tailwindcss": "2.0.4",
+    "vue": "3.0.7",
+    "vue-axios": "^3.2.4",
+    "vue-recaptcha-v3": "^2.0.1",
+    "vue-router": "4.0.5",
+    "vue-scrollto": "^2.20.0",
+    "vue3-cookies": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.13.10",
+    "@babel/eslint-parser": "7.13.10",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^15.6.1",
+    "@vue/cli-plugin-babel": "5.0.0-alpha.7",
+    "@vue/cli-plugin-eslint": "5.0.0-alpha.7",
+    "@vue/cli-service": "5.0.0-alpha.7",
+    "autoprefixer": "10.2.5",
+    "eslint": "7.22.0",
+    "eslint-plugin-vue": "7.7.0",
+    "niui-npm": "^2.2.4",
+    "postcss": "8.2.8",
+    "typescript": "^4.3.2",
+    "vue-template-compiler": "2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

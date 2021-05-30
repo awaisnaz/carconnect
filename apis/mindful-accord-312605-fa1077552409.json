@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mindful-accord-312605",
+  "private_key_id": "fa1077552409fd7685fc53c5f6939ac3c961ca7e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrZFHUCZiwNAwp\nyqipZtf71mySlRyu3tAtAG/gi0DzwaQDo4npwOKnLAcim7LZWrveOPz3i05/abkC\nK4gTy9QnQUkJ8nf5Gh+7lMpQZlzdTyypVzeEJAaTWpud7C2JYmDE99lT7JH1lmXa\n56jBNGGGMEFEYU9zSCXg1fZSopeBoCK4y7+rYZ5p9b0YRr9fJW5JHMtmVRfz552D\nLPMRapW1AQw874dtznkj7Jmt8QW0EoXl76CqDGRVOaakduQ6y9Z4w9yVYEe8gox1\ncqnJunaMdkG055euy0uFCW1gDH6U+aMebP5WwzzBSBLHHcr0cRuQrl1eLXpNpVTa\n5g2dWUj/AgMBAAECggEAFPbZbNabqaSZfvHTaEffJWaDXflan9KQo4szzsMvImHO\nPm+zlTcgbOhdcGXxHisTYx7qD8bSHD2sq/pH09FmgEK5EhFpjBEeTo3oTVCoDUim\nTYm7OFubvkx3+nzYI7+NLKqlwmE5Mqa/Ng6IvXvlw0nbFz0mlb2pJx5PhKjEtXh+\nEDH+9p5hrGT4HbhBlVo1bWKVOiRVXZMKRzSsQFaJjFBlS4aqBW3GFSWr/AxZXbia\nUa+ycLA2oF3h/EjOflR19QZqat4wFKbHdMwDfqJ9ghC7dxdVP4qQOurc9u3eq31G\nI+Tn2ZsFpgGrRygvmTLYTD+a32Ed25P8bBlyMCSGGQKBgQDV4UoSHO88wExqUkYc\njz6va2bZZnxpDacrKgNHqoT+BVcghEdwLOB9W5z0/sNTxScUUtwxBs38wFKPSc5i\nxbOO3doqoTqNWzm9m+vj8MIjU3ozlug2noRP0Es2qeleWBSp3DwPid8H48xNBnF6\nrrZ7obr6tpA7BLFC/dwtW/rVMwKBgQDNJP/xbiDf4wnTG6k4g3+oC6+U1UUjjK7W\n3wY9P3FdN+OFuVxIDAqflB2/DNJsPRjaiPO7Pzlx1eJoJ4xC2aX51BBzKSv3teqF\nu4kKorwMhcJB68q37iUeTB8jvPn+/i/Z75BPFrfXSN69bxCbd2/0ultyRXfi9egY\nHrNjK1JlBQKBgQDLNIMldmwuch2oHocSd159WDOddevZ++jJ796x5mb42aYP9N3S\nzDB1qecUNkDqhDQ+8QLXabmn3CoUjXETEvcoU8wGGK0CxJu1dEDIjmRFH/jIryXt\nTuoy0pnDU+evhUwMnnxJ3xoR6vKec/K5NumVyPFXZsDd8fVgysS4K93DVQKBgA+V\nCePay6B17F8esMHcKywmhxW1BWVn4DfuBNlOIlxETIHxzHKkh4ILjB7g6HLUSTkA\nQhMtAD4HUwU6S8sgIR1S4FT/AZn1NXUnA4fNSJ9i4ZiEQoeqDSO6AHuEdTDLOfNB\n4SJAxYISxOh6sTY94kEijqOlZy/UIecDHfkgZ0fJAoGAardH2bz7O6mQUJemtsOl\nobkCf3vUFyQ7cLB3gVhuUjNG/lq1kV6eDeHKoXTHGyjQZPreA8+4h6UUTVuR4wVU\nbkaIFNQ7LDQEPTtxTjqmkOR3A5TvjkYCgTMmu93JRuuHgPF0bquLA90u2F98rO/8\nCK8SrSsFADH62os5ZO8K//U=\n-----END PRIVATE KEY-----\n",
+  "client_email": "car-connect@mindful-accord-312605.iam.gserviceaccount.com",
+  "client_id": "101733601755925333781",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/car-connect%40mindful-accord-312605.iam.gserviceaccount.com"
+}
