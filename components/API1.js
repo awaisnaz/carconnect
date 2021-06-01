@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-module.exports = function api(reg) {
+module.exports = function API1(reg) {
 
     return new Promise((res, rej) => {
 
@@ -25,8 +25,8 @@ module.exports = function api(reg) {
             // return JSON.stringify(response.data);
 
         })
-        .catch(function(error) {
-            console.log(error);
+        .catch(function(err) {
+            console.log(err);
             // window.location.href = "/";
             rej(err);
         });

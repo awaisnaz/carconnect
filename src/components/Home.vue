@@ -62,20 +62,22 @@
                           </p>
                         </div>
                         <div class="mid-87" style="float: right; width: 100%;">
-                          <div style=" display: table; margin: 4px; padding: 1px; width: 100%;">
+                          <!-- <div style=" display: table; margin: 4px; padding: 1px; width: 100%;height:100%"> -->
+                            <div style=" display: inline-block; margin: 4px; padding: 1px; width: 100%;height:100%">
                               <!-- <div style="display: table-cell; width: 5%;">
                                 <button style="background-image:url('@/assets/gb_eu.jpg'); background-size:cover;">
                                 </button>
                               </div> -->
-                              <div style="display: table-cell; width: 5%; vertical-align: bottom;">
+                              <!-- <div style="display: table-cell; width: 5%; vertical-align: bottom;">
                                 <img 
                                   style="min-height:44px; max-height:44px;"
                                   src="@/assets/gb_eu.jpg"
                                 />
-                              </div>
+                              </div> -->
 
                               
-                              <div style="display: table-cell;width: 100%; vertical-align: bottom;">
+                              <!-- <div style="display: table-cell; vertical-align: bottom;"> -->
+                                <div style="display: inline-block; vertical-align: bottom;">
                                 <!-- <input
                                   v-model="vehicle"
                                   required
@@ -91,10 +93,14 @@
                                   required
                                   name="vehicle"
                                   type="text"
-                                  class="border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                  class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                   id="name" 
-                                  style="width: 100%;"
-                                  placeholder="e.g. AA19AAA"
+                                  style="min-width:350px;max-width:400px;min-height:80px;max-height:90px;display:inline-block;"
+                                  placeholder="Enter your reg"
+                                  maxlength="7"
+                                  
+                                  
+
                                   
                                 />
                               </div>
@@ -107,15 +113,17 @@
                               >
                                 Go
                               </button> -->
-                              <div style="display: table-cell;width: 100%; vertical-align: bottom;">
+                              <!-- <div style="display: table-cell; vertical-align: bottom;justify-content:flex-start!important;"> -->
+                              <div style="display: inline-block; vertical-align: bottom;justify-content:flex-start!important;">
                                 <button
                                   name="category"
                                   value="vehicle"
                                   type="submit"
                                   class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
-                                  style="width: 100%; background-color: #fdcc04; margin-bottom: 0px;" 
+                                  style="background-color: #fdcc04; margin-bottom: 0px;min-width:80px;max-width:160px;min-height:80px;max-height:90px;font-size:30px;" 
+                                  
                                 >
-                                  Go
+                                  Go >
                                 </button>
                               </div>
                           </div>
@@ -236,7 +244,8 @@
                       style="width: 30%"
                     >
                       <!-- <i class="fas fa-award"></i> -->
-                      <img src="@/assets/cars_step_1.svg"/>
+                      <!-- <img src="@/assets/cars_step_1.svg"/> -->
+                      <img src="@/assets/car1a.png"/>
                     </div>
                     <!-- <h6 class="text-xl font-semibold">Step 1: Free Valuation</h6> -->
                     <h6 class="text-xl font-semibold" style="color:white;">Free valuation</h6>
@@ -274,7 +283,8 @@
                       style="width: 30%"
                     >
                       <!-- <i class="fas fa-award"></i> -->
-                      <img src="@/assets/cars_step_2.svg"/>
+                      <!-- <img src="@/assets/cars_step_2.svg"/> -->
+                      <img src="@/assets/car2a.png"/>
                     </div>
                     <h6 class="text-xl font-semibold"  style="color:white;">Book an appointment</h6>
                     <p class="mt-2 mb-4 text-blueGray-500"  style="color:grey;">
@@ -307,7 +317,8 @@
                       style="width: 30%"
                     >
                       <!-- <i class="fas fa-award"></i> -->
-                      <img src="@/assets/cars_step_3.svg"/>
+                      <!-- <img src="@/assets/cars_step_3.svg"/> -->
+                      <img src="@/assets/car3a.png"/>
                     </div>
                     <h6 class="text-xl font-semibold" style="color:white;">Buy my car</h6>
                     <p class="mt-2 mb-4 text-blueGray-500"  style="color:grey;">
@@ -1117,11 +1128,9 @@ export default {
 
 .container-87 {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-auto-columns: 1fr 1fr;
-	grid-auto-rows: 1fr 1fr 1fr;
-	grid-gap: 1em 1em;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr auto 1fr;
+	/* grid-gap: 1em 1em; */
 	place-items: end end;
 	place-content: end end;
 	grid-auto-flow: row;
@@ -1135,6 +1144,8 @@ export default {
 .mid-87 {
 	grid-area: 2 / 1 / 3 / 3;
 	place-self: center center;
+  min-height:80px;
+  max-height:90px;
 }
 
 .bot-87 {
@@ -1157,6 +1168,39 @@ export default {
 .form-sent-88 {
 	grid-area: 1 / 1 / 2 / 2;
 	place-self: center center;
+}
+
+.inputReg {
+    background-image: url("@/assets/gb_eu.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    border: 2px solid #202020;
+    border-radius: 3px;
+    display: inline-block;
+    font-family: Helvetica Neue,Impact,Haettenschweiler,Arial Narrow Bold,sans-serif;
+    height: 100%;
+    width: 100%;
+    line-height: 2;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    /* padding: 0 0 0 10px; */
+    font-size:30px !important;
+    font-weight: 500;
+    /* -webkit-writing-mode: horizontal-tb !important; */
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    caret-color: #000;
+    font: 400 13.3333px Arial;
 }
 
 

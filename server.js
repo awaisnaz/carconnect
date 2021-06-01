@@ -2,7 +2,7 @@
 
 
 //API Imports
-var api = require('./apis/api-vehicle.js');
+var API1 = require('./components/API1.js');
 // var email = require('./apis/nodemailerAPI.js');
 // api("AA19AAA").then(res => console.log(res));
 // console.log(test);
@@ -34,11 +34,11 @@ app.use(cors());
 
 app.post('/submit', upload.array(), (req, res) => {
 	console.log(req.body.vehicle);
-	api(req.body.vehicle)
+	API1(req.body.vehicle)
 		.then((response)=>{
 			// console.log(response);
 			res
-				.cookie("api1", response);
+				.cookie("API1", response);
 			response = JSON.parse(response);
 			// console.log(response);
 			res

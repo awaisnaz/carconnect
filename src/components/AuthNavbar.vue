@@ -1,9 +1,9 @@
 <template>
   <nav
-    class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
+    class="top-0 absolute z-50 w-full flex flex-wrap items-stretch justify-between px-2 py-3 navbar-expand-lg"
   >
     <div
-      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+      class="container px-4 mx-auto flex flex-wrap items-stretch justify-between"
     >
       <div
         class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
@@ -30,10 +30,10 @@
         </button>
       </div>
       <div
-        class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none"
+        class="lg:flex flex-grow items-stretch bg-white lg:bg-opacity-0 lg:shadow-none"
         :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
         id="example-navbar-warning"
-        style="background:#202020;"
+        
       >
         <!-- <ul class="flex flex-col lg:flex-row list-none mr-auto">
           <li class="flex items-center">
@@ -48,17 +48,17 @@
             </a>
           </li>  
         </ul> -->
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto" >
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto"  >
           <!-- <li class="flex items-center">
             <PagesDropdown />
           </li> -->
 
-          <li class="flex items-center text-white">
+          <li class="flex items-center text-white" >
             <router-link
               to="/"
               class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
               v-scroll-to="'#top'"
-              style="color:white; font-size: medium; font-weight: bold;"
+              style="color:white; font-size: medium; font-weight: bold;background:#202020;"
             >
               Sell Car Instantly!
             </router-link>
@@ -69,7 +69,7 @@
               to="#"
               class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
               v-scroll-to="'#whyus'"
-              style="color:white; font-size: medium; font-weight: bold;"
+              style="color:white; font-size: medium; font-weight: bold;background:#202020;"
             >
               Why Us?
             </router-link>
@@ -80,7 +80,7 @@
               to="#"
               class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
               v-scroll-to="'#faq'"
-              style="color:white; font-size: medium; font-weight: bold;"
+              style="color:white; font-size: medium; font-weight: bold;background:#202020;"
             >
               FAQs
             </router-link>
@@ -91,7 +91,7 @@
               to="#"
               class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
               v-scroll-to="'#contactus'"
-              style="color:white; font-size: medium; font-weight: bold;"
+              style="color:white; font-size: medium; font-weight: bold;background:#202020;"
             >
               Contact Us
             </router-link>

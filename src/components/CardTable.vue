@@ -93,41 +93,7 @@
     </div>  -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <Tabs/>
 
 
 
@@ -752,6 +718,7 @@
 // import TableDropdown from "@/components/TableDropdown.vue";
 // import APICard from "@/components/APICard.vue";
 // import BadgerAccordion from "@/components/BadgerAccordion.vue";
+import Tabs from "@/components/Tabs.vue";
 
 import bootstrap from "@/assets/bootstrap.jpg";
 import angular from "@/assets/angular.jpg";
@@ -1084,6 +1051,7 @@ export default {
     // BadgerAccordion,
     // TableDropdown,
     // APICard,
+    Tabs,
   },
   props: {
     color: {

@@ -47,6 +47,7 @@
     "nodemailer": "^6.6.0",
     "quasar": "^1.15.15",
     "serve-static": "^1.14.1",
+    "tabs": "^0.2.0",
     "tailwindcss": "2.0.4",
     "vue": "3.0.7",
     "vue-axios": "^3.2.4",
