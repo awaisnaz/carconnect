@@ -210,16 +210,6 @@
 
             onMounted(() => {
                 new Accordion(".accordion-container");
-
-                // const accordionDomNode = document.querySelector('.js-badger-accordion');
-                // new BadgerAccordion(accordionDomNode);
-
-                // accordion();
-                // var accordionDomNode = document.querySelector(
-                //     ".js-badger-accordion"
-                // );
-                // var accordionTag = new BadgerAccordion(accordionDomNode);
-                // console.log(accordionTag);
             });
 
             return {
