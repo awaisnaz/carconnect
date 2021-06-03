@@ -1016,11 +1016,11 @@ export default {
 
     const firebaseSubmit = async () => {
       user = "{"+
-        "\"Name\": \""+name.value+"\", "+
-        "\"Email\": \""+email.value+"\", "+
-        "\"ID\": \""+(new Date()).getTime()+"\", "+
-        "\"Timestamp\": \""+(new Date())+"\", "+
-        "\"Message\": \""+message.value+"\""+
+        "\"ContactName\": \""+name.value+"\", "+
+        "\"ContactEmail\": \""+email.value+"\", "+
+        "\"ContactID\": \""+(new Date()).getTime()+"\", "+
+        "\"ContactTimestamp\": \""+(new Date())+"\", "+
+        "\"ContactMessage\": \""+message.value+"\""+
         "}";
       user = JSON.parse(user);
       // console.log(user);

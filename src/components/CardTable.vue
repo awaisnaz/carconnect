@@ -299,7 +299,7 @@
                                                         name="API1Input"
                                                         type="text"
                                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                        id="name"
+                                                        id="API1Input"
                                                         style="margin: 1px;"
                                                         placeholder="e.g. AA19AAA"
                                                     />
@@ -351,7 +351,7 @@
                                                         name="API2Input"
                                                         type="text"
                                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                        id="name"
+                                                        id="API2Input"
                                                         style="margin: 1px;"
                                                         placeholder="e.g. AA19AAA"
                                                     />
@@ -403,7 +403,7 @@
                                                         name="API3Input"
                                                         type="text"
                                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                        id="name"
+                                                        id="API3Input"
                                                         style="margin: 1px;"
                                                         placeholder="e.g. AA19AAA"
                                                     />
@@ -469,23 +469,94 @@
             var API3Output = ref();
 
             var getData = () => {
-                APIClient("APIClient", "Car ID")
+                APIClient("APIClient", "CarID")
                     .then((res) => {
                         for (var i = 0; i < res.length; i++) {
                             res[i] = Object.keys(res[i])
                                 .sort()
                                 .reduce((obj, key) => {
                                     obj[key] = res[i][key];
+                                    // console.log(obj);
                                     return obj;
                                 }, {});
                         }
                         // JSONToHTMLTable(res, "APIClient");
                         // JSONData(res, "APIClient");
-                        JSONToGrid("APIClient");
-                    })
+                        
+                        // console.log(res);
+                        // res = [{"CarDetails":"df","CarID":"1622698310783","CarMileage":"sdfs"},{"CarDetails":"vcbcv","CarID":"1622698277599","CarMileage":"cvbc"},{"CarDetails":"dsfs","CarID":"1622698249327","CarMileage":"dfs"}]
+                        new Grid({
+                            // columns: ["Name", "Email", "Phone Number"],
+                            // data: [
+                            // ["John", "john@example.com", "(353) 01 222 3333"],
+                            // ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
+                            // ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
+                            // ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
+                            // ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
+                            // ],
+                            data: res,
+                            pagination: true,
+                            search: true,
+                            sort: true,
+                            resizable: true,
+                            // fixedHeader: true,
+                            style: {
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
+                            },
+                        }).render(document.getElementById("APIClient"));
+                        // console.log(document.getElementById("APIClient"));
+
+
+
+
+
+
+
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    )
                     .catch((e) => console.log(e));
 
-                APIContact("APIContact", "ID")
+                APIContact("APIContact", "ContactID")
                     .then((res) => {
                         for (var i = 0; i < res.length; i++) {
                             res[i] = Object.keys(res[i])
@@ -497,7 +568,59 @@
                         }
                         // JSONToHTMLTable(res, "APIClient");
                         // JSONData(res, "APIContact");
-                        JSONToGrid("APIContact");
+                        // console.log(JSON.stringify(res));
+                        // res = [{"ContactEmail":"a@b.com","ContactID":"1622706526600","ContactMessage":"d"},{"ContactEmail":"a@b.com","ContactID":"1622705891445","ContactMessage":"vxcv"}];
+                        new Grid({
+                            // columns: ["Name", "Email", "Phone Number"],
+                            // data: [
+                            // ["John", "john@example.com", "(353) 01 222 3333"],
+                            // ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
+                            // ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
+                            // ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
+                            // ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
+                            // ],
+                            data: res,
+                            pagination: true,
+                            search: true,
+                            sort: true,
+                            resizable: true,
+                            // fixedHeader: true,
+                            style: {
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
+                            },
+                        }).render(document.getElementById("APIContact"));
                     })
                     .catch((e) => console.log(e));
             };
@@ -508,47 +631,6 @@
                 divContainer.innerHTML = "";
                 divContainer.appendChild(formatter.render());
             };
-
-
-            var JSONToGrid = (holder) => {
-              new Grid({
-                columns: ["Name", "Email", "Phone Number"],
-                data: [
-                  ["John", "john@example.com", "(353) 01 222 3333"],
-                  ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
-                  ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
-                  ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
-                  ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
-                ],
-                pagination: {
-                  enabled: true,
-                  limit: 10,
-                  summary: false
-                },
-                search: true,
-                sort: true,
-                resizable: true,
-                fixedHeader: true,
-                style: {
-                  table: {
-                    border: '3px solid #ccc'
-                  },
-                  th: {
-                    'background-color': 'rgba(0, 0, 0, 0.1)',
-                    color: '#000',
-                    'border-bottom': '3px solid #ccc',
-                    'text-align': 'center'
-                  },
-                  td: {
-                    'text-align': 'center'
-                  }
-                },
-              }).render(document.getElementById(holder));
-            };
-
-
-
-
 
 
             // function JSONToHTMLTable(jsonData, elementToBind) {
@@ -760,7 +842,7 @@
                 API3Output,
                 getData,
                 JSONData,
-                JSONToGrid,
+                // JSONToGrid,
             };
         },
 
@@ -816,7 +898,7 @@
     }
 
     .ac-trigger {
-        background: #505050;
+        background: #707070;
         color: white !important;
     }
 
@@ -828,6 +910,10 @@
     .ac-text {
         background: #404040;
         color: white !important;
+    }
+
+    .gridjs-pagination{
+        color : #ffffff !important;
     }
 
 

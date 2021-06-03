@@ -33,7 +33,7 @@ app.use(cors());
 
 
 app.post('/submit', upload.array(), (req, res) => {
-	console.log(req.body.vehicle);
+	// console.log(req.body.vehicle);
 	API1(req.body.vehicle)
 		.then((response)=>{
 			// console.log(response);

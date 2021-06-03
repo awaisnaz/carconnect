@@ -400,46 +400,46 @@
                 // console.log(this.$refs.details.value);
                 var client =
                     "{" +
-                    '"Car Registration Number": "' +
+                    '"CarRegistrationNumber": "' +
                     this.regNo +
                     '", ' +
                     // "\"Car Make\": \""+this.make+"\", "+
                     // "\"Car Model\": \""+this.model+"\", "+
                     // "\"Car Color\": \""+this.color+"\", "+
-                    '"Client Name": "' +
+                    '"ClientName": "' +
                     this.$refs.fullName.value +
                     '", ' +
-                    '"Client Email": "' +
+                    '"ClientEmail": "' +
                     this.$refs.email.value +
                     '", ' +
-                    '"Client Mobile": "' +
+                    '"ClientMobile": "' +
                     this.$refs.mobile1.value +
                     '", ' +
-                    '"Client Address": "' +
+                    '"ClientAddress": "' +
                     this.$refs.address.value +
                     '", ' +
-                    '"Client City": "' +
+                    '"ClientCity": "' +
                     this.$refs.city.value +
                     '", ' +
-                    '"Client Country": "' +
+                    '"ClientCountry": "' +
                     this.$refs.country.value +
                     '", ' +
-                    '"Client Post Code": "' +
+                    '"ClientPostCode": "' +
                     this.$refs.post.value +
                     '", ' +
-                    '"Car ID": "' +
+                    '"CarID": "' +
                     new Date().getTime() +
                     '", ' +
-                    '"Car Timestamp": "' +
+                    '"CarTimestamp": "' +
                     new Date() +
                     '", ' +
-                    '"Car Mileage": "' +
+                    '"CarMileage": "' +
                     this.$refs.mileage.value +
                     '", ' +
-                    '"Car Ownership Time": "' +
+                    '"CarOwnershipTime": "' +
                     this.$refs.howLong.value +
                     '", ' +
-                    '"Car Details": "' +
+                    '"CarDetails": "' +
                     this.$refs.details.value +
                     '"' +
                     "}";
