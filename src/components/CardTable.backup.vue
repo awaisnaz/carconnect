@@ -4,115 +4,8 @@
         style="background: #303030;"
         :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
     >
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                    >
-                        Accordion Item #1
-                    </button>
-                </h2>
-                <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the first item's accordion body.</strong
-                        >
-                        It is shown by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                    >
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div
-                    id="collapseTwo"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the second item's accordion body.</strong
-                        >
-                        It is hidden by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                    >
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div
-                    id="collapseThree"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the third item's accordion body.</strong
-                        >
-                        It is hidden by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- <JSONCards/> -->
+    <!-- <JSONCards/> -->
         <!-- <div class="accordion-container">
             <div class="ac">
                 <h2 class="ac-header">
@@ -318,6 +211,30 @@
                 </div>
             </div>
         </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div>
             <div class="accordion-container">
@@ -569,7 +486,7 @@
                         }
                         // JSONToHTMLTable(res, "APIClient");
                         // JSONData(res, "APIClient");
-
+                        
                         // console.log(res);
                         // res = [{"CarDetails":"df","CarID":"1622698310783","CarMileage":"sdfs"},{"CarDetails":"vcbcv","CarID":"1622698277599","CarMileage":"cvbc"},{"CarDetails":"dsfs","CarID":"1622698249327","CarMileage":"dfs"}]
                         new Grid({
@@ -588,39 +505,39 @@
                             resizable: true,
                             // fixedHeader: true,
                             style: {
-                                container: {
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
-                                table: {
-                                    // border: '3px solid #ccc'
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                header: {
-                                    "border-radius": "0px",
-                                },
-                                th: {
-                                    "background-color": "#606060",
-                                    color: "#ffffff",
-                                    "border-bottom": "3px solid #ccc",
-                                    "text-align": "center",
-                                    "border-radius": "0px",
-                                },
-                                td: {
-                                    "text-align": "center",
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                footer: {
-                                    // 'text-align': 'center',
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
                             },
                         }).render(document.getElementById("APIClient"));
                         // console.log(document.getElementById("APIClient"));
@@ -657,39 +574,39 @@
                             resizable: true,
                             // fixedHeader: true,
                             style: {
-                                container: {
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
-                                table: {
-                                    // border: '3px solid #ccc'
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                header: {
-                                    "border-radius": "0px",
-                                },
-                                th: {
-                                    "background-color": "#606060",
-                                    color: "#ffffff",
-                                    "border-bottom": "3px solid #ccc",
-                                    "text-align": "center",
-                                    "border-radius": "0px",
-                                },
-                                td: {
-                                    "text-align": "center",
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                footer: {
-                                    // 'text-align': 'center',
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
                             },
                         }).render(document.getElementById("APIContact"));
                     })
@@ -702,6 +619,7 @@
                 divContainer.innerHTML = "";
                 divContainer.appendChild(formatter.render());
             };
+
 
             // function JSONToHTMLTable(jsonData, elementToBind) {
             //   //This Code gets all columns for header   and stored in array col
@@ -798,10 +716,10 @@
                         var data = snapshot.docs.map((doc) => doc.data());
                         // JSONData(data, "API1");
                         var html = new Jsontableify({
-                            // headerList: ['Phone', 'Attachments', 'PersonCompetency'], // optional - will be shown as header to table
-                            // dateFormat: 'DD-MM-YYYY', // optional- date format to be converted to if date found
-                            // replaceTextMap: { YearsOfExperience: 'Years Of Experience' }, // optional - key will be replaced by its value
-                            // excludeKeys: ['Current CTC'], // optional - these fields will not be displayed
+                          // headerList: ['Phone', 'Attachments', 'PersonCompetency'], // optional - will be shown as header to table
+                          // dateFormat: 'DD-MM-YYYY', // optional- date format to be converted to if date found
+                          // replaceTextMap: { YearsOfExperience: 'Years Of Experience' }, // optional - key will be replaced by its value
+                          // excludeKeys: ['Current CTC'], // optional - these fields will not be displayed
                         }).toHtml(data);
                         console.log(data);
                         console.log(html);
@@ -889,8 +807,8 @@
             // }
 
             onMounted(() => {
-                new Accordion(".accordion-container");
-                getData();
+              new Accordion(".accordion-container");
+              getData();
             });
 
             // onBeforeMount(() => {
@@ -984,9 +902,11 @@
         color: white !important;
     }
 
-    .gridjs-pagination {
-        color: #ffffff !important;
+    .gridjs-pagination{
+        color : #ffffff !important;
     }
+
+
 
     @import "gridjs/dist/theme/mermaid.css";
 </style>

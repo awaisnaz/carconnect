@@ -12,27 +12,28 @@ npm run start
 git init    
 git add .  
 git commit -m "first commit"   
-git checkout -b 1.10  
+<!-- git checkout -b 1.10   -->
 git branch   
-git branch -M main    
-git remote remove origin  
+<!-- git branch -M main     -->
+<!-- git remote remove origin   -->
 git remote add origin https://github.com/teknikality-central/carconnect.git   
 git remote add origin https://github.com/awaisnazir21/car-connect.git  
 git push -u origin main  
-git push -u origin 1.7:1.7  
+<!-- git push -u origin main:main   -->
 
-git checkout main  
-git branch  
-git reset --hard 1.14  
-git push --force origin main  
+<!-- git checkout main   -->
+<!-- git branch   -->
+<!-- git reset --hard 1.14   -->
+<!-- git push --force origin main   -->
 
 Heroku deployment using website directly.  
 
 MONGODB STRUCTURE  
 db(car-connect).collection(car-connect).find({"category": "user/admin/customer/contact/registrationNumber/etc"})  
 
-NEXT VERSIONS:  
-// Email in contact us, Firebase contactus email. Home Page: Make navbar and registration form as sticky. First store api's in firestore, use axios only if not in firestore. Cost Analysis of Firebase, Heroku, etc. In Dashboard page, Add 3 Tabs for Vehicle Requests, Contact Requests, API Calls; Collapsible Cards with Title for first tab; Title has 4 fields from API 1; In Card body, First Customer Details, then API1, then button for API2 which on press displays collapsible json replacing the button, then same for API3. Form validations in all pages. Extensive testing on Desktop and mobiles for Functionality and Design. Home Page: eu-gb flag shouldn't get removed on text input.
+v1.x // Email in contact us, Firebase contactus email. Home Page: Make navbar and registration form as sticky. First store api's in firestore, use axios only if not in firestore. Cost Analysis of Firebase, Heroku, etc. In Dashboard page, Add 3 Tabs for Vehicle Requests, Contact Requests, API Calls; Collapsible Cards with Title for first tab; Title has 4 fields from API 1; In Card body, First Customer Details, then API1, then button for API2 which on press displays collapsible json replacing the button, then same for API3. Form validations in all pages. Extensive testing on Desktop and mobiles for Functionality and Design. Home Page: eu-gb flag shouldn't get removed on text input. 
+
+v2.x // API1,2,3 as JSON Treeview.
 
 APIs:  
 API1: https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles  
