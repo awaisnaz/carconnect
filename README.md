@@ -11,7 +11,7 @@ npm run start
 
 git init    
 git add .  
-git commit -m "first commit"   
+git commit -m "main"   
 <!-- git checkout -b 1.10   -->
 git branch   
 <!-- git branch -M main     -->

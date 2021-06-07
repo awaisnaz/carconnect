@@ -46,7 +46,7 @@
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
             style="background: #303030;"
           >
-            <div class="px-6">
+            <div class="px-6" style="background-color:#303030">
               <div class="flex flex-wrap justify-center">
                 <div
                   class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
