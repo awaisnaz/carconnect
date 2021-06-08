@@ -4,120 +4,8 @@
         style="background: #303030;"
         :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
     >
-        <p>hi1</p>
-        <div v-html="temp" style="background-color:#303030">
-        </div>
-        <p>hi2</p>
 
-        <!-- <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                    >
-                        Accordion Item #1
-                    </button>
-                </h2>
-                <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the first item's accordion body.</strong
-                        >
-                        It is shown by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                    >
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div
-                    id="collapseTwo"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the second item's accordion body.</strong
-                        >
-                        It is hidden by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                    >
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div
-                    id="collapseThree"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample"
-                >
-                    <div class="accordion-body">
-                        <strong
-                            >This is the third item's accordion body.</strong
-                        >
-                        It is hidden by default, until the collapse plugin adds
-                        the appropriate classes that we use to style each
-                        element. These classes control the overall appearance,
-                        as well as the showing and hiding via CSS transitions.
-                        You can modify any of this with custom CSS or overriding
-                        our default variables. It's also worth noting that just
-                        about any HTML can go within the
-                        <code>.accordion-body</code>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <JSONCards/> -->
+    <!-- <JSONCards/> -->
         <!-- <div class="accordion-container">
             <div class="ac">
                 <h2 class="ac-header">
@@ -324,7 +212,31 @@
             </div>
         </div> -->
 
-        <!-- <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div>
             <div class="accordion-container">
                 <div class="ac">
                     <h2 class="ac-header">
@@ -335,7 +247,7 @@
                     <div class="ac-panel">
                         <div class="ac-text">
                             <div id="APIClient"></div>
-                            
+                            <!-- <div id="APIClientTable"></div> -->
                         </div>
                     </div>
                 </div>
@@ -522,7 +434,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script>
@@ -545,9 +457,9 @@
 
     import JSONFormatter from "json-formatter-js";
 
-    // import Accordion from "accordion-js";
+    import Accordion from "accordion-js";
     import { Grid } from "gridjs";
-    import Jsontableify from "jsontableify";
+    // import Jsontableify from "jsontableify";
 
     // import JSONCards from "@/components/JSONCards.vue";
 
@@ -559,7 +471,6 @@
             var API2Output = ref();
             var API3Input = ref();
             var API3Output = ref();
-            var temp = ref();
 
             var getData = () => {
                 APIClient("APIClient", "CarID")
@@ -575,7 +486,7 @@
                         }
                         // JSONToHTMLTable(res, "APIClient");
                         // JSONData(res, "APIClient");
-
+                        
                         // console.log(res);
                         // res = [{"CarDetails":"df","CarID":"1622698310783","CarMileage":"sdfs"},{"CarDetails":"vcbcv","CarID":"1622698277599","CarMileage":"cvbc"},{"CarDetails":"dsfs","CarID":"1622698249327","CarMileage":"dfs"}]
                         new Grid({
@@ -594,39 +505,39 @@
                             resizable: true,
                             // fixedHeader: true,
                             style: {
-                                container: {
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
-                                table: {
-                                    // border: '3px solid #ccc'
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                header: {
-                                    "border-radius": "0px",
-                                },
-                                th: {
-                                    "background-color": "#606060",
-                                    color: "#ffffff",
-                                    "border-bottom": "3px solid #ccc",
-                                    "text-align": "center",
-                                    "border-radius": "0px",
-                                },
-                                td: {
-                                    "text-align": "center",
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                footer: {
-                                    // 'text-align': 'center',
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
                             },
                         }).render(document.getElementById("APIClient"));
                         // console.log(document.getElementById("APIClient"));
@@ -663,39 +574,39 @@
                             resizable: true,
                             // fixedHeader: true,
                             style: {
-                                container: {
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
-                                table: {
-                                    // border: '3px solid #ccc'
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                header: {
-                                    "border-radius": "0px",
-                                },
-                                th: {
-                                    "background-color": "#606060",
-                                    color: "#ffffff",
-                                    "border-bottom": "3px solid #ccc",
-                                    "text-align": "center",
-                                    "border-radius": "0px",
-                                },
-                                td: {
-                                    "text-align": "center",
-                                    color: "#ffffff",
-                                    "background-color": "#505050",
-                                    "border-radius": "0px",
-                                },
-                                footer: {
-                                    // 'text-align': 'center',
-                                    color: "#ffffff !important",
-                                    "background-color": "#606060",
-                                    "border-radius": "0px",
-                                },
+                            container:{
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            },
+                            table: {
+                                // border: '3px solid #ccc'
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            header:{
+                                'border-radius': '0px'
+                            },
+                            th: {
+                                'background-color': '#606060',
+                                color: '#ffffff',
+                                'border-bottom': '3px solid #ccc',
+                                'text-align': 'center',
+                                'border-radius': '0px'
+                            },
+                            td: {
+                                'text-align': 'center',
+                                color: '#ffffff',
+                                'background-color': '#505050',
+                                'border-radius': '0px'
+                            },
+                            footer: {
+                                // 'text-align': 'center',
+                                'color': '#ffffff !important',
+                                'background-color': '#606060',
+                                'border-radius': '0px'
+                            }
                             },
                         }).render(document.getElementById("APIContact"));
                     })
@@ -708,6 +619,7 @@
                 divContainer.innerHTML = "";
                 divContainer.appendChild(formatter.render());
             };
+
 
             // function JSONToHTMLTable(jsonData, elementToBind) {
             //   //This Code gets all columns for header   and stored in array col
@@ -802,18 +714,15 @@
                     .then((snapshot) => {
                         console.log("API1 Data fetched from Firestore.");
                         var data = snapshot.docs.map((doc) => doc.data());
-                        // JSONData(data, "API1");
-                        var html = new Jsontableify({
-                            // headerList: ['Phone', 'Attachments', 'PersonCompetency'], // optional - will be shown as header to table
-                            // dateFormat: 'DD-MM-YYYY', // optional- date format to be converted to if date found
-                            // replaceTextMap: { YearsOfExperience: 'Years Of Experience' }, // optional - key will be replaced by its value
-                            // excludeKeys: ['Current CTC'], // optional - these fields will not be displayed
-                        }).toHtml(data);
-                        console.log(data);
-                        console.log(html);
-                        var divContainer = document.getElementById("API1");
-                        divContainer.innerHTML = "";
-                        divContainer.appendChild(html);
+                        JSONData(data, "API1");
+                        // var html = new Jsontableify({
+                        //     }).toHtml(data);
+                        // console.log(data);
+                        // console.log(html);
+                        // var divContainer = document.getElementById("API1");
+                        // divContainer.innerHTML = "";
+                        // divContainer.appendChild(html);
+
                     })
                     .catch((e) => {
                         console.log(e);
@@ -894,46 +803,9 @@
             // return contactus.value;
             // }
 
-            var obj = {
-                CardA: {
-                    Header: "Header1",
-                    Body: "Body1"
-                },
-                CardB: {
-                    Header: "Header2",
-                    Body: "Body2"
-                },
-            };
-
-            function MakeAccordion(obj) {
-                // var htmlcode = '<div class="accordion" id="accordionExample">';
-                var htmlcode = "<div class='container mx-auto'><div class='m-8 rounded overflow-hidden'>";
-                var i = 1;
-                for (var key in obj) {
-                    // htmlcode = htmlcode + "<div class='accordion-item' style='margin:10px;'>";
-                    
-
-
-                    // htmlcode = htmlcode + `<h2 class='accordion-header' style='background-color:#303030' id='heading${i}'><button class='accordion-button' style='background-color:#303030;color:white;' type='button' data-bs-toggle='collapse' data-bs-target='#collapse${i}' aria-expanded='true' aria-controls='collapse${i}'>` + obj[key]["Header"] + "</button></h2>";
-                    htmlcode = htmlcode + `<div class='group outline-none accordion-section' tabindex='${i}'><div class='group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative' style='background:#ff0000'><div class='group-focus:text-white transition ease duration-500'>`;
-                    htmlcode = htmlcode + obj[key]["Header"];
-                    htmlcode = htmlcode + "</div><div class='h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2'><i class='fas fa-chevron-down'></i></div></div><div class='group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500'><p class='p-2 text-gray-400 text-justify'>";
-                    htmlcode = htmlcode + obj[key]["Body"];
-                    htmlcode = htmlcode + "</p></div></div>";
-                    // htmlcode = htmlcode + `<div id='collapse${i}' class='accordion-collapse collapse show' style='background-color:#202020' aria-labelledby='heading${i}' data-bs-parent='#accordionExample'><div class='accordion-body'>` + obj[key]["Body"] + "</div></div>";
-                    // htmlcode = htmlcode + "</div>";
-                    i = i+1;
-                }
-                htmlcode = htmlcode + "</div></div>";
-                console.log(htmlcode);
-                return htmlcode;
-            }
-
             onMounted(() => {
-                // new Accordion(".accordion-container");
-                getData();
-                temp.value = MakeAccordion(obj);
-                // console.log(temp.value);
+              new Accordion(".accordion-container");
+              getData();
             });
 
             // onBeforeMount(() => {
@@ -956,8 +828,6 @@
                 getData,
                 JSONData,
                 // JSONToGrid,
-                MakeAccordion,
-                temp,
             };
         },
 
@@ -989,576 +859,51 @@
 </script>
 
 <style scoped>
+    .th-90 {
+        background-color: #000;
+        color: #fff;
+    }
+    .th-90,
+    .td-90 {
+        padding: 10px;
+    }
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap");
+    .tr-90:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    .json-formatter-dark {
+        background-color: #ff0000 !important;
+    }
+
+    @import "accordion-js/dist/accordion.min.css";
+
+    .ac {
+        margin: 0px;
+        border: 0px;
+        color: white !important;
+    }
+
+    .ac-trigger {
+        background: #707070;
+        color: white !important;
+    }
+
+    .ac-panel {
+        background: #202020;
+        color: white !important;
+    }
+
+    .ac-text {
+        background: #404040;
+        color: white !important;
+    }
+
+    .gridjs-pagination{
+        color : #ffffff !important;
+    }
 
 
-body {
-  font-family: "Rubik", sans-serif;
-}
 
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
-}
-main {
-  display: block;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-a {
-  background-color: transparent;
-}
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
-}
-b,
-strong {
-  font-weight: bolder;
-}
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-img {
-  border-style: none;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-button,
-input {
-  overflow: visible;
-}
-button,
-select {
-  text-transform: none;
-}
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-  -webkit-appearance: button;
-}
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-progress {
-  vertical-align: baseline;
-}
-textarea {
-  overflow: auto;
-}
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-details {
-  display: block;
-}
-summary {
-  display: list-item;
-}
-[hidden],
-template {
-  display: none;
-}
-blockquote,
-dd,
-dl,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-pre {
-  margin: 0;
-}
-button {
-  background-color: transparent;
-  background-image: none;
-}
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-fieldset,
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-}
-ol,
-ul {
-  list-style: none;
-}
-html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  line-height: 1.5;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  border: 0 solid #e2e8f0;
-}
-hr {
-  border-top-width: 1px;
-}
-img {
-  border-style: solid;
-}
-textarea {
-  resize: vertical;
-}
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #a0aec0;
-}
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #a0aec0;
-}
-input::-ms-input-placeholder,
-textarea::-ms-input-placeholder {
-  color: #a0aec0;
-}
-input::placeholder,
-textarea::placeholder {
-  color: #a0aec0;
-}
-[role="button"],
-button {
-  cursor: pointer;
-}
-table {
-  border-collapse: collapse;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-}
-audio,
-canvas,
-embed,
-iframe,
-img,
-object,
-svg,
-video {
-  display: block;
-  /* vertical-align: middle; */
-}
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-.container {
-  width: 100%;
-}
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-.bg-gray-100 {
-  --bg-opacity: 1;
-  background-color: #f7fafc;
-  background-color: rgba(247, 250, 252, var(--bg-opacity));
-}
-.bg-gray-800 {
-  --bg-opacity: 1;
-  background-color: #2d3748;
-  background-color: rgba(45, 55, 72, var(--bg-opacity));
-}
-.bg-gray-900 {
-  --bg-opacity: 1;
-  background-color: #1a202c;
-  background-color: rgba(26, 32, 44, var(--bg-opacity));
-}
-.bg-red-700 {
-  --bg-opacity: 1;
-  background-color: #c53030;
-  background-color: rgba(197, 48, 48, var(--bg-opacity));
-}
-.border-gray-700 {
-  --border-opacity: 1;
-  border-color: #4a5568;
-  border-color: rgba(74, 85, 104, var(--border-opacity));
-}
-.rounded {
-  border-radius: 0.25rem;
-}
-.rounded-full {
-  border-radius: 9999px;
-}
-.border {
-  border-width: 1px;
-}
-.cursor-pointer {
-  cursor: pointer;
-}
-.flex {
-  display: flex;
-}
-.inline-flex {
-  display: inline-flex;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.h-8 {
-  height: 2rem;
-}
-.m-8 {
-  margin: 2rem;
-}
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-.mt-2 {
-  margin-top: 0.5rem;
-}
-.mr-2 {
-  margin-right: 0.5rem;
-}
-.mb-auto {
-  margin-bottom: auto;
-}
-.ml-auto {
-  margin-left: auto;
-}
-.max-h-0 {
-  max-height: 0;
-}
-.group:focus .group-focus\:max-h-screen {
-  max-height: 100vh;
-}
-.outline-none {
-  outline: 0;
-}
-.overflow-hidden {
-  overflow: hidden;
-}
-.p-2 {
-  padding: 0.5rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.pr-10 {
-  padding-right: 2.5rem;
-}
-.fixed {
-  position: fixed;
-}
-.absolute {
-  position: absolute;
-}
-.relative {
-  position: relative;
-}
-.top-0 {
-  top: 0;
-}
-.right-0 {
-  right: 0;
-}
-.bottom-0 {
-  bottom: 0;
-}
-.text-center {
-  text-align: center;
-}
-.text-justify {
-  text-align: justify;
-}
-.text-white {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-}
-.text-gray-400 {
-  --text-opacity: 1;
-  color: #cbd5e0;
-  color: rgba(203, 213, 224, var(--text-opacity));
-}
-.text-gray-500 {
-  --text-opacity: 1;
-  color: #a0aec0;
-  color: rgba(160, 174, 192, var(--text-opacity));
-}
-.group:focus .group-focus\:text-white {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-}
-.w-8 {
-  width: 2rem;
-}
-.w-full {
-  width: 100%;
-}
-.transform {
-  --transform-translate-x: 0;
-  --transform-translate-y: 0;
-  --transform-rotate: 0;
-  --transform-skew-x: 0;
-  --transform-skew-y: 0;
-  --transform-scale-x: 1;
-  --transform-scale-y: 1;
-  transform: translateX(var(--transform-translate-x))
-    translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-    skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-    scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
-}
-.group:focus .group-focus\:-rotate-180 {
-  --transform-rotate: -180deg;
-}
-.transition {
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
-}
-.duration-500 {
-  transition-duration: 0.5s;
-}
-@media (min-width: 640px) {
-  .sm\:container {
-    width: 100%;
-    max-width: 640px;
-  }
-  @media (min-width: 768px) {
-    .sm\:container {
-      max-width: 768px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .sm\:container {
-      max-width: 1024px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .sm\:container {
-      max-width: 1280px;
-    }
-  }
-}
-@media (min-width: 768px) {
-  .md\:container {
-    width: 100%;
-  }
-  @media (min-width: 640px) {
-    .md\:container {
-      max-width: 640px;
-    }
-  }
-  @media (min-width: 768px) {
-    .md\:container {
-      max-width: 768px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .md\:container {
-      max-width: 1024px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .md\:container {
-      max-width: 1280px;
-    }
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:container {
-    width: 100%;
-  }
-  @media (min-width: 640px) {
-    .lg\:container {
-      max-width: 640px;
-    }
-  }
-  @media (min-width: 768px) {
-    .lg\:container {
-      max-width: 768px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .lg\:container {
-      max-width: 1024px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .lg\:container {
-      max-width: 1280px;
-    }
-  }
-}
-@media (min-width: 1280px) {
-  .xl\:container {
-    width: 100%;
-  }
-  @media (min-width: 640px) {
-    .xl\:container {
-      max-width: 640px;
-    }
-  }
-  @media (min-width: 768px) {
-    .xl\:container {
-      max-width: 768px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .xl\:container {
-      max-width: 1024px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .xl\:container {
-      max-width: 1280px;
-    }
-  }
-}
+    @import "gridjs/dist/theme/mermaid.css";
 </style>
