@@ -362,8 +362,8 @@
         data() {
             return {
                 regNo: this.$cookies.get("regNo"),
-                // make: this.$cookies.get("make"),
-                // model: this.$cookies.get("model"),
+                make: this.$cookies.get("make"),
+                model: this.$cookies.get("model"),
                 // color: this.$cookies.get("color"),
                 fullName: "",
                 email: "",
@@ -403,8 +403,8 @@
                     '"CarRegistrationNumber": "' +
                     this.regNo +
                     '", ' +
-                    // "\"Car Make\": \""+this.make+"\", "+
-                    // "\"Car Model\": \""+this.model+"\", "+
+                    "\"CarMake\": \""+this.make+"\", "+
+                    "\"CarModel\": \""+this.model+"\", "+
                     // "\"Car Color\": \""+this.color+"\", "+
                     '"ClientName": "' +
                     this.$refs.fullName.value +
