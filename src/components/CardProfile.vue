@@ -498,7 +498,8 @@
                 const db = firebase.firestore();
                 await db
                     .collection("API1")
-                    .add(this.API1Value)
+                    .doc(this.API1Value.registrationNumber)
+                    .set(this.API1Value)
                     .then(() => {
                         // console.log("API1 Data entered into Firestore.");
                         // console.log(this.API1Value);
@@ -537,9 +538,9 @@
                     .then((response) => {
                         this.API2Value = response.data;
                         console.log("API2 Data fetced from the website.");
-                        console.log(typeof this.API2Value);
-                        console.log(this.API2Value);
-                        console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
+                        // console.log(typeof this.API2Value);
+                        // console.log(this.API2Value);
+                        // console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
                         
                         this.ref = `${this.API2Value.Response.DataItems.Vrm}-${(new Date().getFullYear())}`;
                         this.miles = this.API2Value.Response.DataItems.Mileage;
@@ -572,7 +573,9 @@
 
                         const db = firebase.firestore();
                         db.collection("API2")
-                            .add(this.API2Value)
+                            // .add(this.API2Value)
+                            .doc(this.API1Value.registrationNumber)
+                            .set(this.API2Value)
                             .then(
                                 console.log("API2 Data entered into Firestore.")
                             )

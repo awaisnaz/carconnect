@@ -4,43 +4,51 @@
         style="background: #303030;"
         :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
     >
-        <a id="modalHyperlink" href="#openModal" style="color:white;" >Open Modal</a><br/><br/>
+        <!-- <a id="modalHyperlink" href="#openModal" style="color:white;" >Open Modal</a><br/><br/> -->
 
         <div id="openModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
 
+                <br />
                 <p>CLIENT DETAILS</p>
-                <!-- <div id="APIClient"></div> -->
+                <div id="APIClient"></div>
 
+                <br />
                 <p>FIRST API CALL - INITIAL DETAILS</p>
                 <div id="API1"></div>
 
+                <br />
                 <p>SECOND API CALL - CAR VALUE</p>
                 <div id="API2"></div>
 
+                <br />
                 <p>THIRD API CALL - HPI Check</p>
                 <form action="/API3" method="post" @submit.prevent="API3">
-                    <div style=" display: table; margin: 4px; padding: 1px;">
+                    <div
+                        id="container-api3"
+                        style=" display: table; margin: 4px; padding: 1px;"
+                    >
                         <div style="display: table-cell;">
                             <input
                                 v-model="API3Input"
                                 required
                                 name="API3Input"
-                                type="text"
+                                type="hidden"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 id="API3Input"
                                 style="margin: 1px;"
                                 placeholder="e.g. AA19AAA"
                             />
                         </div>
-                        <div class="ml-2">
+                        <div id="button-api3" class="ml-2">
                             <button
                                 name="API3Button"
                                 value="Car Full VDI Check"
                                 type="submit"
                                 class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ml-2 ease-linear transition-all duration-150"
                                 style="margin: 1px; background-color: #fdcc04;"
+                                v-on:click="buttonApi3"
                             >
                                 HPI Check
                             </button>
@@ -53,7 +61,8 @@
             </div>
         </div>
 
-        <div id="APIClient"></div>
+        <div id="APIClientTable"></div>
+        <div id="temp2"></div>
     </div>
 </template>
 <script>
@@ -72,9 +81,11 @@
     import firebase from "firebase";
     // import { onBeforeMount } from "vue";
     import { onMounted } from "vue";
-    // import axios from "axios";
+    import axios from "axios";
 
     import JSONFormatter from "json-formatter-js";
+    // const Jsontableify = require("jsontableify");
+    const { jsonToTableHtmlString } = require("json-table-converter");
 
     // import Accordion from "accordion-js";
     import { Grid, html } from "gridjs";
@@ -91,15 +102,12 @@
             var API3Input = ref();
             var API3Output = ref();
 
-            
-
-            // function displayDate() {
-            // document.getElementById("demo").innerHTML = Date();
-            // }
-
-
-
-            // document.getElementsByClassName("tablink")[0].click();
+            function buttonApi3() {
+                API3(API3Input.value, "API3");
+                document.getElementById("container-api3").style.display =
+                    "none";
+                document.getElementById("API3").style.display = "block";
+            }
 
             // function openCity(evt, cityName) {
             //     var i, x, tablinks;
@@ -131,7 +139,14 @@
                         // JSONData(res, "APIClient");
                         // console.log(res);
                         // res = [{"CarDetails":"df","CarID":"1622698310783","CarMileage":"sdfs"},{"CarDetails":"vcbcv","CarID":"1622698277599","CarMileage":"cvbc"},{"CarDetails":"dsfs","CarID":"1622698249327","CarMileage":"dfs"}]
-                        new Grid({
+                        var res2;
+                        res2 = res.map((res) => [
+                            res.CarRegistrationNumber,
+                            res.CarMake,
+                            res.CarModel,
+                            null,
+                        ]);
+                        const grid = new Grid({
                             // columns: ["Name", "Email", "Phone Number"],
                             // data: [
                             // ["John", "john@example.com", "(353) 01 222 3333"],
@@ -148,17 +163,12 @@
                                     name: "Actions",
                                     formatter: (_, row) =>
                                         html(
-                                            `${row.cells[0].data} <a id="modalHyperlink" href="#openModal" style="color:white;">Open Modal</a>`
+                                            `${row.cells[0].data} <a id="modalHyperlink" href="#openModal" style="color:white;" v-on:click="getModal">Open Modal</a>`
                                         ),
                                     // formatter: (_, row) => html(`${row.cells[0].data} <button type="button" onclick="alert('Hello world!')">Click Me!</button>`)
                                 },
                             ],
-                            data: (res = res.map((res) => [
-                                res.CarRegistrationNumber,
-                                res.CarMake,
-                                res.CarModel,
-                                null,
-                            ])),
+                            data: res2,
                             pagination: true,
                             search: true,
                             sort: true,
@@ -199,8 +209,20 @@
                                     "border-radius": "0px",
                                 },
                             },
-                        }).render(document.getElementById("APIClient"));
-                        // console.log(document.getElementById("APIClient"));
+                        }).render(document.getElementById("APIClientTable"));
+                        grid.on("rowClick", (...args) => {
+                            JSONData(res, "APIClient");
+                            var temp = JSON.parse(JSON.stringify(args));
+                            API1(temp[1]._cells[0].data, "API1");
+                            API2(temp[1]._cells[0].data, "API2");
+                            API3Input.value = temp[1]._cells[0].data;
+                            document.getElementById(
+                                "container-api3"
+                            ).style.display = "block";
+                            document.getElementById("API3").style.display =
+                                "none";
+                            // API3(API3Input.value, "API3");
+                        });
                     })
                     .catch((e) => console.log(e));
 
@@ -258,9 +280,10 @@
                 //     .catch((e) => console.log(e));
             };
 
-            var JSONData = (data, holder) => {
-                const formatter = new JSONFormatter(data, 1, { theme: "dark" });
-                var divContainer = document.getElementById(holder);
+            var JSONData = (data, handle) => {
+                // const formatter = new JSONFormatter(data, 1, { theme: "dark" });
+                const formatter = new JSONFormatter(data, 1);
+                var divContainer = document.getElementById(handle);
                 divContainer.innerHTML = "";
                 divContainer.appendChild(formatter.render());
             };
@@ -317,7 +340,6 @@
                         .then((snapshot) => {
                             console.log("Client Data fetched from Firestore.");
                             var data = snapshot.docs.map((doc) => doc.data());
-
                             res(data);
                         })
                         .catch((e) => {
@@ -348,7 +370,7 @@
             //     });
             // };
 
-            var API1 = async (reg) => {
+            var API1 = async (reg, handle) => {
                 await firebase
                     .firestore()
                     .collection("API1")
@@ -358,7 +380,22 @@
                     .then((snapshot) => {
                         console.log("API1 Data fetched from Firestore.");
                         var data = snapshot.docs.map((doc) => doc.data());
-                        JSONData(data, "API1");
+                        // JSONData(data, handle);
+
+
+                        var temp2 = jsonToTableHtmlString(data, {
+                            tableStyle: "color:black; background-color:white;", // <table/> Style
+                            // trStyle: string,    // <tr/> Style
+                            // thStyle: string,    // <th/> Style
+                            // tdStyle: string,    // <td/> Style
+                            // tdKeyStyle: string, // <td/> Key Style
+                            // formatCell: (cellValue, isKeyCell) => newCellValue,
+                        });
+                        document.getElementById("temp2").innerHTML = temp2;
+                        document.getElementById(handle).innerHTML = temp2;
+
+
+
                         return data;
                     })
                     .catch((e) => {
@@ -366,15 +403,37 @@
                     });
             };
 
-            // var API2 = async () => {
+            var API2 = async (reg, handle) => {
+                await firebase
+                    .firestore()
+                    .collection("API2")
+                    // .doc("AA19AAA")
+                    .where(firebase.firestore.FieldPath.documentId(), "==", reg)
+                    .get()
+                    .then((snapshot) => {
+                        console.log("API2 Data fetched from Firestore.");
+                        // console.log(reg);
+                        // console.log(handle);
+                        // console.log(snapshot);
+                        var data = snapshot.docs.map((doc) => doc.data());
+                        // console.log(data);
+                        JSONData(data, handle);
+                        return data;
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
+            };
+
+            // var API2 = async (reg, handle) => {
             //     var URL =
             //         "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-            //         API2Input.value;
+            //         reg;
             //     await axios
             //         .get(URL)
             //         .then((response) => {
             //             API2Output.value = response.data;
-            //             JSONData(API2Output.value, "API2");
+            //             JSONData(API2Output.value, handle);
             //             const db = firebase.firestore();
             //             db.collection("API2")
             //                 .add(API2Output.value)
@@ -386,25 +445,27 @@
             //         .catch((e) => console.log(e));
             // };
 
-            // var API3 = async () => {
-            //     var URL =
-            //         "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-            //         API3Input.value;
-            //     await axios
-            //         .get(URL)
-            //         .then((response) => {
-            //             API3Output.value = response.data;
-            //             JSONData(API3Output.value, "API3");
-            //             const db = firebase.firestore();
-            //             db.collection("API3")
-            //                 .add(API3Output.value)
-            //                 .then(
-            //                     console.log("API3 Data entered into Firestore.")
-            //                 )
-            //                 .catch((e) => console.log(e));
-            //         })
-            //         .catch((e) => console.log(e));
-            // };
+            var API3 = async (reg, handle) => {
+                var URL =
+                    "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                    reg;
+                await axios
+                    .get(URL)
+                    .then((response) => {
+                        API3Output.value = response.data;
+                        JSONData(API3Output.value, handle);
+                        const db = firebase.firestore();
+                        db.collection("API3")
+                            .doc(reg)
+                            .set(API3Output.value)
+                            // .add(API3Output.value)
+                            .then(
+                                console.log("API3 Data entered into Firestore.")
+                            )
+                            .catch((e) => console.log(e));
+                    })
+                    .catch((e) => console.log(e));
+            };
 
             // var getContactus = async  () => {
             // await firebase
@@ -426,7 +487,7 @@
             onMounted(() => {
                 getData();
                 // API1('AA19AAA');
-                document.getElementById("modalHyperlink").addEventListener("click", API1("AA19AAA"));
+                // document.getElementById("modalHyperlink").addEventListener("click", API1("AA19AAA"));
             });
 
             // onBeforeMount(() => {
@@ -443,13 +504,15 @@
                 // API2,
                 API2Input,
                 API2Output,
-                // API3,
+                API3,
                 API3Input,
                 API3Output,
                 getData,
+                // getModal,
                 // JSONData,
                 // JSONToGrid,
                 // openCity,
+                buttonApi3,
             };
         },
 

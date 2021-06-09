@@ -443,7 +443,7 @@
                     this.$refs.details.value +
                     '"' +
                     "}";
-                console.log(client);
+                // console.log(client);
                 client = JSON.parse(client);
 
                 // console.log(this.api1);
@@ -455,9 +455,9 @@
 
                 await db
                     .collection("APIClient")
-                    // .doc('contactus')
-                    // .set(user)
+                    // .doc(this.regNo)
                     .add(client)
+                    // .add(client)
                     .then(() => {
                         console.log(
                             "Client Details Data entered into Google Cloud DB"
