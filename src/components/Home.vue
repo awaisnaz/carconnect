@@ -238,7 +238,7 @@
                                         >
                                             <!-- <i class="fas fa-award"></i> -->
                                             <!-- <img src="@/assets/cars_step_1.svg"/> -->
-                                            <img src="@/assets/car1a.png" />
+                                            <img src="@/assets/01.png" />
                                         </div>
                                         <!-- <h6 class="text-xl font-semibold">Step 1: Free Valuation</h6> -->
                                         <h6
@@ -253,7 +253,7 @@
                     </p> -->
                                         <p
                                             class="mt-2 mb-4 text-blueGray-500"
-                                            style="color:grey;"
+                                            style="color:white;"
                                         >
                                             Get your instant valuation in
                                             seconds
@@ -286,7 +286,7 @@
                                         >
                                             <!-- <i class="fas fa-award"></i> -->
                                             <!-- <img src="@/assets/cars_step_2.svg"/> -->
-                                            <img src="@/assets/car2a.png" />
+                                            <img src="@/assets/02.png" />
                                         </div>
                                         <h6
                                             class="text-xl font-semibold"
@@ -296,7 +296,7 @@
                                         </h6>
                                         <p
                                             class="mt-2 mb-4 text-blueGray-500"
-                                            style="color:grey;"
+                                            style="color:white;"
                                         >
                                             Book an appointment that suits you
                                         </p>
@@ -328,7 +328,7 @@
                                         >
                                             <!-- <i class="fas fa-award"></i> -->
                                             <!-- <img src="@/assets/cars_step_3.svg"/> -->
-                                            <img src="@/assets/car3a.png" />
+                                            <img src="@/assets/03.png" />
                                         </div>
                                         <h6
                                             class="text-xl font-semibold"
@@ -338,9 +338,9 @@
                                         </h6>
                                         <p
                                             class="mt-2 mb-4 text-blueGray-500"
-                                            style="color:grey;"
+                                            style="color:white;"
                                         >
-                                            We'll buy your car in under an hour
+                                            We'll buy your car instantly
                                         </p>
                                     </div>
                                 </div>

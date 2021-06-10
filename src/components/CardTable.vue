@@ -62,7 +62,25 @@
         </div>
 
         <div id="APIClientTable"></div>
+
+                    <br/><br/><div style="grid-column-start: 1;">
+                      <h3
+                      class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2" style="color:white;"
+                      >
+                      API1
+                      </h3>
+                    </div><br/>
+
+
         <div id="temp2"></div>
+                    <br/><br/><div style="grid-column-start: 1;">
+                      <h3
+                      class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2" style="color:white;"
+                      >
+                      API2
+                      </h3>
+                    </div><br/>
+        <div id="temp3"></div>
     </div>
 </template>
 <script>
@@ -144,6 +162,7 @@
                             res.CarRegistrationNumber,
                             res.CarMake,
                             res.CarModel,
+                            res.CarID,
                             null,
                         ]);
                         const grid = new Grid({
@@ -160,10 +179,26 @@
                                 "Make",
                                 "Model",
                                 {
-                                    name: "Actions",
-                                    formatter: (_, row) =>
+                                    name: "Date",
+                                    formatter: (_,row) => {
+                                        var timestamp2 = new Date(Number(row.cells[3].data));
+                                        timestamp2.toString();
+                                        // timestamp2.toString();
+                                        // console.log(typeof timestamp);
+                                        // console.log(timestamp);
+                                        console.log(timestamp2);
                                         html(
                                             `${row.cells[0].data} <a id="modalHyperlink" href="#openModal" style="color:white;" v-on:click="getModal">Open Modal</a>`
+                                            // `<p>${timestamp2}</p>`
+                                        )}
+                                    // formatter: (_, row) => html(`${row.cells[0].data} <button type="button" onclick="alert('Hello world!')">Click Me!</button>`)
+                                },
+                                {
+                                    name: "Actions",
+                                    formatter: () =>
+                                        html(
+                                            // `${row.cells[0].data} <a id="modalHyperlink" href="#openModal" style="color:white;" v-on:click="getModal">Open Modal</a>`
+                                            `<a id="modalHyperlink" href="#openModal" style="color:white;" v-on:click="getModal">More Details</a>`
                                         ),
                                     // formatter: (_, row) => html(`${row.cells[0].data} <button type="button" onclick="alert('Hello world!')">Click Me!</button>`)
                                 },
@@ -384,7 +419,7 @@
 
 
                         var temp2 = jsonToTableHtmlString(data, {
-                            tableStyle: "color:black; background-color:white;", // <table/> Style
+                            tableStyle: "color:black; background-color:white;overflow-y:scroll;display:block;", // <table/> Style
                             // trStyle: string,    // <tr/> Style
                             // thStyle: string,    // <th/> Style
                             // tdStyle: string,    // <td/> Style
@@ -407,17 +442,27 @@
                 await firebase
                     .firestore()
                     .collection("API2")
-                    // .doc("AA19AAA")
                     .where(firebase.firestore.FieldPath.documentId(), "==", reg)
                     .get()
                     .then((snapshot) => {
                         console.log("API2 Data fetched from Firestore.");
-                        // console.log(reg);
-                        // console.log(handle);
-                        // console.log(snapshot);
                         var data = snapshot.docs.map((doc) => doc.data());
-                        // console.log(data);
-                        JSONData(data, handle);
+                        // JSONData(data, handle);
+
+
+
+                        var temp2 = jsonToTableHtmlString(data, {
+                            tableStyle: "color:black; background-color:white;overflow-y:scroll;display:block;", // <table/> Style
+                            // trStyle: string,    // <tr/> Style
+                            // thStyle: string,    // <th/> Style
+                            // tdStyle: string,    // <td/> Style
+                            // tdKeyStyle: string, // <td/> Key Style
+                            // formatCell: (cellValue, isKeyCell) => newCellValue,
+                        });
+                        document.getElementById("temp3").innerHTML = temp2;
+                        document.getElementById(handle).innerHTML = temp2;
+
+
                         return data;
                     })
                     .catch((e) => {
@@ -488,6 +533,7 @@
                 getData();
                 // API1('AA19AAA');
                 // document.getElementById("modalHyperlink").addEventListener("click", API1("AA19AAA"));
+                // document.body.appendChild(document.getElementById("openModal"));
             });
 
             // onBeforeMount(() => {
@@ -576,15 +622,23 @@
     @import "gridjs/dist/theme/mermaid.css";
 
     .modalDialog {
-        position: fixed;
+        /* position: fixed; */
         font-family: Arial, Helvetica, sans-serif;
         top: 0;
-        right: 0;
-        bottom: 0;
+        /* right: 0; */
+        /* bottom: 0; */
         left: 0;
+        position: absolute;
         background: rgba(0, 0, 0, 0.8);
         z-index: 99999;
         opacity: 0;
+        /* max-height: calc(100vh - 210px); */
+        overflow-y: auto;
+        overflow-x: auto;
+        /* max-height: 90%;
+        max-width:90%; */
+        /* width:100vw;
+        height:100vw; */
         /* -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in; */
@@ -595,11 +649,20 @@
         pointer-events: auto;
     }
     .modalDialog > div {
-        width: 400px;
+        /* width: 400px; */
+        /* width: 100vw; */
+        /* height: 100vw; */
+        /* width:80%; */
+        max-height: calc(100vh - 210px);
+        max-width: calc(100vw - 210px);
+        overflow-y: auto;
+        overflow-x: auto;
         position: relative;
+        top: 0;
+        left: 0;
         margin: 10% auto;
         padding: 5px 20px 13px 20px;
-        /* border-radius: 10px; */
+        border-radius: 10px;
         background: #fff;
         background: -moz-linear-gradient(#fff, #999);
         background: -webkit-linear-gradient(#fff, #999);

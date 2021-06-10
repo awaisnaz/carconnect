@@ -31,7 +31,7 @@ Heroku deployment using website directly.
 MONGODB STRUCTURE  
 db(car-connect).collection(car-connect).find({"category": "user/admin/customer/contact/registrationNumber/etc"})  
 
-v1.x // Email in contact us, Firebase contactus email. Home Page: Make navbar and registration form as sticky. First store api's in firestore, use axios only if not in firestore. Cost Analysis of Firebase, Heroku, etc. In Dashboard page, Add 3 Tabs for Vehicle Requests, Contact Requests, API Calls; Collapsible Cards with Title for first tab; Title has 4 fields from API 1; In Card body, First Customer Details, then API1, then button for API2 which on press displays collapsible json replacing the button, then same for API3. Form validations in all pages. Extensive testing on Desktop and mobiles for Functionality and Design. Home Page: eu-gb flag shouldn't get removed on text input. 
+v1.x // Firebase contactus email. Home Page: Make navbar and registration form as sticky and coalse into navbar on down scroll. First store api's in firestore, use axios only if not in firestore. Cost Analysis of Firebase, Heroku, etc. Extensive testing on Desktop and mobiles for Functionality and Design.
 
 v2.x // API1,2,3 as JSON Treeview.
 

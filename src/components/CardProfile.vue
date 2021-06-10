@@ -26,8 +26,8 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
-                                >{{regNo}}</span
+                                style="color:white;"
+                                >{{regNo}}<br /><br/></span
                             >
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >{{make}}</span
                             >
                         </div>
@@ -56,7 +56,7 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >{{model}}</span
                             >
                         </div>
@@ -71,12 +71,58 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >{{color}}</span
                             >
                         </div>
                     </div>
-                    <div class="item-6 item-border-top">
+                    <div class="item-5a">
+                        <div class="lg:mr-4 p-3 text-center">
+                            <span
+                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                style="color:white;"
+                            >
+                                Tax
+                            </span>
+                            <span
+                                class="text-sm text-blueGray-400"
+                                style="color:white;"
+                                >{{tax}}</span
+                            >
+                        </div>
+                    </div>
+                    <div class="item-5b">
+                        <div class="lg:mr-4 p-3 text-center">
+                            <span
+                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                style="color:white;"
+                            >
+                                MOT
+                            </span>
+                            <span
+                                class="text-sm text-blueGray-400"
+                                style="color:white;"
+                                >{{mot}}</span
+                            >
+                        </div>
+                    </div>
+                    <!-- <div class="item-5c">
+                        <div class="lg:mr-4 p-3 text-center">
+                            <span
+                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                style="color:white;"
+                            >
+                                Color
+                            </span>
+                            <span
+                                class="text-sm text-blueGray-400"
+                                style="color:white;"
+                                >{{color}}</span
+                            >
+                        </div>
+                    </div> -->
+                    <SectionFive id="valuation" />
+                    <div class="valuation item-6 item-border-top">
                         <div class="lg:mr-4 p-3 text-center">
                             <span
                                 class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
@@ -86,12 +132,12 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >£ {{valTrade}} - {{valPrivate}}</span
                             >
                         </div>
                     </div>
-                    <div class="item-7">
+                    <div class="valuation item-7">
                         <div class="lg:mr-4 p-3 text-center">
                             <span
                                 class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
@@ -101,12 +147,12 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;white-space:nowrap;"
+                                style="color:white;white-space:nowrap;"
                                 >{{ref}}</span
                             >
                         </div>
                     </div>
-                    <div class="item-8">
+                    <div class="valuation item-8">
                         <div class="lg:mr-4 p-3 text-center">
                             <span
                                 class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
@@ -116,12 +162,12 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >{{miles}}</span
                             >
                         </div>
                     </div>
-                    <div class="item-9">
+                    <div class="valuation item-9">
                         <div class="lg:mr-4 p-3 text-center">
                             <span
                                 class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
@@ -131,12 +177,12 @@
                             </span>
                             <span
                                 class="text-sm text-blueGray-400"
-                                style="color:grey;"
+                                style="color:white;"
                                 >{{desc}}</span
                             >
                         </div>
                     </div>
-                    <div class="item-10">
+                    <div class="valuation item-10">
                         <span
                             class="text-sm text-blueGray-400"
                             style="color:grey;"
@@ -414,7 +460,7 @@
                         <div class="flex flex-wrap justify-center">
                             <br />
 
-                            <p style="color:grey;">
+                            <p style="color:white;">
                                 Not your Vehicle?
                                 <a href="/" style="color:white;">Click here</a>
                             </p>
@@ -491,6 +537,8 @@
                 ref: "",
                 miles: "",
                 desc: "",
+                tax: "",
+                mot: ""
             };
         },
         methods: {
@@ -508,6 +556,8 @@
                         this.make = this.API1Value.make;
                         this.model = this.API1Value.yearOfManufacture;
                         this.color = this.API1Value.colour;
+                        this.tax = this.API1Value.taxStatus;
+                        this.mot = this.API1Value.motStatus;
                     })
                     .catch((e) => console.log(e));
             },
@@ -588,6 +638,12 @@
         mounted() {
             this.API1();
             this.API2();
+            var doc = document.getElementsByClassName("valuation");
+            // document.getElementsByClassName("valuation")[0].style.display = "none";
+            // console.log(doc);
+            for (var i = 0; i < doc.length; i++) {
+                doc[i].style.display = "none";
+            }
         },
         components: {
             // Vehicle,
@@ -599,8 +655,8 @@
     .container-66 {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto);
-        grid-gap: 1em 1em;
+        grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto);
+        /* grid-gap: 1em 1em; */
         place-items: center center;
         place-content: center center;
         margin-top: 90px;
@@ -626,38 +682,53 @@
         place-self: start center;
     }
 
+    .item-5a {
+        grid-area: 3 / 1 / 4/ 2;
+        place-self: start center;
+    }
+
+    .item-5b {
+        grid-area: 3 / 2 / 4 / 3;
+        place-self: start center;
+    }
+
+    .item-5c {
+        grid-area: 3 / 3 / 4 / 4;
+        place-self: start center;
+    }
+
     .item-6 {
-        grid-area: 3 / 1 / 4 / 4;
+        grid-area: 4 / 1 / 5 / 4;
         place-self: start center;
     }
 
     .item-7 {
-        grid-area: 4 / 1 / 5 / 2;
+        grid-area: 5 / 1 / 6 / 2;
         place-self: start center;
     }
 
     .item-8 {
-        grid-area: 4 / 2 / 5 / 3;
+        grid-area: 5 / 2 / 6 / 3;
         place-self: start center;
     }
 
     .item-9 {
-        grid-area: 4 / 3 / 5 / 4;
+        grid-area: 5 / 3 / 6 / 4;
         place-self: start center;
     }
 
     .item-10 {
-        grid-area: 5 / 1 / 6 / 4;
+        grid-area: 6 / 1 / 7 / 4;
         place-self: start center;
     }
 
     .item-11 {
-        grid-area: 6 / 1 / 7 / 4;
+        grid-area: 7 / 1 / 8 / 4;
         place-self: start start;
     }
 
     .item-12 {
-        grid-area: 7 / 1 / 8 / 4;
+        grid-area: 8 / 1 / 9 / 4;
         place-self: start center;
     }
 

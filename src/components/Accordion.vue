@@ -30,7 +30,7 @@
                 </h2>
                 <div class="ac-panel">
                     <div class="ac-text">
-                        <p>Car-Connect helps hundreds of people everyday to sell their cars quickly and easily, by finding the car dealer that’ll pay the most for your car.</p><br/>
+                        <p>Car-Connect helps hundreds of people everyday to sell their cars quickly and easily.</p><br/>
                         <p>Unlike your other options, we won’t make you choose between price and convenience – you can have both, with no extra effort. We’ll guide you through the process to get a great result, and leave you feeling like a pro.</p>
                     </div>
                 </div>

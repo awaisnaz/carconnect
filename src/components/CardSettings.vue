@@ -108,14 +108,14 @@
                     </div>
                 </div>
 
-                <hr class="mt-6 border-b-1 border-blueGray-300 form-91" />
+                <!-- <hr class="mt-6 border-b-1 border-blueGray-300 form-91" /> -->
 
-                <h6
+                <!-- <h6
                     class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase form-91"
                     style="color:white;"
                 >
                     Optional Information
-                </h6>
+                </h6> -->
                 <div class="flex flex-wrap form-91">
                     <div class="w-full lg:w-12/12 px-4">
                         <div class="relative w-full mb-3">
@@ -143,13 +143,13 @@
                                 htmlFor="grid-password"
                                 style="color:grey;"
                             >
-                                City
+                                Town
                             </label>
                             <input
-                                name="city"
+                                name="town"
                                 type="text"
-                                v-model="city"
-                                ref="city"
+                                v-model="town"
+                                ref="town"
                                 required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
@@ -162,13 +162,13 @@
                                 htmlFor="grid-password"
                                 style="color:grey;"
                             >
-                                Country
+                                County
                             </label>
                             <input
-                                name="country"
+                                name="county"
                                 type="text"
-                                v-model="country"
-                                ref="country"
+                                v-model="county"
+                                ref="county"
                                 required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
@@ -181,7 +181,7 @@
                                 htmlFor="grid-password"
                                 style="color:grey;"
                             >
-                                Postal Code
+                                Post Code
                             </label>
                             <input
                                 name="post"
@@ -225,6 +225,77 @@
                             />
                         </div>
                     </div>
+
+
+
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <label
+                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                htmlFor="grid-password"
+                                style="color:grey;"
+                            >
+                                Any Scratches or Dents?
+                            </label>
+                            <input
+                                name="scratchDents"
+                                type="text"
+                                v-model="scratchDents"
+                                ref="scratchDents"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                placeholder="Optional"
+                            />
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <label
+                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                htmlFor="grid-password"
+                                style="color:grey;"
+                            >
+                                Any Mechanical or Electrical Details?
+                            </label>
+                            <input
+                                name="mechElectrical"
+                                type="text"
+                                v-model="mechElectrical"
+                                ref="mechElectrical"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                placeholder="Optional"
+                            />
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <label
+                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                htmlFor="grid-password"
+                                style="color:grey;"
+                            >
+                                Any warning lights on the Dashboard?
+                            </label>
+                            <input
+                                name="warnLights"
+                                type="text"
+                                v-model="warnLights"
+                                ref="warnLights"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                placeholder="Optional"
+                            />
+                        </div>
+                    </div>
+
+
+
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
@@ -252,7 +323,7 @@
                                 htmlFor="grid-password"
                                 style="color:grey;"
                             >
-                                About Vehicle
+                                More Details
                             </label>
                             <textarea
                                 name="details"
@@ -290,7 +361,18 @@
                         <br />
                         <p style="color:#bb86fc;">
                             {{ formSent1
-                            }}<span style="font-weight:bold">{{
+                            }}
+
+                            <router-link
+                            to="/details#valuation"
+                            v-scroll-to="'#valuation'"
+                            style="font-weight:bold;display:inline;"
+                            >
+                            {{formSent1a}}
+                            </router-link>
+
+                            {{formSent1b}}
+                            <span style="font-weight:bold">{{
                                 formSent2
                             }}</span
                             >{{ formSent3 }}
@@ -369,14 +451,19 @@
                 email: "",
                 mobile1: "",
                 address: "",
-                city: "",
-                country: "",
+                town: "",
+                county: "",
                 post: "",
                 details: "",
                 mileage: "",
                 howLong: "",
+                scratchDents: "",
+                mechElectrical: "", 
+                warnLights: "",
                 created: "",
                 formSent1: "",
+                formSent1a: "",
+                formSent1b: "",
                 formSent2: "",
                 formSent3: "",
                 // valTrade: "",
@@ -418,11 +505,11 @@
                     '"ClientAddress": "' +
                     this.$refs.address.value +
                     '", ' +
-                    '"ClientCity": "' +
-                    this.$refs.city.value +
+                    '"ClientTown": "' +
+                    this.$refs.town.value +
                     '", ' +
-                    '"ClientCountry": "' +
-                    this.$refs.country.value +
+                    '"ClientCounty": "' +
+                    this.$refs.county.value +
                     '", ' +
                     '"ClientPostCode": "' +
                     this.$refs.post.value +
@@ -441,9 +528,18 @@
                     '", ' +
                     '"CarDetails": "' +
                     this.$refs.details.value +
+                    '",' +
+                    '"CarScratchDents": "' +
+                    this.$refs.scratchDents.value +
+                    '",' +
+                    '"CarMechElecDetails": "' +
+                    this.$refs.mechElectrical.value +
+                    '",' +
+                    '"CarWarnLights": "' +
+                    this.$refs.warnLights.value +
                     '"' +
                     "}";
-                // console.log(client);
+                console.log(client);
                 client = JSON.parse(client);
 
                 // console.log(this.api1);
@@ -469,10 +565,20 @@
                         // x = document.getElementsByClassName("form-92");
                         // x[0].style.display = "initial"
                         this.formSent1 =
-                            "Your message was sent successfully. We will get back at you within 24 hours. An email has been sent to you for the record. Furthermore, you can always call us anytime at ";
+                            "Your message was sent successfully and ";
+                        this.formSent1a = "here";
+                        this.formSent1b = " is your vehicle's rough valuation. An email has also been sent to you for the record. We will get back at you within 24 hours. Furthermore, you can always call us anytime at ";
                         this.formSent2 = "020 8991 2655";
                         this.formSent3 = " for any further queries.";
                         document.getElementById('details').scrollIntoView();
+
+
+                        var doc = document.getElementsByClassName("valuation");
+                        // doc[0].style.display = "block";
+                        for (var j = 0; j < doc.length; j++) {
+                            doc[j].style.display = "block";
+                        }
+
                     })
                     .catch((e) => console.log(e));
             },
