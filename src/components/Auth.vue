@@ -1,6 +1,11 @@
 <template>
   <div>
-    <navbar />
+    <div class="sticky">
+      <Navbar /><p>HIPIY
+        
+      </p>
+    </div>    
+    
     <main>
       <section class="relative w-full h-full py-40 min-h-screen">
         <div
@@ -14,12 +19,25 @@
   </div>
 </template>
 <script>
-import Navbar from "@/components/uthNavbar.vue";
+import Navbar from "@/components/AuthNavbar.vue";
 import FooterSmall from "@/components/FooterSmall.vue";
 
 import registerBg2 from "@/assets/register_bg_2.png";
 
+import { onMounted } from "vue";
+
+import Stickyfill from "stickyfilljs";
+
 export default {
+
+  setup(){
+    onMounted(() => {
+      var elements = document.querySelectorAll('.sticky');
+      Stickyfill.add(elements);
+    });
+  },
+
+
   data() {
     return {
       registerBg2,
@@ -31,3 +49,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.sticky:before,
+.sticky:after {
+    content: '';
+    display: table;
+}
+
+</style>

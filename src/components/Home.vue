@@ -1,7 +1,9 @@
 <template>
     <v-content>
         <div>
-            <navbar />
+            <div class="sticky">
+                <Navbar />
+            </div>
             <main>
                 <div
                     class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
@@ -42,20 +44,7 @@
                   </p> -->
 
                                     <form action="/submit" method="post">
-                                        <!-- <h4 class="text-2xl font-semibold">
-                      Want to work with us?
-                    </h4>
-                    <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                      Complete this form and we will get back to you in 24 hours.
-                    </p> -->
-
                                         <div class="relative w-full mb-3 mt-8">
-                                            <!-- <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="full-name"
-                      >
-                        Full Name
-                      </label> -->
                                             <div class="container-87">
                                                 <div class="top-87">
                                                     <p
@@ -71,11 +60,6 @@
                                                         >
                                                     </p>
                                                 </div>
-                                                <!-- <div
-                                                    class="mid-87"
-                                                    style="float: right; width: 100%;"
-                                                > -->
-                                                    <!-- <div style=" display: table; margin: 4px; padding: 1px; width: 100%;height:100%"> -->
                                                     <div
                                                         class="mid-87a"
                                                         style=" display: inline-block; margin: 4px; padding: 1px; width: 100%;height:100%;"
@@ -99,7 +83,7 @@
                                                         </div>
                                                     </div>
                                                     <div
-                                                      class="mid-87b"
+                                                        class="mid-87b"
                                                     >
                                                         <div
                                                             style="display: inline-block; vertical-align: bottom;justify-content:flex-start!important;"
@@ -115,8 +99,6 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                <!-- </div> -->
-
                                                 <div class="bot-87">
                                                     <p
                                                         class="text-white font-semibold text-5xl"
@@ -134,50 +116,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <!-- <div class="relative w-full mb-3">
-                      <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="email"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Email"
-                        name="email" 
-                        id="email" 
-                        value="Email Address"
-                      />
-                    </div> -->
-
-                                        <!-- <div class="relative w-full mb-3">
-                      <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="message"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        rows="4"
-                        cols="80"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                        placeholder="Type a message..."
-                        name="message" 
-                        id="message"
-                      />
-                    </div> -->
-                                        <!-- <div class="text-center mt-6">
-                      <button
-                        name="category"
-                        value="vehicle"
-                        type="submit"
-                        class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      >
-                        Go >
-                      </button>
-                    </div> -->
                                     </form>
                                 </div>
                             </div>
@@ -1212,6 +1150,11 @@
 
     import firebase from "firebase";
     import { ref } from "vue";
+
+    // import Stickyfill from "stickyfilljs";
+    import Sticky from "sticky-js";
+    import { onMounted } from "vue";
+
     // import axios from 'axios';
 
     // import * as  from "https://www.google.com/recaptcha/api.js";
@@ -1219,6 +1162,7 @@
 
     export default {
         setup() {
+
             const name = ref();
             const email = ref();
             const message = ref();
@@ -1226,6 +1170,13 @@
             var user = ref();
             var created = ref();
             var vehicle = ref();
+
+            onMounted(() => {
+            // var elements = document.querySelectorAll('.sticky');
+            // Stickyfill.add(elements);
+            new Sticky('.sticky');
+            // window.addEventListener("scroll", myScrollFunc);
+            });
 
             const firebaseSubmit = async () => {
                 user =
@@ -1440,4 +1391,18 @@
         caret-color: #000;
         font: 400 13.3333px Arial;
     }
+
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.sticky:before,
+.sticky:after {
+    content: '';
+    display: table;
+}
 </style>
