@@ -596,7 +596,9 @@
                         this.miles = this.API2Value.Response.DataItems.Mileage;
                         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
                         this.valTrade = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
+                        this.$cookies.set("valTrade",this.valTrade);
                         this.valPrivate = this.API2Value.Response.DataItems.ValuationList.PrivateAverage;
+                        this.$cookies.set("valPrivate",this.valPrivate);
 
                         // this.$cookies.set(
                         //     "valTrade",

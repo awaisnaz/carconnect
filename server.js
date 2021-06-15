@@ -42,11 +42,15 @@ app.post('/submit', upload.array(), (req, res) => {
 				.cookie("API1", response);
 			response = JSON.parse(response);
 			// console.log(response);
+			// console.log(response.fuelType);
+			// console.log();
 			res
+				.cookie("fuel",response.fuelType)
 				.cookie("regNo",response.registrationNumber)
 				.cookie("make",response.make)
 				.cookie("model",response.yearOfManufacture)
 				.cookie("color",response.colour)
+				
 				.redirect("/details");
 		})
 		.catch((e) => {

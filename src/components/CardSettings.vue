@@ -446,6 +446,7 @@
                 regNo: this.$cookies.get("regNo"),
                 make: this.$cookies.get("make"),
                 model: this.$cookies.get("model"),
+                fuel: this.$cookies.get("fuel"),
                 // color: this.$cookies.get("color"),
                 fullName: "",
                 email: "",
@@ -523,6 +524,9 @@
                     '"CarMileage": "' +
                     this.$refs.mileage.value +
                     '", ' +
+                    '"CarFuelType": "' +
+                    this.fuel +
+                    '", ' +
                     '"CarOwnershipTime": "' +
                     this.$refs.howLong.value +
                     '", ' +
@@ -534,6 +538,12 @@
                     '",' +
                     '"CarMechElecDetails": "' +
                     this.$refs.mechElectrical.value +
+                    '",' +
+                    '"CarValueTrade": "' +
+                    this.$cookies.get("valTrade") +
+                    '",' +
+                    '"CarValuePrivate": "' +
+                    this.$cookies.get("valPrivate") +
                     '",' +
                     '"CarWarnLights": "' +
                     this.$refs.warnLights.value +

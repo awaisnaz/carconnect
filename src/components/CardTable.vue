@@ -165,7 +165,7 @@
     // import JSONFormatter from "json-formatter-js";
     const { jsonToTableHtmlString } = require("json-table-converter");
 
-    import { Grid } from "gridjs";
+    import { Grid, html} from "gridjs";
 
     export default {
         setup() {
@@ -185,7 +185,8 @@
 
             function APIClientReduce(res){
                 var res2 = [];
-                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarMake"]}, ${res["CarModel"]}`, `${res["CarID"]}`];
+                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarMake"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValueTrade"]} - ${res["CarValuePrivate"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
+                console.log(res2);
                 return res2;
             }
 
@@ -208,16 +209,23 @@
                         // ]);
 
                         var res2 = res.map(APIClientReduce);
-                        console.log(res2);
+                        // console.log(res2);
                         const grid = new Grid({
                             columns: [
-                                "Vehicle Details",
+                                {
+                                    name: "Vehicle Details",
+                                    formatter: (cell) => html(`${cell.split(",").join("<br />")}`),
+                                },
+                                {
+                                    name: "Client Details",
+                                    formatter: (cell) => html(`${cell.split(",").join("<br />")}`),
+                                },
                                 {
                                     name: "Date",
-                                    formatter: (cell) =>
+                                    formatter: (cell) => html(
                                         `${new Date(
                                             Number(cell)
-                                        ).toLocaleString("en-UK")}`,
+                                        ).toLocaleString("en-UK").split(",").join("<br />")}`),
                                 },
                             ],
                             data: res2,
@@ -247,11 +255,12 @@
                                     "border-radius": "0px",
                                 },
                                 td: {
-                                    "text-align": "center",
                                     color: "#ffffff",
                                     "background-color": "#505050",
                                     "border-radius": "0px",
                                     cursor: "pointer",
+                                    "text-align": "left",
+                                    "vertical-align": "top",
                                 },
                                 footer: {
                                     color: "#ffffff !important",
@@ -263,18 +272,24 @@
                         grid.on("rowClick", (...args) => {
                             // JSONData(res, "APIClient");
                             var temp = JSON.parse(JSON.stringify(args));
+                            // console.log(temp);
                             var temp4 = temp[1]._cells[0].data;
                             var temp5 = temp4.split(",");
-                            
-                            console.log(res);
 
-                            var temp2 = jsonToTableHtmlString(res, {
-                                tableStyle:
-                                    "color:black; background-color:white;overflow-y:scroll;display:block;",
-                            });
-                            document.getElementById(
-                                "APIClient"
-                            ).innerHTML = temp2;
+                            APIClientSingle("APIClient", "CarID",temp5[0])
+                                .then((res) => {
+                                    var temp2 = jsonToTableHtmlString(res, {
+                                        tableStyle:
+                                            "color:white; background-color:#505050;",
+                                        thStyle: "color:white; background-color:#606060;",
+                                    });
+                                    document.getElementById(
+                                        "APIClient"
+                                    ).innerHTML = temp2;
+                                })
+                                .catch((e) => console.log(e));
+                            
+
 
                             API1(temp5[0], "API1");
                             API2(temp5[0], "API2");
@@ -318,6 +333,27 @@
                 });
             };
 
+            var APIClientSingle = (collection, orderField, reg) => {
+                return new Promise((res, rej) => {
+                    firebase
+                        .firestore()
+                        .collection(collection)
+                        .where("CarRegistrationNumber", "==", reg)
+                        .orderBy(orderField, "desc")
+                        .limit(1)
+                        .get()
+                        .then((snapshot) => {
+                            console.log("Client Data fetched from Firestore.");
+                            var data = snapshot.docs.map((doc) => doc.data());
+                            res(data);
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                            rej(e);
+                        });
+                });
+            };
+
             var API1 = async (reg, handle) => {
                 await firebase
                     .firestore()
@@ -332,7 +368,8 @@
 
                         var temp2 = jsonToTableHtmlString(data, {
                             tableStyle:
-                                "color:black; background-color:white;overflow-y:scroll;display:block;",
+                                "color:white; background-color:#505050;",
+                            thStyle: "color:white; background-color:#606060;",
                         });
                         document.getElementById("API1").innerHTML = temp2;
                         document.getElementById(handle).innerHTML = temp2;
@@ -358,7 +395,8 @@
 
                         var temp2 = jsonToTableHtmlString(data[0].Response.DataItems, {
                             tableStyle:
-                                "color:black; background-color:white;overflow-y:scroll;display:block;",
+                                "color:black; background-color:#505050;",
+                            thStyle: "color:white; background-color:#606060;",
                         });
                         document.getElementById("API2").innerHTML = temp2;
                         document.getElementById(handle).innerHTML = temp2;
@@ -381,7 +419,8 @@
 
                         var temp2 = jsonToTableHtmlString(API3Output.value, {
                             tableStyle:
-                                "color:black; background-color:white;overflow-y:scroll;display:block;",
+                                "color:black; background-color:#505050;",
+                            thStyle: "color:white; background-color:#606060;",
                         });
                         document.getElementById(handle).innerHTML = temp2;
 
@@ -403,6 +442,7 @@
 
             return {
                 APIClient,
+                APIClientSingle,
                 API1,
                 API1Input,
                 API1Output,
