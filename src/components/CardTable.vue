@@ -235,7 +235,7 @@
                             resizable: true,
                             style: {
                                 container: {
-                                    color: "#ffffff !important",
+                                    color: "#ffffff",
                                     "background-color": "#606060",
                                     "border-radius": "0px",
                                 },
@@ -263,7 +263,7 @@
                                     "vertical-align": "top",
                                 },
                                 footer: {
-                                    color: "#ffffff !important",
+                                    color: "#ffffff",
                                     "background-color": "#606060",
                                     "border-radius": "0px",
                                 },
@@ -278,10 +278,11 @@
 
                             APIClientSingle("APIClient", "CarID",temp5[0])
                                 .then((res) => {
-                                    var temp2 = jsonToTableHtmlString(res, {
+                                    var temp2 = jsonToTableHtmlString(res[0], {
                                         tableStyle:
                                             "color:white; background-color:#505050;",
                                         thStyle: "color:white; background-color:#606060;",
+                                        tdKeyStyle: "background-color:#606060;",
                                     });
                                     document.getElementById(
                                         "APIClient"
@@ -365,11 +366,13 @@
                         console.log("API1 Data fetched from Firestore.");
                         var data = snapshot.docs.map((doc) => doc.data());
                         // JSONData(data, handle);
+                        console.log(data);
 
-                        var temp2 = jsonToTableHtmlString(data, {
+                        var temp2 = jsonToTableHtmlString(data[0], {
                             tableStyle:
                                 "color:white; background-color:#505050;",
                             thStyle: "color:white; background-color:#606060;",
+                            tdKeyStyle: "background-color:#606060;",
                         });
                         document.getElementById("API1").innerHTML = temp2;
                         document.getElementById(handle).innerHTML = temp2;
@@ -395,8 +398,9 @@
 
                         var temp2 = jsonToTableHtmlString(data[0].Response.DataItems, {
                             tableStyle:
-                                "color:black; background-color:#505050;",
+                                "color:white; background-color:#505050;",
                             thStyle: "color:white; background-color:#606060;",
+                            tdKeyStyle: "background-color:#606060;",
                         });
                         document.getElementById("API2").innerHTML = temp2;
                         document.getElementById(handle).innerHTML = temp2;
@@ -415,12 +419,13 @@
                 await axios
                     .get(URL)
                     .then((response) => {
-                        API3Output.value = response.data;
+                        API3Output.value = response.data.Response.DataItems;
 
                         var temp2 = jsonToTableHtmlString(API3Output.value, {
                             tableStyle:
-                                "color:black; background-color:#505050;",
+                                "color:white; background-color:#505050;",
                             thStyle: "color:white; background-color:#606060;",
+                            tdKeyStyle: "background-color:#606060;",
                         });
                         document.getElementById(handle).innerHTML = temp2;
 
