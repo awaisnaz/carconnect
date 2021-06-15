@@ -30,6 +30,7 @@
     "bootstrap": "^5.0.1",
     "chart.js": "2.9.4",
     "cookie-parser": "^1.4.5",
+    "cookies": "^0.8.0",
     "core-js": "3.9.1",
     "cors": "^2.8.5",
     "easy-responsive-tabs": "^0.0.2",

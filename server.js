@@ -3,6 +3,7 @@
 
 //API Imports
 var API1 = require('./components/API1.js');
+var APIEmail = require('./components/APIEmail.js');
 // var email = require('./apis/nodemailerAPI.js');
 // api("AA19AAA").then(res => console.log(res));
 // console.log(test);
@@ -55,12 +56,22 @@ app.post('/submit', upload.array(), (req, res) => {
 		});
 	});
 
-// app.post('/contact', upload.array(), (req,res)=>{
-// 	console.log(req.body.name);
-// 	console.log(req.body.email);
-// 	console.log(req.body.message);
-// 	email("awais.nazir.ch@gmail.com", "hi there!");
-// })
+app.post('/contact', upload.array(), (req,res)=>{
+	// console.log(req.body.name);
+	// console.log(req.body.email);
+	// console.log(req.body.message);
+	APIEmail(req.body.email, `${req.body.name} has a message for you: ${req.body.message}. Reply to this email to get in touch with the client!`)
+	.then(()=>{
+		console.log("Email Sent!");
+		res
+		.cookie("APIEmail", "1")
+		.redirect("/#contactus");
+	})
+	.catch((e) => {
+		console.log(e);
+	});
+	
+})
 
 
 // app.post('/api2', upload.array(), (req, res) => {

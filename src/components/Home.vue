@@ -1018,8 +1018,14 @@
                                             name="contact-form"
                                             method="post"
                                             action="/contact"
-                                            @submit.prevent="firebaseSubmit"
                                         >
+                                        <!-- <form
+                                            id="contact-form"
+                                            name="contact-form"
+                                            method="post"
+                                            action="/contact"
+                                            @submit.prevent="firebaseSubmit"
+                                        > -->
                                             <!-- <form id="contact-form" name="contact-form" method="post" action="/contact"> -->
                                             <h4
                                                 class="text-2xl font-semibold form-81"
@@ -1172,10 +1178,8 @@
             var vehicle = ref();
 
             onMounted(() => {
-            // var elements = document.querySelectorAll('.sticky');
-            // Stickyfill.add(elements);
             new Sticky('.sticky');
-            // window.addEventListener("scroll", myScrollFunc);
+            
             });
 
             const firebaseSubmit = async () => {
@@ -1221,6 +1225,8 @@
                     .catch((e) => console.log(e));
             };
 
+
+
             // const formCar = () => {
             //   console.log(vehicle.value);
 
@@ -1256,8 +1262,9 @@
                 email,
                 message,
                 user,
-                formSent,
+
                 firebaseSubmit,
+                
                 // formCar,
                 vehicle,
                 created,
@@ -1270,6 +1277,8 @@
                 team2,
                 team3,
                 team4,
+                APIEmail: this.$cookies.get("APIEmail"),
+                formSent: "",
             };
         },
         components: {
@@ -1278,11 +1287,25 @@
             Accordion,
             // FAQ,
         },
-        // methods: {
-        //   // onSubmit: function(token) {
-        //   //   return window.document.getElementById("contact-form").submit();
-        //   // },
-        // },
+        methods: {
+            async emailSubmit () {
+                this.$cookies.set("APIEmail", "0");
+                var x = document.getElementsByClassName("form-81");
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x = document.getElementsByClassName("form-82");
+                x[0].style.display = "initial";
+                this.formSent =
+                    "Your message was sent successfully. We will get back at you asap. Meanwhile you may visit the ";
+                
+            },   
+        },
+        mounted() {
+            if (this.APIEmail == "1") {
+                this.emailSubmit();
+            }
+        },
 
         // mounted () {
         //   // let grecaptcha= window.document.createElement('script');
