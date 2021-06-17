@@ -64,6 +64,8 @@
         <div id="APIClientTable"></div>
 
         <br /><br />
+
+        <div id="AdminTwo">
         <div>
             <h3
                 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
@@ -143,6 +145,7 @@
                 <div id="API3"></div>
             </div>
         </form>
+        </div>
     </div>
 </template>
 <script>
@@ -186,7 +189,7 @@
             function APIClientReduce(res){
                 var res2 = [];
                 res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarMake"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValueTrade"]} - ${res["CarValuePrivate"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
-                console.log(res2);
+                // console.log(res2);
                 return res2;
             }
 
@@ -270,6 +273,8 @@
                             },
                         }).render(document.getElementById("APIClientTable"));
                         grid.on("rowClick", (...args) => {
+                            document.getElementById("AdminTwo").style.display = "block";
+
                             // JSONData(res, "APIClient");
                             var temp = JSON.parse(JSON.stringify(args));
                             // console.log(temp);
@@ -366,7 +371,7 @@
                         console.log("API1 Data fetched from Firestore.");
                         var data = snapshot.docs.map((doc) => doc.data());
                         // JSONData(data, handle);
-                        console.log(data);
+                        // console.log(data);
 
                         var temp2 = jsonToTableHtmlString(data[0], {
                             tableStyle:
@@ -412,7 +417,72 @@
                     });
             };
 
+
+
+
+
             var API3 = async (reg, handle) => {
+                // console.log(reg);
+                await firebase
+                    .firestore()
+                    .collection("API3")
+                    .where(firebase.firestore.FieldPath.documentId(), "==", reg)
+                    .get()
+                    .then((snapshot) => {
+                        var data = snapshot.docs.map((doc) => doc.data());
+                        console.log(data);
+                        if (data.length != 0){
+                            console.log("API3 Data fetched from Firestore.");
+                            var temp2 = jsonToTableHtmlString(data[0], {
+                                tableStyle:
+                                    "color:white; background-color:#505050;",
+                                thStyle: "color:white; background-color:#606060;",
+                                tdKeyStyle: "background-color:#606060;",
+                            });
+                            document.getElementById("API3").innerHTML = temp2;
+                            document.getElementById(handle).innerHTML = temp2;
+                            return data;
+                        }
+                        if (data.length == 0){
+                            var URL =
+                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                                reg;
+                            axios
+                                .get(URL)
+                                .then((response) => {
+                                    API3Output.value = response.data.Response.DataItems;
+
+                                    var temp2 = jsonToTableHtmlString(API3Output.value, {
+                                        tableStyle:
+                                            "color:white; background-color:#505050;overflow-x:scroll;display:block;",
+                                        thStyle: "color:white; background-color:#606060;",
+                                        tdKeyStyle: "background-color:#606060;",
+                                    });
+                                    document.getElementById(handle).innerHTML = temp2;
+
+                                    const db = firebase.firestore();
+                                    db.collection("API3")
+                                        .doc(reg)
+                                        .set(API3Output.value)
+                                        .then(
+                                            console.log("API3 Data entered into Firestore.")
+                                        )
+                                        .catch((e) => console.log(e));
+                                })
+                                .catch((e) => console.log(e));
+                        }
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
+            };
+
+
+
+
+
+
+            var API3b = async (reg, handle) => {
                 var URL =
                     "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
                     reg;
@@ -423,7 +493,7 @@
 
                         var temp2 = jsonToTableHtmlString(API3Output.value, {
                             tableStyle:
-                                "color:white; background-color:#505050;",
+                                "color:white; background-color:#505050;overflow-x:scroll;display:block;",
                             thStyle: "color:white; background-color:#606060;",
                             tdKeyStyle: "background-color:#606060;",
                         });
@@ -443,6 +513,7 @@
 
             onMounted(() => {
                 getData();
+                document.getElementById("AdminTwo").style.display = "none";
             });
 
             return {
@@ -455,6 +526,7 @@
                 API2Input,
                 API2Output,
                 API3,
+                API3b,
                 API3Input,
                 API3Output,
                 getData,

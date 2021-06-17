@@ -9,7 +9,7 @@
         >
             <div class="text-center flex justify-between">
                 <h6
-                    class="text-blueGray-700 text-xl font-bold "
+                    class="text-blueGray-700 text-xl font-bold uppercase"
                     style="color:white;"
                 >
                     Get Free Vehicle Valuation
@@ -27,7 +27,7 @@
                 @submit.prevent="firebaseDetailsSubmit"
             >
                 <h6
-                    class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase form-91"
+                    class="text-blueGray-400 text-s mt-3 mb-6 font-bold uppercase form-91"
                     style="color:white;"
                 >
                     Your Details
@@ -36,9 +36,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Full Name
                             </label>
@@ -55,9 +55,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Email address
                             </label>
@@ -74,9 +74,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Mobile Number
                             </label>
@@ -93,15 +93,16 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Confirm Mobile Number
                             </label>
                             <input
                                 name="mobile2"
                                 type="text"
+                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
                         </div>
@@ -120,9 +121,9 @@
                     <div class="w-full lg:w-12/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Address
                             </label>
@@ -131,7 +132,6 @@
                                 type="text"
                                 v-model="address"
                                 ref="address"
-                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
                         </div>
@@ -139,9 +139,9 @@
                     <div class="w-full lg:w-4/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Town
                             </label>
@@ -158,9 +158,9 @@
                     <div class="w-full lg:w-4/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 County
                             </label>
@@ -169,7 +169,6 @@
                                 type="text"
                                 v-model="county"
                                 ref="county"
-                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
                         </div>
@@ -177,9 +176,9 @@
                     <div class="w-full lg:w-4/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Post Code
                             </label>
@@ -188,7 +187,6 @@
                                 type="text"
                                 v-model="post"
                                 ref="post"
-                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
                         </div>
@@ -198,7 +196,7 @@
                 <hr class="mt-6 border-b-1 border-blueGray-300 form-91" />
 
                 <h6
-                    class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase form-91"
+                    class="text-blueGray-400 text-s mt-3 mb-6 font-bold uppercase form-91"
                     style="color:white;"
                 >
                     Vehicle Details
@@ -209,9 +207,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Vehicle Mileage
                             </label>
@@ -231,9 +229,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Any Scratches or Dents?
                             </label>
@@ -242,6 +240,7 @@
                                 type="text"
                                 v-model="scratchDents"
                                 ref="scratchDents"
+                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="Optional"
                             />
@@ -251,12 +250,12 @@
 
 
 
-                    <div class="w-full lg:w-6/12 px-4">
+                    <!-- <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Any Mechanical or Electrical Details?
                             </label>
@@ -269,7 +268,7 @@
                                 placeholder="Optional"
                             />
                         </div>
-                    </div>
+                    </div> -->
 
 
 
@@ -277,9 +276,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 Any warning lights on the Dashboard?
                             </label>
@@ -288,6 +287,7 @@
                                 type="text"
                                 v-model="warnLights"
                                 ref="warnLights"
+                                required
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="Optional"
                             />
@@ -299,9 +299,9 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
                                 For how long you have this vehicle?
                             </label>
@@ -319,11 +319,11 @@
                     <div class="w-full lg:w-12/12 px-4">
                         <div class="relative w-full mb-3">
                             <label
-                                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                class="block uppercase text-blueGray-600 text-s font-bold mb-2"
                                 htmlFor="grid-password"
-                                style="color:grey;"
+                                style="color:white;"
                             >
-                                More Details
+                                Any Electrical Mechanical Issues?
                             </label>
                             <textarea
                                 name="details"
@@ -349,8 +349,8 @@
                 >
                     <button
                         type="submit"
-                        class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                        style="background-color: #fdcc04;min-height:80px;max-height:80px;font-size:20px;"
+                        class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xl px-4 py-2 shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                        style="background-color: #fdcc04;min-height:80px;max-height:80px;"
                     >
                         Get Free Vehicle Valuation
                     </button>
@@ -362,6 +362,8 @@
                         <p style="color:#bb86fc;">
                             {{ formSent1
                             }}
+                            <span style="font-weight:bold">{{formSent1za}}</span>{{formSent1zb}}<span style="font-weight:bold">{{formSent1zc}}</span>{{formSent1zd}}<span style="font-weight:bold">{{formSent1ze}}</span>{{formSent1zf}}<span style="font-weight:bold">{{formSent1zg}}</span>{{formSent1zh}}{{formSent1zi}}
+                            
 
                             <router-link
                             to="/details#valuation"
@@ -370,8 +372,7 @@
                             >
                             {{formSent1a}}
                             </router-link>
-
-                            {{formSent1b}}
+                            {{formSent1b}}{{formSent1c}}
                             <span style="font-weight:bold">{{
                                 formSent2
                             }}</span
@@ -392,7 +393,7 @@
 
 <script>
     import firebase from "firebase";
-    // import axios from "axios";
+    import axios from "axios";
     // import { ref } from 'vue';
     // import VueCookies from 'vue3-cookies';
 
@@ -462,15 +463,26 @@
                 mechElectrical: "", 
                 warnLights: "",
                 created: "",
+                formSent1za: "",
+                formSent1zb: "",
+                formSent1zc: "",
+                formSent1zd: "",
+                formSent1ze: "",
+                formSent1zf: "",
+                formSent1zg: "",
+                formSent1zh: "",
+                formSent1zi: "",
                 formSent1: "",
                 formSent1a: "",
                 formSent1b: "",
+                formSent1c: "",
                 formSent2: "",
                 formSent3: "",
-                // valTrade: "",
-                // valPrivate: "",
-                // ref: "",
-                // miles: "",
+                valTrade: this.$cookies.get("valTrade"),
+                valPrivate: this.$cookies.get("valPrivate"),
+                ref: this.$cookies.get("ref"),
+                miles: this.$cookies.get("miles"),
+                desc: this.$cookies.get("desc"),
                 // third: "",
             };
         },
@@ -536,9 +548,9 @@
                     '"CarScratchDents": "' +
                     this.$refs.scratchDents.value +
                     '",' +
-                    '"CarMechElecDetails": "' +
-                    this.$refs.mechElectrical.value +
-                    '",' +
+                    // '"CarMechElecDetails": "' +
+                    // this.$refs.mechElectrical.value +
+                    // '",' +
                     '"CarValueTrade": "' +
                     this.$cookies.get("valTrade") +
                     '",' +
@@ -575,19 +587,32 @@
                         // x = document.getElementsByClassName("form-92");
                         // x[0].style.display = "initial"
                         this.formSent1 =
-                            "Your message was sent successfully and ";
-                        this.formSent1a = "here";
-                        this.formSent1b = " is your vehicle's rough valuation. An email has also been sent to you for the record. We will get back at you within 24 hours. Furthermore, you can always call us anytime at ";
+                            "Your message was sent successfully. Your reference number is "
+                        this.formSent1za = this.ref;
+                        this.formSent1zb = " and your vehicle is described as ";
+                        this.formSent1zc = this.desc;
+                        this.formSent1zd = ". Your vehicle's rough valuation is ";
+                        this.formSent1ze = `£ ${this.valTrade} - ${this.valPrivate}.`;
+                        this.formSent1zf = " It is driven by ";
+                        this.formSent1zg = this.miles;
+                        this.formSent1zh = " miles according to our records." 
+                        this.formSent1zi = " More details are at ";
+                        this.formSent1a = "here.";
+                        this.formSent1b = "An email has also been sent to you for the record."
+                        this.formSent1c = " We will get back at you within 24 hours. Furthermore, you can always call us anytime at ";
                         this.formSent2 = "020 8991 2655";
                         this.formSent3 = " for any further queries.";
                         document.getElementById('details').scrollIntoView();
-
 
                         var doc = document.getElementsByClassName("valuation");
                         // doc[0].style.display = "block";
                         for (var j = 0; j < doc.length; j++) {
                             doc[j].style.display = "block";
                         }
+
+                        axios.post('http://localhost:8080/contact2', {data: this.$data})
+                            .then(console.log("Email Sent!"))
+                            .catch((e) => console.log(e));
 
                     })
                     .catch((e) => console.log(e));

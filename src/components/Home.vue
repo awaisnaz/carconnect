@@ -870,7 +870,7 @@
                                 >
                                     Looking to scrap your car? Instead of
                                     selling to a local scrap dealer, you can
-                                    sell your ‘scrap’ car in under an hour at
+                                    sell your ‘scrap’ car within 24 hours at
                                     one of our UK branches.
                                 </p>
                             </div>

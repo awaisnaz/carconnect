@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16"
+        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg "
         style="background-color: #303030;"
     >
         <div class="px-6">
@@ -593,8 +593,11 @@
                         // console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
                         
                         this.ref = `${this.API2Value.Response.DataItems.Vrm}-${(new Date().getFullYear())}`;
+                        this.$cookies.set("ref",this.ref);
                         this.miles = this.API2Value.Response.DataItems.Mileage;
+                        this.$cookies.set("miles",this.miles);
                         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
+                        this.$cookies.set("desc",this.desc);
                         this.valTrade = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
                         this.$cookies.set("valTrade",this.valTrade);
                         this.valPrivate = this.API2Value.Response.DataItems.ValuationList.PrivateAverage;

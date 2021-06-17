@@ -25,7 +25,7 @@ module.exports = function email(receiver_email, message) {
 		let mailOptions = {
 			from: `"Car Connect 🚗" <${process.env.sender_email}>`, // sender address
 			to: `${receiver_email}`, // list of receivers
-			subject: 'Someone sent you a message from Website Contact Form!', // Subject line
+			subject: 'Message from Car Connect!', // Subject line
 			text: `${message}`, // plain text body
 			// html: '<b>Hello world ?</b>' // html body
 		};

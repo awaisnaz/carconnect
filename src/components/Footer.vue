@@ -25,7 +25,7 @@
         <div class="w-full lg:w-6/12 px-4">
           <h4 class="text-3xl font-semibold"  style="color:white;">Let's keep in touch!</h4>
           <h5 class="text-lg mt-0 mb-2 text-blueGray-600"  style="color:grey;">
-            Find us on any of these platforms. We respond within 1-2 business days.
+            Find us on any of these platforms. We respond within 24 hours.
           </h5>
           <div class="mt-6 lg:mb-0 mb-6">
             <button
@@ -74,40 +74,44 @@
               </span>
               <ul class="list-unstyled">
                 <li>
-                  <a
+                  <router-link
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://www.creative-tim.com/presentation?ref=vn-footer"
+                    to="#"
                     style="color:grey;"
+                    v-scroll-to="'#top'"
                   >
-                    About Us
-                  </a>
+                      Sell Car Instantly!
+                  </router-link>
                 </li>
                 <li>
-                  <a
+                  <router-link
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://blog.creative-tim.com?ref=vn-footer"
+                    to="#"
                     style="color:grey;"
+                    v-scroll-to="'#whyus'"
                   >
-                    Blog
-                  </a>
+                    Why Us?
+                  </router-link>
                 </li>
                 <li>
-                  <a
+                  <router-link
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://www.github.com/creativetimofficial?ref=vn-footer"
+                    to="#"
                     style="color:grey;"
+                    v-scroll-to="'#faq'"
                   >
-                    Github
-                  </a>
+                    FAQs
+                  </router-link>
                 </li>
                 <li>
-                  <a
+                  <router-link
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://www.creative-tim.com/bootstrap-themes/free?ref=vn-footer"
+                    to="#"
                     style="color:grey;"
+                    v-scroll-to="'#contactus'"
                   >
-                    Free Products
-                  </a>
+                    Contact Us
+                  </router-link>
                 </li>
               </ul>
             </div>
@@ -122,16 +126,16 @@
                 <li>
                   <a
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md?ref=vn-footer"
+                    href="/"
                     style="color:grey;"
                   >
-                    MIT License
+                    Blog
                   </a>
                 </li>
                 <li>
                   <a
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://creative-tim.com/terms?ref=vn-footer"
+                    href="/"
                     style="color:grey;"
                   >
                     Terms & Conditions
@@ -140,13 +144,13 @@
                 <li>
                   <a
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                    href="https://creative-tim.com/privacy?ref=vn-footer"
+                    href="/"
                     style="color:grey;"
                   >
                     Privacy Policy
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                     href="https://creative-tim.com/contact-us?ref=vn-footer"
@@ -154,7 +158,7 @@
                   >
                     Contact Us
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>

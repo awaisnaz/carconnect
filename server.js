@@ -77,6 +77,22 @@ app.post('/contact', upload.array(), (req,res)=>{
 	
 })
 
+app.post('/contact2', upload.array(), (req,res)=>{
+	// console.log(req.body.data.email);
+
+	APIEmail(req.body.data.email, `${req.body.data.formSent1}${req.body.data.formSent1za}${req.body.data.formSent1zb}${req.body.data.formSent1zc}${req.body.data.formSent1zd}${req.body.data.formSent1ze}${req.body.data.formSent1zf}${req.body.data.formSent1zg}${req.body.data.formSent1zh}${req.body.data.formSent1c}${req.body.data.formSent2}${req.body.data.formSent3} You may also reply to this email to get in touch with Car Connect!`)
+	.then(()=>{
+		console.log("Email Sent!");
+		res
+		.cookie("APIEmail", "1")
+		.redirect("/#contactus");
+	})
+	.catch((e) => {
+		console.log(e);
+	});
+	
+})
+
 
 // app.post('/api2', upload.array(), (req, res) => {
 // 	console.log(req.body.carValuation);

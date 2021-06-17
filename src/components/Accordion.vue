@@ -59,7 +59,7 @@
                     <div class="ac-text">
                         <p>1. Get your instant Free Online valuation in seconds.</p><br/>
                         <p>2. Book an appointment that suits you.</p><br/>
-                        <p>3. We'll buy your car in under an hour.</p>
+                        <p>3. We'll buy your car within 24 hours or at your convenience.</p>
                     </div>
                 </div>
             </div>

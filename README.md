@@ -26,14 +26,7 @@ git push -u origin main
 <!-- git reset --hard 1.14   -->
 <!-- git push --force origin main   -->
 
-Heroku deployment using website directly.  
-
-MONGODB STRUCTURE  
-db(car-connect).collection(car-connect).find({"category": "user/admin/customer/contact/registrationNumber/etc"})  
-
-v1.x // Firebase contactus email. Home Page: Make navbar and registration form as sticky and coalse into navbar on down scroll. First store api's in firestore, use axios only if not in firestore. Cost Analysis of Firebase, Heroku, etc. Extensive testing on Desktop and mobiles for Functionality and Design.
-
-v2.x // API1,2,3 as JSON Treeview.
+v1.x // Testing. Documentation at README.md. Admin Page: Comments functionality.   
 
 APIs:  
 API1: https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles  
