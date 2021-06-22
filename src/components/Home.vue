@@ -360,7 +360,7 @@
                                 >
                                     <img
                                         alt="..."
-                                        src="@/assets/home2.jpg"
+                                        src="@/assets/home2b.png"
                                         class="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote class="relative p-8 mb-4">
@@ -430,7 +430,7 @@
                                 <img
                                     alt="..."
                                     class="max-w-full rounded-lg shadow-lg"
-                                    src="@/assets/home3.jpg"
+                                    src="@/assets/home3b.png"
                                 />
                             </div>
                             <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
