@@ -4,17 +4,18 @@
         style="padding-top: 5px;background-color: #000000;padding-bottom: 0px;"
     >
         <div
-          class="container px-4 mx-auto flex flex-wrap items-stretch justify-between"
+            class="container px-4 mx-auto flex flex-wrap items-stretch justify-between"
+            
         >
             <div
-              class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-              style="background:#000000;"
+                class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+                style="background:#000000;display:inline-grid;grid-template-rows:auto;grid-template-columns:auto auto;place-content:space-between;"
             >
-                <div class="container-nav" style="width:90%;">
+                <div>
                     <div class="item-nav-1">
                         <router-link
-                          class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-                          to="/"
+                            class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+                            to="/"
                         >
                             <!-- Vue Notus -->
                             <!-- <img src="../assets/logo_grey_subtitle-removebg-preview.png" style="float: left; width: 30vw;  height: auto;"> -->
@@ -28,69 +29,76 @@
           src\assets\img\logo.png -->
                         </router-link>
                     </div>
-                    <div class="item-nav-2">
-                        <div class="navReg" style="display:inline;">
-                            <form action="/submit" method="post">
+                    <form action="/submit" method="post">
+                        <div
+                            class="item-nav-2 relative w-full mb-3 mt-8"
+                            style="margin-top:0px;margin-bottom: 0px;display:inline-grid;grid-template-rows:auto;grid-template-columns:auto auto;place-content:space-between;white-space:nowrap;"
+                        >
+                            <div
+                                style="padding: 1px; width: 100%;height:100%;white-space:nowrap;"
+                            >
                                 <div
-                                    class="relative w-full mb-3 mt-8"
-                                    style="margin-top: 0px;margin-bottom: 0px;"
+                                    style="vertical-align:bottom;"
                                 >
-                                    <div class="container-87">
-                                        <div
-                                            class="mid-87a"
-                                            style=" display: inline-block; padding: 1px; width: 100%;height:100%;"
+                                    <input
+                                        v-model="vehicle"
+                                        required
+                                        name="vehicle"
+                                        type="text"
+                                        class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        id="name"
+                                        style="max-width:300px;min-height:50px;max-height:50px;display:inline-block;"
+                                        placeholder=" Enter your reg"
+                                        maxlength="7"
+                                    />
+                                    <div
+                                        id="regError"
+                                        class="regError"
+                                        style="color:red;white-space:nowrap;overflow:visible;"
+                                    >
+                                        Reg. No. incorrect.<br/>
+                                        <router-link
+                                            to="#contactus"
+                                            v-scroll-to="'#contactus'"
+                                            class="whitespace-nowrap"
+                                            style="text-decoration: underline;cursor:pointer;"
                                         >
-                                            <div
-                                                style="display: inline-block; vertical-align: bottom;"
-                                            >
-                                                <input
-                                                    v-model="vehicle"
-                                                    required
-                                                    name="vehicle"
-                                                    type="text"
-                                                    class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                    id="name"
-                                                    style="min-width:150px;max-width:300px;min-height:50px;max-height:50px;display:inline-block;"
-                                                    placeholder=" Enter your reg"
-                                                    maxlength="7"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div class="mid-87b">
-                                            <div
-                                                style="display: inline-block; padding: 1px; vertical-align: bottom;justify-content:flex-start!important;"
-                                            >
-                                                <button
-                                                    name="category"
-                                                    value="vehicle"
-                                                    type="submit"
-                                                    class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
-                                                    style="padding-left: 5px; padding-right:5px;background-color: #fdcc04; margin-bottom: 0px;min-width:40px;max-width:100px;min-height:50px;max-height:50px;font-size:20px;white-space: nowrap;"
-                                                >
-                                                    Go >
-                                                </button>
-                                            </div>
-                                        </div>
+                                            Submit Manually.
+                                        </router-link>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <div>
+                                <div
+                                    style="display: inline-block; padding: 1px; vertical-align: bottom;justify-content:flex-start!important;"
+                                >
+                                    <button
+                                        name="category"
+                                        value="vehicle"
+                                        type="submit"
+                                        class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
+                                        style="padding-left: 5px; padding-right:5px;background-color: #fdcc04; margin-bottom: 0px;max-width:100px;min-height:50px;max-height:50px;font-size:20px;white-space: nowrap;"
+                                    >
+                                        Go
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <button
-                  class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                  type="button"
-                  v-on:click="setNavbarOpen"
+                    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                    type="button"
+                    v-on:click="setNavbarOpen"
                 >
-                  <i class="text-white fas fa-bars"></i> 
+                    <i class="text-white fas fa-bars"></i>
                 </button>
             </div>
             <div
-              class="lg:flex flex-grow items-stretch bg-white lg:bg-opacity-0 lg:shadow-none"
-              :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
-              id="example-navbar-warning"
-              
+                class="lg:flex flex-grow items-stretch bg-white lg:bg-opacity-0 lg:shadow-none"
+                :class="[navbarOpen ? 'block rounded shadow-lg' : 'hidden']"
+                id="example-navbar-warning"
             >
                 <!-- <ul class="flex flex-col lg:flex-row list-none mr-auto">
           <li class="flex items-center">
@@ -110,7 +118,7 @@
             <PagesDropdown />
           </li> -->
 
-                    <li class="flex items-center text-white">
+                    <!-- <li class="flex items-center text-white">
                         <router-link
                             to="/"
                             class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
@@ -131,7 +139,7 @@
                                 >+44 7405 555520</span
                             ><br />
                         </router-link>
-                    </li>
+                    </li> -->
 
                     <li class="flex items-center text-white">
                         <router-link
@@ -238,18 +246,21 @@
             onMounted(() => {
                 // var elements = document.querySelectorAll('.sticky');
                 // Stickyfill.add(elements);
-                var navBar = document.getElementsByClassName("navReg");
-                navBar[0].style.display = "none";
+                var navBar2 = document.getElementsByClassName("item-nav-2");
+                navBar2[0].style.display = "none";
                 window.addEventListener("scroll", myScrollFunc);
             });
 
             var myScrollFunc = function() {
-                var navBar = document.getElementsByClassName("navReg");
+                var navBar1 = document.getElementsByClassName("item-nav-1");
+                var navBar2 = document.getElementsByClassName("item-nav-2");
                 var y = window.scrollY;
                 if (y >= 300) {
-                    navBar[0].style.display = "block";
+                    navBar1[0].style.display = "none";
+                    navBar2[0].style.display = "inline-grid";
                 } else {
-                    navBar[0].style.display = "none";
+                    navBar1[0].style.display = "block";
+                    navBar2[0].style.display = "none";
                 }
             };
         },
@@ -271,7 +282,7 @@
 </script>
 
 <style scoped>
-    .container-87 {
+    /* .container-87 {
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: auto;
@@ -288,7 +299,7 @@
     .mid-87b {
         grid-area: 2 / 2 / 3 / 3;
         place-self: start start;
-    }
+    } */
 
     .inputReg {
         background-image: url("@/assets/gb_eu.jpg");
@@ -327,15 +338,7 @@
         font: 400 13.3333px Arial;
     }
 
-    .container-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        place-content: center start;
-        max-width:50%;
-    }
-
-    .item-nav-1 {
+    /* .item-nav-1 {
         grid-area: 1 / 1 / 2 / 2;
         place-self: center center;
     }
@@ -343,5 +346,5 @@
     .item-nav-2 {
         grid-area: 1 / 2 / 2 / 3;
         place-self: center center;
-    }
+    } */
 </style>

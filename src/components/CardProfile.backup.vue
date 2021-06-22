@@ -182,25 +182,16 @@
                             >
                         </div>
                     </div>
-                    <div class="valuation item-10 item-border-top">
-                        <div class="container-89">
-                            <div id="form-sent-89">
-                                <br />
-                                    <p class="text-2xl text-blueGray-400" style="color:#66c4eb;font-weight: bold;display:block;">Confirm Proceed as below. We will get back at your within 24 hours.</p><br/>
-                                    <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
-                                    <form method="post" @submit.prevent="proceed"><div style="display:grid;grid-template-columns:auto;grid-template-rows:auto;justify-content:center;align-content:center;"><button type="submit" class="submit-btn bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xl px-4 py-2 shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" style="background-color: #fdcc04;min-height:80px;max-height:80px;">PROCEED</button></div></form><br/>
-                                    <p class="text-2xl text-blueGray-400" style="color:#66c4eb;font-weight: bold;display:block;">An email has been sent to you. Please check your inbox.</p><br/>
-                                <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
-                            </div>
-                            <div id="form-sent-90">
-                                <br />
-                                    <p class="text-2xl text-blueGray-400" style="color:#04aa6d;font-weight: bold;display:block;">We have received your message and we will get back at your within 24 hours.</p><br/>
-                                    <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
-                                <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
-                            </div>
-                        </div>
+                    <div class="valuation item-10">
+                        <span
+                            class="text-sm text-blueGray-400"
+                            style="color:grey;"
+                            >The above price range is estimated and based on
+                            some assumptions. A final valuation will be given on
+                            inspection.</span
+                        >
                     </div>
-                    <div class="valuation item-11 item-border-top">
+                    <div class="item-11 item-border-top">
                         <div class="lg:mr-4 p-3">
                             <span
                                 class="text-xl font-bold block uppercase tracking-wide text-blueGray-600 text-center"
@@ -208,13 +199,6 @@
                             >
                                 ABOUT YOUR VALUATION
                             </span><br/>
-                            <span
-                                class="text-sm text-blueGray-400"
-                                style="color:grey;"
-                                >The above price range is estimated and based on
-                                some assumptions. A final valuation will be given on
-                                inspection.</span
-                            >
                             <span
                                 class="text-sm text-blueGray-400 text-left"
                                 style="color:grey;"
@@ -554,8 +538,7 @@
                 miles: "",
                 desc: "",
                 tax: "",
-                mot: "",
-                formSent: this.$cookies.get("formSent"),
+                mot: ""
             };
         },
         methods: {
@@ -598,7 +581,7 @@
                 //   });
 
                 var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
+                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
                     this.API1Value.registrationNumber;
                 await axios
                     .get(URL)
@@ -656,41 +639,15 @@
                     .catch((e) => console.log(e));
             },
 
-            async proceed(){
-                const db = firebase.firestore();
-                await db
-                    .collection("APIClient")
-                    .doc(this.regNo)
-                    .update({
-                        "proceed": 1,
-                    })
-                    .then(() => {
-                        console.log("APIClient updated successfully!");
-                        document.getElementById("form-sent-89").style.display = "none";
-                        document.getElementById("form-sent-90").style.display = "block";
-                    });
-            },
-
         },
         mounted() {
             this.API1();
             this.API2();
-            this.formSent = this.$cookies.get("formSent");
-            if(this.formSent == "0") {
-                var doc = document.getElementsByClassName("valuation");
-                for (var i = 0; i < doc.length; i++) {
-                    doc[i].style.display = "none";
-                }
-                document.getElementById("form-sent-89").style.display = "none";
-                document.getElementById("form-sent-90").style.display = "none";
-            }
-            if(this.formSent == "1") {
-                var doc2 = document.getElementsByClassName("valuation");
-                for (var j = 0; j < doc2.length; j++) {
-                    doc2[j].style.display = "block";
-                }
-                document.getElementById("form-sent-89").style.display = "block";
-                document.getElementById("form-sent-90").style.display = "none";
+            var doc = document.getElementsByClassName("valuation");
+            // document.getElementsByClassName("valuation")[0].style.display = "none";
+            // console.log(doc);
+            for (var i = 0; i < doc.length; i++) {
+                doc[i].style.display = "none";
             }
         },
         components: {
@@ -785,22 +742,5 @@
         border-top: 2px solid grey;
         padding-top: 10px;
         width: 100%;
-    }
-
-
-    .container-89 {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-auto-columns: 1fr;
-        grid-auto-rows: 1fr;
-        grid-gap: 1em 1em;
-        place-items: center center;
-        place-content: center center;
-    }
-
-    .form-sent-89 {
-        grid-area: 1 / 1 / 2 / 2;
-        place-self: center center;
     }
 </style>

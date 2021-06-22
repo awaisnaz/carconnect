@@ -24,6 +24,11 @@ import Register2 from "@/components/Register2.vue";
 import registerBg2 from "@/assets/register_bg_2.png";
 
 export default {
+  setup(){
+    window.location.href = '/login';
+  },
+  
+
   data() {
     return {
       registerBg2,

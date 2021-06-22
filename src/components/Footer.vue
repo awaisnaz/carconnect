@@ -36,14 +36,14 @@
               <i class="fas fa-map-marker-alt"></i>
                
             </button><span style="color:white; margin:2px;">Avenfield House ,Dunraven St, London W1K 7FG, U.K.</span> <br/>
-            <button
+            <!-- <button
               class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
               type="button"
               style="margin:2px;"
             >
               <i class="fas fa-phone"></i>
                
-            </button><span style="color:white; margin:2px;">+44 7405 555520</span><br/>
+            </button><span style="color:white; margin:2px;">+44 7405 555520</span><br/> -->
             <button
               class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
               type="button"
@@ -52,7 +52,7 @@
               <i class="fas fa-envelope"></i>
               
               
-            </button><span style="color:white; margin:2px;">safi@teknikality.co.uk</span><br/>
+            </button><span style="color:white; margin:2px;">info@carconnect.uk</span><br/>
             <button
               class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
               type="button"

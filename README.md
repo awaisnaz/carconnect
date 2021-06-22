@@ -26,7 +26,7 @@ git push -u origin main
 <!-- git reset --hard 1.14   -->
 <!-- git push --force origin main   -->
 
-v1.x // Testing. Documentation at README.md. Admin Page: Comments functionality.   
+v1.x //Documentation at README.md. Admin Page: Comments functionality.   
 
 APIs:  
 API1: https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles  

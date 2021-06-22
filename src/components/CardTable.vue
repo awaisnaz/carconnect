@@ -188,7 +188,7 @@
 
             function APIClientReduce(res){
                 var res2 = [];
-                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarMake"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValueTrade"]} - ${res["CarValuePrivate"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
+                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarDescription"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValueTrade"]} - ${res["CarValuePrivate"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
                 // console.log(res2);
                 return res2;
             }
@@ -445,7 +445,7 @@
                         }
                         if (data.length == 0){
                             var URL =
-                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
                                 reg;
                             axios
                                 .get(URL)
@@ -484,7 +484,7 @@
 
             var API3b = async (reg, handle) => {
                 var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                    "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
                     reg;
                 await axios
                     .get(URL)

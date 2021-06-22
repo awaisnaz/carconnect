@@ -362,7 +362,31 @@
                     </button>
                 </div>
 
+                <div class="container-89">
+                    <div class="form-sent-89">
+                        <br />
+                        <p style="color:#bb86fc;">
+                            {{ formSent1
+                            }}
+                            <span style="font-weight:bold">{{formSent1za}}</span>{{formSent1zb}}<span style="font-weight:bold">{{formSent1zc}}</span>{{formSent1zd}}<span style="font-weight:bold">{{formSent1ze}}</span>{{formSent1zf}}<span style="font-weight:bold">{{formSent1zg}}</span>{{formSent1zh}}{{formSent1zi}}
+                            
 
+                            <router-link
+                            to="/details#valuation"
+                            v-scroll-to="'#valuation'"
+                            style="font-weight:bold;display:inline;"
+                            >
+                            {{formSent1a}}
+                            </router-link>
+                            {{formSent1b}}{{formSent1c}}
+                            <span style="font-weight:bold">{{
+                                formSent2
+                            }}</span
+                            >{{ formSent3 }}
+                        </p>
+                        <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
+                    </div>
+                </div>
 
                 <!-- {{ regNo }}
         {{ make }}
@@ -384,11 +408,6 @@
     export default {
         setup() {
             onMounted(() => {
-
-                // 
-                // console.log("hi");
-                // this.$cookies.set("formSent","0");
-
                 var n = nod();
 
                 // We disable the submit button if there are errors.
@@ -482,7 +501,21 @@
                 mechElectrical: "", 
                 warnLights: "",
                 created: "",
-                formSent: "",
+                formSent1za: "",
+                formSent1zb: "",
+                formSent1zc: "",
+                formSent1zd: "",
+                formSent1ze: "",
+                formSent1zf: "",
+                formSent1zg: "",
+                formSent1zh: "",
+                formSent1zi: "",
+                formSent1: "",
+                formSent1a: "",
+                formSent1b: "",
+                formSent1c: "",
+                formSent2: "",
+                formSent3: "",
                 valTrade: this.$cookies.get("valTrade"),
                 valPrivate: this.$cookies.get("valPrivate"),
                 ref: this.$cookies.get("ref"),
@@ -494,6 +527,15 @@
 
         methods: {
             async firebaseDetailsSubmit() {
+                // console.log(this.regNo);
+                // console.log(this.$refs.fullName.value);
+                // console.log(this.$refs.email.value);
+                // console.log(this.$refs.mobile1.value);
+                // console.log(this.$refs.address.value);
+                // console.log(this.$refs.city.value);
+                // console.log(this.$refs.country.value);
+                // console.log(this.$refs.post.value);
+                // console.log(this.$refs.details.value);
                 var client =
                     "{" +
                     '"CarRegistrationNumber": "' +
@@ -553,14 +595,11 @@
                     '"CarValuePrivate": "' +
                     this.$cookies.get("valPrivate") +
                     '",' +
-                    '"CarDescription": "' +
-                    this.$cookies.get("desc") +
-                    '",' +
                     '"CarWarnLights": "' +
                     this.$refs.warnLights.value +
                     '"' +
                     "}";
-                // console.log(client);
+                console.log(client);
                 client = JSON.parse(client);
 
                 // console.log(this.api1);
@@ -572,54 +611,42 @@
 
                 await db
                     .collection("APIClient")
-                    .doc(this.regNo)
-                    .set(client)
+                    // .doc(this.regNo)
+                    .add(client)
                     // .add(client)
                     .then(() => {
                         console.log(
-                            "APIClient Data entered into Firestore."
+                            "Client Details Data entered into Google Cloud DB"
                         );
                         var x = document.getElementsByClassName("form-91");
                         for (var i = 0; i < x.length; i++) {
                             x[i].style.display = "none";
                         }
-
-                        document.getElementById("detail1").className += "w-full lg:w-6/12 px-4 left";
-                        document.getElementById("detail2").style.display = "none";
-
-                        this.$cookies.set("formSent","1");
-                        this.formSent = 1;
-
-                        if(this.formSent == "0") {
-                            var doc = document.getElementsByClassName("valuation");
-                            for (var k = 0; k < doc.length; k++) {
-                                doc[k].style.display = "none";
-                            }
-                            document.getElementById("form-sent-89").style.display = "none";
-                            document.getElementById("form-sent-90").style.display = "none";
-                        }
-                        if(this.formSent == "1") {
-                            var doc2 = document.getElementsByClassName("valuation");
-                            for (var j = 0; j < doc2.length; j++) {
-                                doc2[j].style.display = "block";
-                            }
-                            document.getElementById("form-sent-89").style.display = "block";
-                            document.getElementById("form-sent-90").style.display = "none";
-                        }
-
-
                         // x = document.getElementsByClassName("form-92");
                         // x[0].style.display = "initial"
+                        this.formSent1 =
+                            "Your message was sent successfully. Your reference number is "
+                        this.formSent1za = this.ref;
+                        this.formSent1zb = " and your vehicle is described as ";
+                        this.formSent1zc = this.desc;
+                        this.formSent1zd = ". Your vehicle's rough valuation is ";
+                        this.formSent1ze = `£ ${this.valTrade} - ${this.valPrivate}.`;
+                        this.formSent1zf = " It is driven by ";
+                        this.formSent1zg = this.miles;
+                        this.formSent1zh = " miles according to our records." 
+                        this.formSent1zi = " More details are at ";
+                        this.formSent1a = "here.";
+                        this.formSent1b = "An email has also been sent to you for the record."
+                        this.formSent1c = " We will get back at you within 24 hours. Furthermore, you can always call us anytime at ";
+                        this.formSent2 = "020 8991 2655";
+                        this.formSent3 = " for any further queries.";
+                        document.getElementById('details').scrollIntoView();
 
-                        
-
-                        document.getElementById('valuation').scrollIntoView();
-
-                        var doc3 = document.getElementsByClassName("valuation");
-                        for (var l = 0; l < doc3.length; l++) {
-                            doc3[l].style.display = "block";
+                        var doc = document.getElementsByClassName("valuation");
+                        // doc[0].style.display = "block";
+                        for (var j = 0; j < doc.length; j++) {
+                            doc[j].style.display = "block";
                         }
-
 
                         axios.post('http://localhost:8080/contact2', {data: this.$data})
                             .then(console.log("Email Sent!"))
@@ -630,35 +657,25 @@
             },
 
         },
-
-        mounted (){
-            this.$cookies.set("formSent","0");
-            this.formSent = 0;
-
-            if(this.formSent == "0") {
-                var doc = document.getElementsByClassName("valuation");
-                for (var k = 0; k < doc.length; k++) {
-                    doc[k].style.display = "none";
-                }
-                document.getElementById("form-sent-89").style.display = "none";
-                document.getElementById("form-sent-90").style.display = "none";
-            }
-            if(this.formSent == "1") {
-                var doc2 = document.getElementsByClassName("valuation");
-                for (var j = 0; j < doc2.length; j++) {
-                    doc2[j].style.display = "block";
-                }
-                document.getElementById("form-sent-89").style.display = "block";
-                document.getElementById("form-sent-90").style.display = "none";
-            }
-            
-        },
-
     };
 </script>
 
 <style scoped>
+    .container-89 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
+        grid-gap: 1em 1em;
+        place-items: center center;
+        place-content: center center;
+    }
 
+    .form-sent-89 {
+        grid-area: 1 / 1 / 2 / 2;
+        place-self: center center;
+    }
 
     .nod-success {
     color:green;

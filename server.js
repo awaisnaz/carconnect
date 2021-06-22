@@ -50,13 +50,16 @@ app.post('/submit', upload.array(), (req, res) => {
 				.cookie("make",response.make)
 				.cookie("model",response.yearOfManufacture)
 				.cookie("color",response.colour)
+				.cookie("regError",false)
 				
 				.redirect("/details");
 		})
 		.catch((e) => {
 			console.log(e);
-			// res.send('<script>alert("This Registration does not exist.")</script>'); 
-			// res.redirect('/');
+			res
+				.cookie("regError",true)
+				.redirect("/");
+			
 		});
 	});
 

@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-wrap main">
-    <div class="w-full lg:w-4/12 px-4 left">
+    <div id="detail1" class="w-full lg:w-4/12 px-4 left">
       <CardProfile />
     </div>
-    <div class="w-full lg:w-8/12 px-4 right">
+    <div id="detail2" class="w-full lg:w-8/12 px-4 right">
       <CardSettings />
     </div>
   </div>

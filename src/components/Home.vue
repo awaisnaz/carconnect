@@ -60,45 +60,52 @@
                                                         >
                                                     </p>
                                                 </div>
+                                                <div
+                                                    class="mid-87a"
+                                                    style=" display: inline-block; padding: 1px; width: 100%;height:100%;"
+                                                >
                                                     <div
-                                                        class="mid-87a"
-                                                        style=" display: inline-block; margin: 4px; padding: 1px; width: 100%;height:100%;"
+                                                        style="display: inline-block; vertical-align: bottom;"
                                                     >
-                                                        <div
-                                                            style="display: inline-block; vertical-align: bottom;"
-                                                        >
-                                                            <input
-                                                                v-model="
-                                                                    vehicle
-                                                                "
-                                                                required
-                                                                name="vehicle"
-                                                                type="text"
-                                                                class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                                id="name"
-                                                                style="min-width:300px;max-width:400px;min-height:80px;max-height:80px;display:inline-block;"
-                                                                placeholder="Enter your reg"
-                                                                maxlength="7"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="mid-87b"
-                                                    >
-                                                        <div
-                                                            style="display: inline-block; vertical-align: bottom;justify-content:flex-start!important;"
-                                                        >
-                                                            <button
-                                                                name="category"
-                                                                value="vehicle"
-                                                                type="submit"
-                                                                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
-                                                                style="background-color: #fdcc04; margin-bottom: 0px;min-width:60px;max-width:160px;min-height:80px;max-height:80px;font-size:30px;white-space: nowrap;"
+                                                        <input
+                                                            v-model="vehicle"
+                                                            required
+                                                            name="vehicle"
+                                                            type="text"
+                                                            class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                            id="name"
+                                                            style="max-width:400px;min-height:80px;max-height:80px;display:inline-block;"
+                                                            placeholder="Enter your reg"
+                                                            maxlength="7"
+                                                        />
+                                                        <div id="regError" class="regError" style="color:red;white-space:nowrap;overflow:visible;">
+                                                            Reg. No. incorrect.<br/>
+                                                            <router-link
+                                                                to="#contactus"
+                                                                v-scroll-to="'#contactus'"
+                                                                class="whitespace-nowrap"
+                                                                style="text-decoration: underline;cursor:pointer;"
                                                             >
-                                                                Go >
-                                                            </button>
+                                                                Submit Manually.
+                                                            </router-link>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="mid-87b">
+                                                    <div
+                                                        style="display: inline-block; vertical-align: bottom;justify-content:flex-start!important;"
+                                                    >
+                                                        <button
+                                                            name="category"
+                                                            value="vehicle"
+                                                            type="submit"
+                                                            class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-2 shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
+                                                            style="background-color: #fdcc04; margin-bottom: 0px;max-width:160px;min-height:80px;max-height:80px;font-size:30px;white-space: nowrap;"
+                                                        >
+                                                            Go
+                                                        </button>
+                                                    </div>
+                                                </div>
                                                 <div class="bot-87">
                                                     <p
                                                         class="text-white font-semibold text-5xl"
@@ -870,8 +877,8 @@
                                 >
                                     Looking to scrap your car? Instead of
                                     selling to a local scrap dealer, you can
-                                    sell your ‘scrap’ car within 24 hours at
-                                    one of our UK branches.
+                                    sell your ‘scrap’ car within 24 hours at one
+                                    of our UK branches.
                                 </p>
                             </div>
                         </div>
@@ -1019,7 +1026,7 @@
                                             method="post"
                                             action="/contact"
                                         >
-                                        <!-- <form
+                                            <!-- <form
                                             id="contact-form"
                                             name="contact-form"
                                             method="post"
@@ -1042,7 +1049,6 @@
                                             </p>
                                             <div
                                                 class="relative w-full mb-3 mt-8 form-81"
-                                                style="color:grey;"
                                             >
                                                 <label
                                                     class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -1056,14 +1062,13 @@
                                                     name="name"
                                                     v-model="name"
                                                     required
-                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    class="name border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                     placeholder="Full Name"
                                                 />
                                             </div>
 
                                             <div
                                                 class="relative w-full mb-3 form-81"
-                                                style="color:grey;"
                                             >
                                                 <label
                                                     class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -1077,17 +1082,16 @@
                                                     name="email"
                                                     v-model="email"
                                                     required
-                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    class="email border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                     placeholder="Your email address"
                                                 />
                                             </div>
 
                                             <div
                                                 class="relative w-full mb-3 form-81"
-                                                style="color:grey;"
                                             >
                                                 <label
-                                                    class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                                    class="block uppercase text-blueGray-600 text-xs font-bold mb-2 form-label"
                                                     htmlFor="message"
                                                     style="color:white;"
                                                 >
@@ -1099,7 +1103,7 @@
                                                     required
                                                     rows="4"
                                                     cols="80"
-                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full"
+                                                    class="message border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full"
                                                     placeholder="Type a message..."
                                                 />
                                             </div>
@@ -1110,7 +1114,7 @@
                                                     name="category"
                                                     value="contact"
                                                     type="submit"
-                                                    class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                    class="submit-btn bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                     style="background-color:#fdcc04;"
                                                 >
                                                     Send Message
@@ -1160,6 +1164,7 @@
     // import Stickyfill from "stickyfilljs";
     import Sticky from "sticky-js";
     import { onMounted } from "vue";
+    import nod from "nod-validate";
 
     // import axios from 'axios';
 
@@ -1168,7 +1173,6 @@
 
     export default {
         setup() {
-
             const name = ref();
             const email = ref();
             const message = ref();
@@ -1178,8 +1182,39 @@
             var vehicle = ref();
 
             onMounted(() => {
-            new Sticky('.sticky');
-            
+                new Sticky(".sticky");
+
+
+
+                var n = nod();
+
+                // We disable the submit button if there are errors.
+                n.configure({
+                    submit: ".submit-btn",
+                    disableSubmit: true,
+                });
+
+                // n.classes.successClass = 'has-success';
+                // n.classes.errorClass = 'has-error';
+
+                n.add([
+                    {
+                        selector: ".name",
+                        validate: "presence",
+                        errorMessage: "Can't be empty",
+                    },
+                    {
+                        selector: ".email",
+                        validate: "email",
+                        errorMessage:
+                            "That doesn't look like it's a valid email address.",
+                    },
+                    {
+                        selector: ".message",
+                        validate: "presence",
+                        errorMessage: "Can't be empty",
+                    },
+                ]);
             });
 
             const firebaseSubmit = async () => {
@@ -1225,8 +1260,6 @@
                     .catch((e) => console.log(e));
             };
 
-
-
             // const formCar = () => {
             //   console.log(vehicle.value);
 
@@ -1264,7 +1297,6 @@
                 user,
 
                 firebaseSubmit,
-                
                 // formCar,
                 vehicle,
                 created,
@@ -1279,6 +1311,7 @@
                 team4,
                 APIEmail: this.$cookies.get("APIEmail"),
                 formSent: "",
+                regError: this.$cookies.get("regError"),
             };
         },
         components: {
@@ -1288,7 +1321,7 @@
             // FAQ,
         },
         methods: {
-            async emailSubmit () {
+            async emailSubmit() {
                 this.$cookies.set("APIEmail", "0");
                 var x = document.getElementsByClassName("form-81");
                 for (var i = 0; i < x.length; i++) {
@@ -1298,13 +1331,22 @@
                 x[0].style.display = "initial";
                 this.formSent =
                     "Your message was sent successfully. We will get back at you asap. Meanwhile you may visit the ";
-                
-            },   
+            },
         },
         mounted() {
             if (this.APIEmail == "1") {
                 this.emailSubmit();
             }
+            if(this.regError == "true") this.regError = true;
+            if(this.regError == "false") this.regError = false;
+            if(this.regError == "undefined") this.regError = false;
+            if(this.regError == "null") this.regError = false;
+            if(this.regError == null || this.regError == undefined) this.regError = false;
+            // console.log(this.regError);
+            // console.log(typeof this.regError);
+            if(this.regError == false) {this.regError = false;this.$cookies.set("regError",false);document.getElementById("regError").style.display = "none";document.querySelectorAll('.regError').forEach(function(el) {el.style.display='none';});}
+            if(this.regError == true) {this.regError = false;this.$cookies.set("regError",false);document.getElementById("regError").style.display = "block";document.querySelectorAll('.regError').forEach(function(el) {el.style.display='block';});}
+            // console.log(this.regError);
         },
 
         // mounted () {
@@ -1337,30 +1379,27 @@
     .top-87 {
         grid-area: 1 / 1 / 2 / 3;
         place-self: end center;
-        margin-bottom:30px;
+        margin-bottom: 30px;
     }
 
     .mid-87a {
-      grid-area: 2 / 1 / 3 / 2;
+        grid-area: 2 / 1 / 3 / 2;
         place-self: end end;
         min-height: 80px;
-        max-height: 90px;
+        max-height: 120px;
     }
 
     .mid-87b {
-      grid-area: 2 / 2 / 3 / 3;
+        grid-area: 2 / 2 / 3 / 3;
         place-self: start start;
         min-height: 80px;
-        max-height: 90px;
+        max-height: 120px;
     }
 
     .bot-87 {
         grid-area: 3 / 1 / 4 / 3;
         place-self: start center;
     }
-
-
-
 
     .container-88 {
         display: grid;
@@ -1415,17 +1454,30 @@
         font: 400 13.3333px Arial;
     }
 
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
 
-.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
+    .sticky:before,
+    .sticky:after {
+        content: "";
+        display: table;
+    }
 
-.sticky:before,
-.sticky:after {
-    content: '';
-    display: table;
-}
+    .nod-success {
+        color: green;
+    }
+
+    .nod-error {
+        color: red;
+    }
+
+    .nod-error-message {
+        color: #c00;
+    }
+
+
 </style>

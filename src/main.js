@@ -31,7 +31,7 @@ import Register from "@/components/Register.vue";
 import Details from "@/components/Details.vue";
 
 import VueScrollTo from 'vue-scrollto';
-window.$ = window.jQuery = require('jquery');
+// window.$ = window.jQuery = require('jquery');
 
 const routes = [
   {
