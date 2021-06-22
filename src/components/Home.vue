@@ -1372,7 +1372,7 @@
         grid-template-rows: auto auto auto;
         /* grid-gap: 1em 1em; */
         place-items: end end;
-        place-content: end end;
+        place-content: center;
         grid-auto-flow: row;
     }
 
