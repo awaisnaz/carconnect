@@ -9,12 +9,12 @@
     "node": "16.0.0"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && gulp licenses",
-    "start": "node server.js",
-    "all": "vue-cli-service build && gulp licenses && node server.js",
+    "serve": "vue-cli-service serve",  
+    "build": "vue-cli-service build && gulp licenses",  
+    "lint": "vue-cli-service lint",  
+    "start": "node server.js",  
+    "all": "vue-cli-service build && gulp licenses && vue-cli-service lint && node server.js",  
     "git": "git add . && git commit -m 'main' && git push -u origin main",
-    "lint": "vue-cli-service lint",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve"
   },

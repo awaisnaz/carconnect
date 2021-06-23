@@ -4,11 +4,6 @@
 
 <script>
 
-import { ref } from 'vue';
-import firebase from "firebase"; 
-import {onBeforeMount } from "vue";
-import axios from 'axios';
-
 export default {
     setup(){
 

@@ -285,7 +285,7 @@
                                 .then((res) => {
                                     var temp2 = jsonToTableHtmlString(res[0], {
                                         tableStyle:
-                                            "color:white; background-color:#505050;",
+                                            "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                                         thStyle: "color:white; background-color:#606060;",
                                         tdKeyStyle: "background-color:#606060;",
                                     });
@@ -375,7 +375,7 @@
 
                         var temp2 = jsonToTableHtmlString(data[0], {
                             tableStyle:
-                                "color:white; background-color:#505050;",
+                                "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                             thStyle: "color:white; background-color:#606060;",
                             tdKeyStyle: "background-color:#606060;",
                         });
@@ -403,7 +403,7 @@
 
                         var temp2 = jsonToTableHtmlString(data[0].Response.DataItems, {
                             tableStyle:
-                                "color:white; background-color:#505050;",
+                                "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                             thStyle: "color:white; background-color:#606060;",
                             tdKeyStyle: "background-color:#606060;",
                         });
@@ -422,7 +422,7 @@
 
 
             var API3 = async (reg, handle) => {
-                // console.log(reg);
+                reg = reg.toString();
                 await firebase
                     .firestore()
                     .collection("API3")
@@ -430,12 +430,11 @@
                     .get()
                     .then((snapshot) => {
                         var data = snapshot.docs.map((doc) => doc.data());
-                        console.log(data);
-                        if (data.length != 0){
+                        if (!(data[0].length === 0)){
                             console.log("API3 Data fetched from Firestore.");
                             var temp2 = jsonToTableHtmlString(data[0], {
                                 tableStyle:
-                                    "color:white; background-color:#505050;",
+                                    "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                                 thStyle: "color:white; background-color:#606060;",
                                 tdKeyStyle: "background-color:#606060;",
                             });
@@ -443,7 +442,7 @@
                             document.getElementById(handle).innerHTML = temp2;
                             return data;
                         }
-                        if (data.length == 0){
+                        else {
                             var URL =
                                 "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
                                 reg;
@@ -454,7 +453,7 @@
 
                                     var temp2 = jsonToTableHtmlString(API3Output.value, {
                                         tableStyle:
-                                            "color:white; background-color:#505050;overflow-x:scroll;display:block;",
+                                            "color:white; background-color:#505050;overflow:auto;",
                                         thStyle: "color:white; background-color:#606060;",
                                         tdKeyStyle: "background-color:#606060;",
                                     });
@@ -482,34 +481,34 @@
 
 
 
-            var API3b = async (reg, handle) => {
-                var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
-                    reg;
-                await axios
-                    .get(URL)
-                    .then((response) => {
-                        API3Output.value = response.data.Response.DataItems;
+            // var API3b = async (reg, handle) => {
+            //     var URL =
+            //         "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
+            //         reg;
+            //     await axios
+            //         .get(URL)
+            //         .then((response) => {
+            //             API3Output.value = response.data.Response.DataItems;
 
-                        var temp2 = jsonToTableHtmlString(API3Output.value, {
-                            tableStyle:
-                                "color:white; background-color:#505050;overflow-x:scroll;display:block;",
-                            thStyle: "color:white; background-color:#606060;",
-                            tdKeyStyle: "background-color:#606060;",
-                        });
-                        document.getElementById(handle).innerHTML = temp2;
+            //             var temp2 = jsonToTableHtmlString(API3Output.value, {
+            //                 tableStyle:
+            //                     "color:white; background-color:#505050;overflow:auto;display:block;",
+            //                 thStyle: "color:white; background-color:#606060;",
+            //                 tdKeyStyle: "background-color:#606060;",
+            //             });
+            //             document.getElementById(handle).innerHTML = temp2;
 
-                        const db = firebase.firestore();
-                        db.collection("API3")
-                            .doc(reg)
-                            .set(API3Output.value)
-                            .then(
-                                console.log("API3 Data entered into Firestore.")
-                            )
-                            .catch((e) => console.log(e));
-                    })
-                    .catch((e) => console.log(e));
-            };
+            //             const db = firebase.firestore();
+            //             db.collection("API3")
+            //                 .doc(reg)
+            //                 .set(API3Output.value)
+            //                 .then(
+            //                     console.log("API3 Data entered into Firestore.")
+            //                 )
+            //                 .catch((e) => console.log(e));
+            //         })
+            //         .catch((e) => console.log(e));
+            // };
 
             onMounted(() => {
                 getData();
@@ -526,7 +525,7 @@
                 API2Input,
                 API2Output,
                 API3,
-                API3b,
+                // API3b,
                 API3Input,
                 API3Output,
                 getData,
@@ -591,72 +590,5 @@
 
     @import "gridjs/dist/theme/mermaid.css";
 
-    .modalDialog {
-        /* position: fixed; */
-        font-family: Arial, Helvetica, sans-serif;
-        top: 0;
-        /* right: 0; */
-        /* bottom: 0; */
-        left: 0;
-        position: absolute;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 99999;
-        opacity: 0;
-        /* max-height: calc(100vh - 210px); */
-        overflow-y: auto;
-        overflow-x: auto;
-        /* max-height: 90%;
-        max-width:90%; */
-        /* width:100vw;
-        height:100vw; */
-        /* -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in; */
-        pointer-events: none;
-    }
-    .modalDialog:target {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .modalDialog > div {
-        /* width: 400px; */
-        /* width: 100vw; */
-        /* height: 100vw; */
-        /* width:80%; */
-        max-height: calc(100vh - 210px);
-        max-width: calc(100vw - 210px);
-        overflow-y: auto;
-        overflow-x: auto;
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: 10% auto;
-        padding: 5px 20px 13px 20px;
-        border-radius: 10px;
-        background: #fff;
-        background: -moz-linear-gradient(#fff, #999);
-        background: -webkit-linear-gradient(#fff, #999);
-        background: -o-linear-gradient(#fff, #999);
-    }
-    .close {
-        background: #606061;
-        color: #ffffff;
-        line-height: 25px;
-        position: absolute;
-        right: -12px;
-        text-align: center;
-        top: -10px;
-        width: 24px;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        border-radius: 12px;
-        -moz-box-shadow: 1px 1px 3px #000;
-        -webkit-box-shadow: 1px 1px 3px #000;
-        box-shadow: 1px 1px 3px #000;
-    }
-    .close:hover {
-        background: #00d9ff;
-    }
+
 </style>

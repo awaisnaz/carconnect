@@ -4,7 +4,7 @@
             <div class="sticky">
                 <Navbar />
             </div>
-            <main>
+            <main style="background-color:black;">
                 <div
                     class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
                 >
@@ -294,7 +294,7 @@
 
                         <SectionTwo id="whyus" />
                         <div class="flex flex-wrap items-center mt-32">
-                            <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+                            <div class="w-full md:w-5/12 px-4 mr-auto ml-auto mb-10">
                                 <div
                                     class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white"
                                 >
@@ -354,7 +354,7 @@
                 </router-link> -->
                             </div>
 
-                            <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                            <div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-10">
                                 <div
                                     class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-500"
                                 >
@@ -433,7 +433,7 @@
                                     src="@/assets/home3b.png"
                                 />
                             </div>
-                            <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+                            <div class="w-full md:w-5/12 ml-auto mr-auto px-4 mt-10">
                                 <div class="md:pr-12">
                                     <div
                                         class="text-emerald-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-emerald-300"
@@ -865,7 +865,7 @@
                             style="background: #202020;"
                         >
                             <div
-                                class="w-full lg:w-6/12 px-4"
+                                class="w-full lg:w-6/12 px-4 mt-10"
                                 style="background: #202020;"
                             >
                                 <h2 class="text-4xl font-semibold text-white">

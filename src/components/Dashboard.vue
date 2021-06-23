@@ -46,7 +46,7 @@
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
             style="background: #303030;"
           >
-            <div class="px-6" style="background-color:#303030">
+            <div class="px-6" style="background-color:#303030;">
               <div class="flex flex-wrap justify-center">
                 <div
                   class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
@@ -100,9 +100,9 @@
                   </div>
                 </div> -->
               </div>
-              <div class="mt-12" >
+              <div class="mt-30" >
                 <form @submit.prevent="Logout">
-                <div style="display: grid; grid-template-columns: auto auto;">
+                <div style="display: grid; grid-template-columns: auto auto;margin-top:100px;">
                     <div style="grid-column-start: 1;">
                       <h3
                       class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2" style="color:white;"

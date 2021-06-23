@@ -1,532 +1,503 @@
 <template>
     <div
-        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg "
-        style="background-color: #303030;"
+        class="relative min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg "
+        style="display:grid;grid-template-rows:repeat(auto-fit, minmax(100px, 1fr));grid-gap:10px;background-color:#303030;padding:20px;"
     >
-        <div class="px-6">
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full px-4 flex justify-center">
-                    <div class="relative">
-                        <img
-                            alt="..."
-                            :src="team2"
-                            class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
-                        />
+        <div
+            class="w-full px-4 relative;"
+            style="display:grid;grid-template-rows:repeat(auto-fit, minmax(100px, 1fr));grid-gap:10px;place-content:center;"
+        >
+            <div>
+                <img
+                    alt="..."
+                    :src="team2"
+                    class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                />
+            </div>
+        </div>
+        <div class="mr-4 text-center">
+            <span
+                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                style="color:white;"
+            >
+                VEHICLE REG. NO.
+            </span>
+            <span
+                class="text-2xl text-blueGray-400"
+                style="color:#fdcc04;font-weight: bold;"
+                >{{ regNo }}</span
+            >
+        </div>
+        <div
+            style="display:grid;grid-template-rows:repeat(auto-fit, minmax(100px, 1fr));grid-gap:10px;"
+        >
+            <div
+                style="display:grid;grid-template-columns:repeat(auto-fit, minmax(100px, 1fr));grid-gap:10px;place-content:center;"
+            >
+                <div>
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600 "
+                        style="color:white;"
+                    >
+                        Make
+                    </span>
+                    <span
+                        class="text-xl text-blueGray-400"
+                        style="color:#fdcc04;font-weight: bold;"
+                        >{{ make }}</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                        style="color:white;"
+                    >
+                        Model
+                    </span>
+                    <span
+                        class="text-xl text-blueGray-400"
+                        style="color:#fdcc04;font-weight: bold;"
+                        >{{ model }}</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                        style="color:white;"
+                    >
+                        Color
+                    </span>
+                    <span
+                        class="text-xl text-blueGray-400"
+                        style="color:#fdcc04;font-weight: bold;"
+                        >{{ color }}</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                        style="color:white;"
+                    >
+                        Tax
+                    </span>
+                    <span
+                        class="text-xl text-blueGray-400"
+                        style="color:#fdcc04;font-weight: bold;"
+                        >{{ tax }}</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                        style="color:white;"
+                    >
+                        MOT
+                    </span>
+                    <span
+                        class="text-xl text-blueGray-400"
+                        style="color:#fdcc04;font-weight: bold;"
+                        >{{ mot }}</span
+                    >
+                </div>
+            </div>
+            <SectionFive id="valuation" />
+            <div class="valuation item-border-top">
+                    <div class="lg:mr-4 p-3 text-center">
+                        <span
+                            class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                            style="color:white;"
+                        >
+                            YOUR VALUATION RANGE
+                        </span>
+                        <span
+                            class="text-2xl text-blueGray-400"
+                            style="color:#ff6745;font-weight: bold;"
+                            >£ {{ valTrade }} - {{ valPrivate }}</span
+                        >
+                    </div>
+            </div>
+            <div
+                style="display:grid;grid-template-columns:repeat(auto-fit, minmax(100px, 1fr));grid-gap:10px;place-content:center;"
+            >
+                
+
+                <div class="valuation">
+                    <div class="lg:mr-4 p-3 text-center">
+                        <span
+                            class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                            style="color:white;white-space:nowrap;"
+                        >
+                            REF. NO.
+                        </span>
+                        <span
+                            class="text-xl text-blueGray-400"
+                            style="color:#ff6745;font-weight: bold;white-space:nowrap;"
+                            >{{ ref }}</span
+                        >
                     </div>
                 </div>
-
-                <div class="container-66">
-                    <div class="item-2">
-                        <div class="mr-4 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                VEHICLE REG. NO.
-                            </span>
-                            <span
-                                class="text-2xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{regNo}}<br /><br/></span
-                            >
-                        </div>
+                <div class="valuation">
+                    <div class="lg:mr-4 p-3 text-center">
+                        <span
+                            class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                            style="color:white;"
+                        >
+                            MILES
+                        </span>
+                        <span
+                            class="text-xl text-blueGray-400"
+                            style="color:#ff6745;font-weight: bold;"
+                            >{{ miles }}</span
+                        >
                     </div>
-                    <div class="item-3">
-                        <div class="mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Make
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{make}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="item-4">
-                        <div class="mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Model
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{model}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="item-5">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Color
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{color}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="item-5a">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Tax
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{tax}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="item-5b">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                MOT
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#fdcc04;font-weight: bold;"
-                                >{{mot}}</span
-                            >
-                        </div>
-                    </div>
-                    <!-- <div class="item-5c">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Color
-                            </span>
-                            <span
-                                class="text-sm text-blueGray-400"
-                                style="color:white;"
-                                >{{color}}</span
-                            >
-                        </div>
-                    </div> -->
-                    <SectionFive id="valuation" />
-                    <div class="valuation item-6 item-border-top">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                YOUR VALUATION RANGE
-                            </span>
-                            <span
-                                class="text-2xl text-blueGray-400"
-                                style="color:#ff6745;font-weight: bold;"
-                                >£ {{valTrade}} - {{valPrivate}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="valuation item-7">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;white-space:nowrap;"
-                            >
-                                REF. NO.
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#ff6745;font-weight: bold;white-space:nowrap;"
-                                >{{ref}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="valuation item-8">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                MILES
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#ff6745;font-weight: bold;"
-                                >{{miles}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="valuation item-9">
-                        <div class="lg:mr-4 p-3 text-center">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                                style="color:white;"
-                            >
-                                Description
-                            </span>
-                            <span
-                                class="text-xl text-blueGray-400"
-                                style="color:#ff6745;font-weight: bold;"
-                                >{{desc}}</span
-                            >
-                        </div>
-                    </div>
-                    <div class="valuation item-10 item-border-top">
-                        <div class="container-89">
-                            <div id="form-sent-89">
-                                <br />
-                                    <p class="text-2xl text-blueGray-400" style="color:#66c4eb;font-weight: bold;display:block;">Confirm Proceed as below. We will get back at your within 24 hours.</p><br/>
-                                    <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
-                                    <form method="post" @submit.prevent="proceed"><div style="display:grid;grid-template-columns:auto;grid-template-rows:auto;justify-content:center;align-content:center;"><button type="submit" class="submit-btn bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xl px-4 py-2 shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" style="background-color: #fdcc04;min-height:80px;max-height:80px;">PROCEED</button></div></form><br/>
-                                    <p class="text-2xl text-blueGray-400" style="color:#66c4eb;font-weight: bold;display:block;">An email has been sent to you. Please check your inbox.</p><br/>
-                                <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
-                            </div>
-                            <div id="form-sent-90">
-                                <br />
-                                    <p class="text-2xl text-blueGray-400" style="color:#04aa6d;font-weight: bold;display:block;">We have received your message and we will get back at your within 24 hours.</p><br/>
-                                    <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
-                                <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="valuation item-11 item-border-top">
-                        <div class="lg:mr-4 p-3">
-                            <span
-                                class="text-xl font-bold block uppercase tracking-wide text-blueGray-600 text-center"
-                                style="color:white;"
-                            >
-                                ABOUT YOUR VALUATION
-                            </span><br/>
-                            <span
-                                class="text-sm text-blueGray-400"
-                                style="color:grey;"
-                                >The above price range is estimated and based on
-                                some assumptions. A final valuation will be given on
-                                inspection.</span
-                            >
-                            <span
-                                class="text-sm text-blueGray-400 text-left"
-                                style="color:grey;"
-                            >
-                                The valuation is based on current market prices
-                                and the details you have entered. The valuation
-                                is not a confirmed price. The final value of
-                                your vehicle will be given after inspecting your
-                                vehicle. Following factors can determine the
-                                vehicle value.
-                            </span><br/><br/>
-                            <ul
-                                class="text-sm text-blueGray-400 text-left"
-                                style="color:grey;"
-                            >
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane" ></i>
-                                        </span>
-                                        <span>MOT</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Service History</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Number of owners</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Insurance written off</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Insurance stollen</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Accident Damage</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Category vehicle</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Financed</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Imported Vehicle</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Exported Vehicle</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Mechanical Condition</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Electrical Condition
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Interior Condition</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Cleanliness</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Leather seats, etc.</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Sat Nav, Stereo</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Body Condition</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Paint Condition</span>
-                                    </div>
-                                </li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Tyres</span>
-                                    </div>
-                                <li>
-                                    <div>
-                                        <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
-                                            style="margin-bottom:2px;"
-                                        >
-                                            <!-- <i class="fas fa-fingerprint"></i> -->
-                                            <i class="far fa-paper-plane"></i>
-                                        </span>
-                                        <span>Any extra feature</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item-12 item-border-top">
-                        <div class="flex flex-wrap justify-center">
-                            <br />
-
-                            <p style="color:white;">
-                                Not your Vehicle?
-                                <a href="/" style="color:white;">Click here</a>
-                            </p>
-                            <br /><br/>
-                        </div>
+                </div>
+                <div class="valuation">
+                    <div class="lg:mr-4 p-3 text-center">
+                        <span
+                            class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                            style="color:white;"
+                        >
+                            Description
+                        </span>
+                        <span
+                            class="text-xl text-blueGray-400"
+                            style="color:#ff6745;font-weight: bold;"
+                            >{{ desc }}</span
+                        >
                     </div>
                 </div>
             </div>
-
-            <!-- <div
-                    class="w-full px-4 text-center mt-20 text-center mt-12"
-                    style="display: grid; grid-template-rows: 1fr 1fr; grid-template-areas: 'main' 'details';"
-                >
-                    <div
-            class="text-xl leading-normal mt-0 text-blueGray-400 font-bold uppercase" style="color:grey;"
-          >
-            <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400" style="justify: left; grid-area: details;"></i> 
-            {{ regNo }}
-          </div>
-                    <div class="mb-2 text-blueGray-600 mt-10">
-            <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-            Solution Manager - Creative Tim Officer
-          </div>
-          <div class="mb-2 text-blueGray-600">
-            <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-            University of Computer Science
-          </div>
-                </div> -->
-            <!-- <div class="w-full px-4 text-center ">
-                    <div class="flex justify-center py-4 lg:pt-4 ">
-
-
-
+            <div class="valuation item-border-top">
+                <div class="container-89">
+                    <div id="form-sent-89">
+                        <br />
+                        <p
+                            class="text-2xl text-blueGray-400"
+                            style="color:#66c4eb;font-weight: bold;display:block;"
+                        >
+                            Confirm Proceed as below. We will get back at your
+                            within 24 hours.
+                        </p>
+                        <br />
+                        <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
+                        <form method="post" @submit.prevent="proceed">
+                            <div
+                                style="display:grid;grid-template-columns:auto;grid-template-rows:auto;justify-content:center;align-content:center;"
+                            >
+                                <button
+                                    type="submit"
+                                    class="submit-btn bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xl px-4 py-2 shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                    style="background-color: #fdcc04;min-height:80px;max-height:80px;"
+                                >
+                                    PROCEED
+                                </button>
+                            </div>
+                        </form>
+                        <br />
+                        <p
+                            class="text-2xl text-blueGray-400"
+                            style="color:#66c4eb;font-weight: bold;display:block;"
+                        >
+                            An email has been sent to you. Please check your
+                            inbox.
+                        </p>
+                        <br />
+                        <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
                     </div>
-                </div> -->
+                    <div id="form-sent-90">
+                        <br />
+                        <p
+                            class="text-2xl text-blueGray-400"
+                            style="color:#04aa6d;font-weight: bold;display:block;"
+                        >
+                            We have received your message and we will get back
+                            at your within 24 hours.
+                        </p>
+                        <br />
+                        <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
+                        <!-- {{ API1Value }} <br/><br/><br/> {{ API2Value }} -->
+                    </div>
+                </div>
+            </div>
+            <div class="valuation item-border-top">
+                <div class="lg:mr-4 p-3">
+                    <span
+                        class="text-xl font-bold block uppercase tracking-wide text-blueGray-600 text-center"
+                        style="color:white;"
+                    >
+                        ABOUT YOUR VALUATION </span
+                    ><br />
+                    <span class="text-sm text-blueGray-400" style="color:grey;"
+                        >The above price range is estimated and based on some
+                        assumptions. A final valuation will be given on
+                        inspection.</span
+                    >
+                    <span
+                        class="text-sm text-blueGray-400 text-left"
+                        style="color:grey;"
+                    >
+                        The valuation is based on current market prices and the
+                        details you have entered. The valuation is not a
+                        confirmed price. The final value of your vehicle will be
+                        given after inspecting your vehicle. Following factors
+                        can determine the vehicle value. </span
+                    ><br /><br />
+                    <ul
+                        class="text-sm text-blueGray-400 text-left"
+                        style="color:grey;"
+                    >
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>MOT</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Service History</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Number of owners</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Insurance written off</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Insurance stollen</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Accident Damage</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Category vehicle</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Financed</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Imported Vehicle</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Exported Vehicle</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Mechanical Condition</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Electrical Condition </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Interior Condition</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Cleanliness</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Leather seats, etc.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Sat Nav, Stereo</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Body Condition</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Paint Condition</span>
+                            </div>
+                        </li>
+                        <div>
+                            <span
+                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                style="margin-bottom:2px;"
+                            >
+                                <!-- <i class="fas fa-fingerprint"></i> -->
+                                <i class="far fa-paper-plane"></i>
+                            </span>
+                            <span>Tyres</span>
+                        </div>
+                        <li>
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-emerald-600 bg-emerald-200 mr-3"
+                                    style="margin-bottom:2px;"
+                                >
+                                    <!-- <i class="fas fa-fingerprint"></i> -->
+                                    <i class="far fa-paper-plane"></i>
+                                </span>
+                                <span>Any extra feature</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item-border-top">
+                <div class="flex flex-wrap justify-center">
+                    <br />
 
-            <!-- <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-                <div class="w-full lg:w-9/12 px-4">
-            <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-              An artist of considerable range, Jenna the name taken by
-              Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and
-              records all of his own music, giving it a warm, intimate feel with
-              a solid groove structure. An artist of considerable range.
-            </p>
-            <a href="javascript:void(0);" class="font-normal text-emerald-500">
-              Show more
-            </a>
-            
-          </div>
-            </div> -->
+                    <p style="color:white;">
+                        Not your Vehicle?
+                        <a href="/" style="color:white;">Click here</a>
+                    </p>
+                    <br /><br />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -608,17 +579,19 @@
                         // console.log(typeof this.API2Value);
                         // console.log(this.API2Value);
                         // console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
-                        
-                        this.ref = `${this.API2Value.Response.DataItems.Vrm}-${(new Date().getFullYear())}`;
-                        this.$cookies.set("ref",this.ref);
+
+                        this.ref = `${
+                            this.API2Value.Response.DataItems.Vrm
+                        }-${new Date().getFullYear()}`;
+                        this.$cookies.set("ref", this.ref);
                         this.miles = this.API2Value.Response.DataItems.Mileage;
-                        this.$cookies.set("miles",this.miles);
+                        this.$cookies.set("miles", this.miles);
                         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
-                        this.$cookies.set("desc",this.desc);
+                        this.$cookies.set("desc", this.desc);
                         this.valTrade = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
-                        this.$cookies.set("valTrade",this.valTrade);
+                        this.$cookies.set("valTrade", this.valTrade);
                         this.valPrivate = this.API2Value.Response.DataItems.ValuationList.PrivateAverage;
-                        this.$cookies.set("valPrivate",this.valPrivate);
+                        this.$cookies.set("valPrivate", this.valPrivate);
 
                         // this.$cookies.set(
                         //     "valTrade",
@@ -656,27 +629,28 @@
                     .catch((e) => console.log(e));
             },
 
-            async proceed(){
+            async proceed() {
                 const db = firebase.firestore();
                 await db
                     .collection("APIClient")
                     .doc(this.regNo)
                     .update({
-                        "proceed": 1,
+                        proceed: 1,
                     })
                     .then(() => {
                         console.log("APIClient updated successfully!");
-                        document.getElementById("form-sent-89").style.display = "none";
-                        document.getElementById("form-sent-90").style.display = "block";
+                        document.getElementById("form-sent-89").style.display =
+                            "none";
+                        document.getElementById("form-sent-90").style.display =
+                            "block";
                     });
             },
-
         },
         mounted() {
             this.API1();
             this.API2();
             this.formSent = this.$cookies.get("formSent");
-            if(this.formSent == "0") {
+            if (this.formSent == "0") {
                 var doc = document.getElementsByClassName("valuation");
                 for (var i = 0; i < doc.length; i++) {
                     doc[i].style.display = "none";
@@ -684,7 +658,7 @@
                 document.getElementById("form-sent-89").style.display = "none";
                 document.getElementById("form-sent-90").style.display = "none";
             }
-            if(this.formSent == "1") {
+            if (this.formSent == "1") {
                 var doc2 = document.getElementsByClassName("valuation");
                 for (var j = 0; j < doc2.length; j++) {
                     doc2[j].style.display = "block";
@@ -703,7 +677,9 @@
     .container-66 {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto);
+        grid-template-rows:
+            minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto)
+            minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto);
         /* grid-gap: 1em 1em; */
         place-items: center center;
         place-content: center center;
@@ -786,7 +762,6 @@
         padding-top: 10px;
         width: 100%;
     }
-
 
     .container-89 {
         display: grid;
