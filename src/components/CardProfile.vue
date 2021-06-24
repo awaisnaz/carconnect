@@ -568,12 +568,12 @@
                 //     console.log(error);
                 //   });
 
-                var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-                    this.API1Value.registrationNumber;                
                 // var URL =
-                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
-                //     this.API1Value.registrationNumber;
+                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                //     this.API1Value.registrationNumber;                
+                var URL =
+                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
+                    this.API1Value.registrationNumber;
                 await axios
                     .get(URL)
                     .then((response) => {

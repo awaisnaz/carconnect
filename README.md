@@ -28,7 +28,7 @@ git remote add origin https://github.com/teknikality-central/carconnect.git
 <!-- git push --force origin main   -->  
   
 REMAINING FEATURES ADDITION IN VERSION1  
-Replace Test key by Live key  
+
   
 NEW FEATURES ADDITION IN VERSION 2  
 Sorted tables in /dashboard  
