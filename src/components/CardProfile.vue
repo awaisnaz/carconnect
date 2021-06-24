@@ -91,7 +91,7 @@
                         class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
                         style="color:white;"
                     >
-                        MOT
+                        MOT EXPIRY DATE
                     </span>
                     <span
                         class="text-xl text-blueGray-400"
@@ -110,9 +110,9 @@
                             YOUR VALUATION RANGE
                         </span>
                         <span
-                            class="text-2xl text-blueGray-400"
+                            class="text-5xl text-blueGray-400"
                             style="color:#ff6745;font-weight: bold;"
-                            >£ {{ valTrade }} - {{ valPrivate }}</span
+                            >£ {{val1}} - {{val2}}</span
                         >
                     </div>
             </div>
@@ -155,7 +155,7 @@
                     <div class="lg:mr-4 p-3 text-center">
                         <span
                             class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
-                            style="color:white;"
+                            style="color:white;white-space:nowrap;"
                         >
                             Description
                         </span>
@@ -175,8 +175,7 @@
                             class="text-2xl text-blueGray-400"
                             style="color:#66c4eb;font-weight: bold;display:block;"
                         >
-                            Confirm Proceed as below. We will get back at your
-                            within 24 hours.
+                            If you are happy with the above valuation, please click the Proceed button below.
                         </p>
                         <br />
                         <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
@@ -211,7 +210,7 @@
                             style="color:#04aa6d;font-weight: bold;display:block;"
                         >
                             We have received your message and we will get back
-                            at your within 24 hours.
+                            to your within 24 hours.
                         </p>
                         <br />
                         <!-- <p class="text-5xl text-blueGray-400" style="color:#bb171e;font-weight: bold;text-align: center;display:block;">020 8991 2655</p><br/> -->
@@ -519,8 +518,8 @@
                 make: "",
                 model: "",
                 color: "",
-                valTrade: "",
-                valPrivate: "",
+                val1: "",
+                val2: "",
                 ref: "",
                 miles: "",
                 desc: "",
@@ -545,7 +544,8 @@
                         this.model = this.API1Value.yearOfManufacture;
                         this.color = this.API1Value.colour;
                         this.tax = this.API1Value.taxStatus;
-                        this.mot = this.API1Value.motStatus;
+                        if(this.API1Value.motExpiryDate) this.mot = this.API1Value.motExpiryDate;
+                        else this.mot = "Unknown";
                     })
                     .catch((e) => console.log(e));
             },
@@ -569,13 +569,16 @@
                 //   });
 
                 var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
-                    this.API1Value.registrationNumber;
+                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                    this.API1Value.registrationNumber;                
+                // var URL =
+                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
+                //     this.API1Value.registrationNumber;
                 await axios
                     .get(URL)
                     .then((response) => {
                         this.API2Value = response.data;
-                        console.log("API2 Data fetced from the website.");
+                        console.log("API2 Data fetced from the DVLA API website.");
                         // console.log(typeof this.API2Value);
                         // console.log(this.API2Value);
                         // console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
@@ -588,10 +591,12 @@
                         this.$cookies.set("miles", this.miles);
                         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
                         this.$cookies.set("desc", this.desc);
-                        this.valTrade = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
-                        this.$cookies.set("valTrade", this.valTrade);
-                        this.valPrivate = this.API2Value.Response.DataItems.ValuationList.PrivateAverage;
-                        this.$cookies.set("valPrivate", this.valPrivate);
+                        this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
+                        this.$cookies.set("val1", this.val1);
+                        // console.log(this.val1);
+                        this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
+                        this.$cookies.set("val2", this.val2);
+                        // console.log(this.val2);
 
                         // this.$cookies.set(
                         //     "valTrade",

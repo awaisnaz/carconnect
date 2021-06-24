@@ -155,7 +155,7 @@
                                 v-model="town"
                                 ref="town"
                                 required
-                                placeholder="Required"
+                                placeholder="Town Required"
                                 class="town border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                             />
                         </div>
@@ -524,7 +524,7 @@
                     this.$refs.post.value +
                     '", ' +
                     '"CarID": "' +
-                    new Date().getTime() +
+                    new Date().getTime() + 
                     '", ' +
                     '"CarTimestamp": "' +
                     new Date() +
@@ -547,11 +547,11 @@
                     // '"CarMechElecDetails": "' +
                     // this.$refs.mechElectrical.value +
                     // '",' +
-                    '"CarValueTrade": "' +
-                    this.$cookies.get("valTrade") +
+                    '"CarValue1": "' +
+                    this.$cookies.get("val1") +
                     '",' +
-                    '"CarValuePrivate": "' +
-                    this.$cookies.get("valPrivate") +
+                    '"CarValue2": "' +
+                    this.$cookies.get("val2") +
                     '",' +
                     '"CarDescription": "' +
                     this.$cookies.get("desc") +
@@ -622,7 +622,7 @@
 
 
                         axios.post('http://localhost:8080/contact2', {data: this.$data})
-                            .then(console.log("Email Sent!"))
+                            .then(console.log("Email Sent to endpoint from Frontend. But not confirm from backend."))
                             .catch((e) => console.log(e));
 
                     })

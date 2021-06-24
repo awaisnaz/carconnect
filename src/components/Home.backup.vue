@@ -24,20 +24,29 @@
                             class="w-full h-full absolute opacity-100 bg-black"
                         ></span>
                     </div>
-                    <div class="relative mx-auto">
-                        <div class="items-center">
+                    <div class="container relative mx-auto">
+                        <div class="items-center flex flex-wrap">
                             <div
-                                class="w-full px-4 text-center"
+                                class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center"
                             >
-
+                                <div class="pr-10">
                                     <SectionOne id="top" />
                                     <br /><br />
-                                    <form action="/submit" method="post">
+                                    <!-- <h1 class="text-white font-semibold text-5xl">
+                    Your story starts with us.
+                    We Buy Cars.
+                  </h1> -->
+                                    <!-- <p class="mt-4 text-lg text-blueGray-200">
+                    This is a simple example of a Landing Page you can build using
+                    Vue Notus. It features multiple CSS components based on the
+                    Tailwind CSS design system.
+                    Enter your Car Registration Number to start ...
+                  </p> -->
 
-                                            <div
-                                                style="display:grid;grid-template-rows:repeat(auto-fit, minmax(0px, auto));grid-gap:10px;place-content:start;"
-                                            >
-                                                <div>
+                                    <form action="/submit" method="post">
+                                        <div class="relative w-full mb-3 mt-8">
+                                            <div class="container-87">
+                                                <div class="top-87">
                                                     <p
                                                         class="text-white font-semibold text-5xl"
                                                     >
@@ -52,58 +61,52 @@
                                                     </p>
                                                 </div>
                                                 <div
-                                                    style="display:grid;grid-template-columns:repeat(auto-fit, minmax(0px, auto)) ;place-content:center;"
+                                                    class="mid-87a"
+                                                    style=" display: inline-block; padding: 1px; width: 100%;height:100%;"
                                                 >
-                                                    <div>
-                                                        <img src="@/assets/gb_eu.jpg" style="height:80px;"/>
-                                                    </div>
                                                     <div
+                                                        style="display: inline-block; vertical-align: bottom;"
                                                     >
                                                         <input
-                                                            v-model="
-                                                                vehicle
-                                                            "
+                                                            v-model="vehicle"
                                                             required
                                                             name="vehicle"
                                                             type="text"
-                                                            class="inputReg border-0 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                            class="inputReg border-0 px-3 py-3 bg-white text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                             id="name"
-                                                            style="max-width:400px;height:80px;display:inline-block;padding:1px;"
+                                                            style="max-width:400px;min-height:80px;max-height:80px;display:inline-block;"
                                                             placeholder="Enter your reg"
                                                             maxlength="7"
                                                         />
+                                                        <div id="regError" class="regError" style="color:red;white-space:nowrap;overflow:visible;">
+                                                            Reg. No. incorrect.<br/>
+                                                            <router-link
+                                                                to="#contactus"
+                                                                v-scroll-to="'#contactus'"
+                                                                class="whitespace-nowrap"
+                                                                style="text-decoration: underline;cursor:pointer;"
+                                                            >
+                                                                Submit Manually.
+                                                            </router-link>
+                                                        </div>
                                                     </div>
-                                                    <div>
+                                                </div>
+                                                <div class="mid-87b">
+                                                    <div
+                                                        style="display: inline-block; vertical-align: bottom;justify-content:flex-start!important;"
+                                                    >
                                                         <button
                                                             name="category"
                                                             value="vehicle"
                                                             type="submit"
                                                             class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-2 shadow hover:shadow-lg outline-none focus:outline-none mr-1 ml-2 ease-linear transition-all duration-150"
-                                                            style="background-color: #fdcc04; margin-bottom: 0px;max-width:160px;height:80px;font-size:30px;white-space: nowrap;margin-right:0px;"
+                                                            style="background-color: #fdcc04; margin-bottom: 0px;max-width:160px;min-height:80px;max-height:80px;font-size:30px;white-space: nowrap;"
                                                         >
                                                             Go
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <div
-                                                    id="regError"
-                                                    class="regError"
-                                                    style="color:red;white-space:nowrap;overflow:visible;place-items:start;"
-                                                    
-                                                >
-                                                    Reg. No. incorrect.
-                                                    <router-link
-                                                        to="#contactus"
-                                                        v-scroll-to="
-                                                            '#contactus'
-                                                        "
-                                                        class="whitespace-nowrap"
-                                                        style="text-decoration: underline;cursor:pointer;"
-                                                    >
-                                                        Submit Manually.
-                                                    </router-link>
-                                                </div>
-                                                <div>
+                                                <div class="bot-87">
                                                     <p
                                                         class="text-white font-semibold text-5xl"
                                                     >
@@ -119,8 +122,9 @@
                                                     </p>
                                                 </div>
                                             </div>
+                                        </div>
                                     </form>
-
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -290,9 +294,7 @@
 
                         <SectionTwo id="whyus" />
                         <div class="flex flex-wrap items-center mt-32">
-                            <div
-                                class="w-full md:w-5/12 px-4 mr-auto ml-auto mb-10"
-                            >
+                            <div class="w-full md:w-5/12 px-4 mr-auto ml-auto mb-10">
                                 <div
                                     class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white"
                                 >
@@ -352,9 +354,7 @@
                 </router-link> -->
                             </div>
 
-                            <div
-                                class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-10"
-                            >
+                            <div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-10">
                                 <div
                                     class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-500"
                                 >
@@ -433,9 +433,7 @@
                                     src="@/assets/home3b.png"
                                 />
                             </div>
-                            <div
-                                class="w-full md:w-5/12 ml-auto mr-auto px-4 mt-10"
-                            >
+                            <div class="w-full md:w-5/12 ml-auto mr-auto px-4 mt-10">
                                 <div class="md:pr-12">
                                     <div
                                         class="text-emerald-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-emerald-300"
@@ -992,6 +990,8 @@
                                 </p>
                             </div>
                         </div>
+
+                        
                     </div>
                 </section>
                 <br />
@@ -1185,6 +1185,8 @@
             onMounted(() => {
                 new Sticky(".sticky");
 
+
+
                 var n = nod();
 
                 // We disable the submit button if there are errors.
@@ -1336,30 +1338,15 @@
             if (this.APIEmail == "1") {
                 this.emailSubmit();
             }
-            if (this.regError == "true") this.regError = true;
-            if (this.regError == "false") this.regError = false;
-            if (this.regError == "undefined") this.regError = false;
-            if (this.regError == "null") this.regError = false;
-            if (this.regError == null || this.regError == undefined)
-                this.regError = false;
+            if(this.regError == "true") this.regError = true;
+            if(this.regError == "false") this.regError = false;
+            if(this.regError == "undefined") this.regError = false;
+            if(this.regError == "null") this.regError = false;
+            if(this.regError == null || this.regError == undefined) this.regError = false;
             // console.log(this.regError);
             // console.log(typeof this.regError);
-            if (this.regError == false) {
-                this.regError = false;
-                this.$cookies.set("regError", false);
-                document.getElementById("regError").style.display = "none";
-                document.querySelectorAll(".regError").forEach(function(el) {
-                    el.style.display = "none";
-                });
-            }
-            if (this.regError == true) {
-                this.regError = false;
-                this.$cookies.set("regError", false);
-                document.getElementById("regError").style.display = "block";
-                document.querySelectorAll(".regError").forEach(function(el) {
-                    el.style.display = "block";
-                });
-            }
+            if(this.regError == false) {this.regError = false;this.$cookies.set("regError",false);document.getElementById("regError").style.display = "none";document.querySelectorAll('.regError').forEach(function(el) {el.style.display='none';});}
+            if(this.regError == true) {this.regError = false;this.$cookies.set("regError",false);document.getElementById("regError").style.display = "block";document.querySelectorAll('.regError').forEach(function(el) {el.style.display='block';});}
             // console.log(this.regError);
         },
 
@@ -1380,32 +1367,40 @@
 </script>
 
 <style scoped>
-    /* .container-87 {
+    .container-87 {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
         grid-template-rows: auto auto auto;
+        /* grid-gap: 1em 1em; */
         place-items: end end;
         place-content: center;
         grid-auto-flow: row;
     }
 
     .top-87 {
-        grid-area: 1 / 1 / 2 / 2;
+        grid-area: 1 / 1 / 2 / 3;
         place-self: end center;
         margin-bottom: 30px;
     }
 
-    .mid-87 {
+    .mid-87a {
         grid-area: 2 / 1 / 3 / 2;
         place-self: end end;
         min-height: 80px;
         max-height: 120px;
     }
 
+    .mid-87b {
+        grid-area: 2 / 2 / 3 / 3;
+        place-self: start start;
+        min-height: 80px;
+        max-height: 120px;
+    }
+
     .bot-87 {
-        grid-area: 3 / 1 / 4 / 2;
+        grid-area: 3 / 1 / 4 / 3;
         place-self: start center;
-    } */
+    }
 
     .container-88 {
         display: grid;
@@ -1423,17 +1418,25 @@
         place-self: center center;
     }
 
-    @media (max-width: 320px) {
-  .inputReg {
+    .inputReg {
+        background-image: url("@/assets/gb_eu.jpg");
         background-repeat: no-repeat;
         background-size: auto 100%;
+        border: 2px solid #202020;
+        border-radius: 3px;
         display: inline-block;
+        font-family: Helvetica Neue, Impact, Haettenschweiler, Arial Narrow Bold,
+            sans-serif;
         height: 100%;
         width: 100%;
+        line-height: 2;
         outline: none;
         text-align: center;
         text-transform: uppercase;
-        font-size: 18px;
+        /* padding: 0 0 0 10px; */
+        font-size: 25px !important;
+        font-weight: 500;
+        /* -webkit-writing-mode: horizontal-tb !important; */
         text-rendering: auto;
         color: -internal-light-dark(black, white);
         letter-spacing: normal;
@@ -1447,37 +1450,10 @@
         -webkit-rtl-ordering: logical;
         cursor: text;
         margin: 0em;
+        font: 400 13.3333px Arial;
         caret-color: #000;
-  }
-}
-
-    @media (min-width: 321px) {
-  .inputReg {
-        background-repeat: no-repeat;
-        background-size: auto 100%;
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        outline: none;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 25px;
-        text-rendering: auto;
-        color: -internal-light-dark(black, white);
-        letter-spacing: normal;
-        word-spacing: normal;
-        text-indent: 0px;
-        text-shadow: none;
-        background-color: -internal-light-dark(
-            rgb(255, 255, 255),
-            rgb(59, 59, 59)
-        );
-        -webkit-rtl-ordering: logical;
-        cursor: text;
-        margin: 0em;
-        caret-color: #000;
-  }
-}
+        font: 400 13.3333px Arial;
+    }
 
     .sticky {
         position: -webkit-sticky;
@@ -1503,4 +1479,6 @@
     .nod-error-message {
         color: #c00;
     }
+
+
 </style>

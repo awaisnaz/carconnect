@@ -188,9 +188,26 @@
 
             function APIClientReduce(res){
                 var res2 = [];
-                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarDescription"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValueTrade"]} - ${res["CarValuePrivate"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
-                // console.log(res2);
+                res2 = [ `${res["CarRegistrationNumber"]}, ${res["CarDescription"]}, ${res["CarModel"]}, ${res["CarFuelType"]}, £ ${res["CarValue1"]} - ${res["CarValue2"]}`, `${res["ClientName"]}, ${res["ClientAddress"]}, ${res["ClientMobile"]}`, `${res["CarID"]}`];
+                // console.log(res2); 
                 return res2;
+            }
+
+            function APIClientOriginal(res){
+                // var res3 = [];
+                // res3 = [ res["ClientName"], res["ClientEmail"], res["ClientMobile"], res["ClientAddress"], res["ClientTown"], res["CarCounty"], res["ClientPostCode"], res["CarMileage"], res["CarScratchDents"], res["CarWarnLights"], res["CarOwnershipTime"], res["CarDetails"]];
+                delete res.CarValue1;
+                delete res.CarValue2;
+                delete res.CarFuelType;
+                delete res.CarTimestamp;
+                delete res.CarMake;
+                delete res.CarID;
+                delete res.CarModel;
+                delete res.CarMileage;
+                delete res.CarRegistrationNumber;
+                delete res.CarDescription;
+                // console.log(res2); 
+                return res;
             }
 
             var getData = () => {
@@ -283,7 +300,13 @@
 
                             APIClientSingle("APIClient", "CarID",temp5[0])
                                 .then((res) => {
-                                    var temp2 = jsonToTableHtmlString(res[0], {
+                                    var res3 = APIClientOriginal(res[0]);
+                                    // console.log(res3);
+                                    // res3 = [res3];
+                                    // console.log(res3);
+                                    // let index = Object.keys(res3).sort();
+                                    // console.log(res3);
+                                    var temp2 = jsonToTableHtmlString(res3, {
                                         tableStyle:
                                             "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                                         thStyle: "color:white; background-color:#606060;",
