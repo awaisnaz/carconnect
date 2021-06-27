@@ -1,36 +1,13 @@
-MAIN COMMANDS - START SERVER AND PUSH TO GITHUB
+MAIN COMMAND
 git clone https://github.com/awaisnazir21/car-connect.git
-npm run all  // it is combination of build, lint, backend server start as in package.json
-npm run git // it is combination of git add/commit/push as in package.json
+npm install 
+npm run all
+npm run git
 
-INITIALIZATION - BASIC COMMANDS
-npm install  
-npm run serve  
-npm run build  
-npm run lint  
-npm run start  
-  
-INITIALIZATION - GIT COMMANDS
-git init    
-git add .  
-git commit -m "main"   
-git branch  
-git push -u origin main  
 git remote add origin https://github.com/awaisnazir21/car-connect.git  
 git remote add origin https://github.com/teknikality-central/carconnect.git  
-<!-- git checkout -b 1.10   -->  
-<!-- git branch -M main     -->  
-<!-- git remote remove origin   -->  
-<!-- git push -u origin main:main   -->  
-<!-- git checkout main   -->  
-<!-- git branch   -->  
-<!-- git reset --hard 1.14   -->  
-<!-- git push --force origin main   -->  
   
-REMAINING FEATURES ADDITION IN VERSION1  
-
-  
-NEW FEATURES ADDITION IN VERSION 2  
+FUTURE WORKS 
 Sorted tables in /dashboard  
 Dashboard API3 call is not working for new registration number.  
 Documentation at README.md.   
