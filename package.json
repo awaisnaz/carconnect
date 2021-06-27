@@ -14,7 +14,7 @@
     "lint": "vue-cli-service lint",  
     "start": "node server.js",  
     "all": "vue-cli-service build && gulp licenses && vue-cli-service lint && node server.js",  
-    "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main && git push -u origin3 main",
+    "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve"
   },
