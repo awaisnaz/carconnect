@@ -111,7 +111,6 @@
             </h3>
         </div>
         <br />
-        <form action="/API3" method="post" @submit.prevent="API3">
             <div
                 id="container-api3"
                 style=" display: table; margin: 4px; padding: 1px;"
@@ -144,7 +143,6 @@
             <div>
                 <div id="API3"></div>
             </div>
-        </form>
         </div>
     </div>
 </template>
@@ -184,6 +182,23 @@
                 document.getElementById("container-api3").style.display =
                     "none";
                 document.getElementById("API3").style.display = "block";
+            }
+
+            function Camel2Sentence (camelCase) {
+                /* var text = 'dateOfLastV5CIssued'; */
+                var result = camelCase.replace( /([A-Z])/g, " $1" );
+                var sentenceCase = result.charAt(0).toUpperCase() + result.slice(1);
+                return sentenceCase;
+            }
+
+            function ObjectModified (obj) {
+                for(var i in obj){
+                /* console.log(i, person[i]); */
+                var sentenceCase = Camel2Sentence(i);
+                obj[sentenceCase] = obj[i];
+                delete obj[i];
+                }
+                return obj;
             }
 
             function APIClientReduce(res){
@@ -306,6 +321,8 @@
                                     // console.log(res3);
                                     // let index = Object.keys(res3).sort();
                                     // console.log(res3);
+                                    res3 = ObjectModified(res3);
+                                    // console.log(res3);
                                     var temp2 = jsonToTableHtmlString(res3, {
                                         tableStyle:
                                             "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
@@ -395,7 +412,7 @@
                         var data = snapshot.docs.map((doc) => doc.data());
                         // JSONData(data, handle);
                         // console.log(data);
-
+                        data[0] = ObjectModified(data[0]);
                         var temp2 = jsonToTableHtmlString(data[0], {
                             tableStyle:
                                 "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
@@ -423,7 +440,9 @@
                         var data = snapshot.docs.map((doc) => doc.data());
                         // console.log(typeof data);
                         // console.log(data[0].Response.DataItems);
-
+                        // console.log(data[0].Response.DataItems.ValuationList);
+                        data[0].Response.DataItems.ValuationList = ObjectModified(data[0].Response.DataItems.ValuationList);
+                        data[0].Response.DataItems = ObjectModified(data[0].Response.DataItems);
                         var temp2 = jsonToTableHtmlString(data[0].Response.DataItems, {
                             tableStyle:
                                 "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
@@ -444,35 +463,48 @@
 
 
 
-            var API3 = async (reg, handle) => {
+            var API3 = (reg, handle) => {
                 reg = reg.toString();
-                await firebase
+                // firebase.goOffline();
+                // firebase.goOnline();
+                firebase
                     .firestore()
                     .collection("API3")
                     .where(firebase.firestore.FieldPath.documentId(), "==", reg)
                     .get()
                     .then((snapshot) => {
                         var data = snapshot.docs.map((doc) => doc.data());
-                        if (!(data[0].length === 0)){
+                        // console.log(data);
+                        // console.log(data.length);
+                        // console.log(!(Object.keys(data[0]).length === 0 && data[0].constructor === Object));
+                        if (data.length >= 1){
+                            // console.log("hi");
                             console.log("API3 Data fetched from Firestore.");
+                            // console.log(data[0].FinanceRecordList[0]);
+                            // console.log(data[0].PlateChangeList[0]);
+                            // data[0].FinanceRecordList[0] = ObjectModified(data[0].FinanceRecordList[0]);
+                            // data[0].PlateChangeList[0] = ObjectModified(data[0].PlateChangeList[0]);
+                            data[0] = ObjectModified(data[0]);
                             var temp2 = jsonToTableHtmlString(data[0], {
                                 tableStyle:
                                     "color:white; background-color:#505050;table-layout:fixed;width:100%;word-wrap:break-word;",
                                 thStyle: "color:white; background-color:#606060;",
                                 tdKeyStyle: "background-color:#606060;",
                             });
-                            document.getElementById("API3").innerHTML = temp2;
+                            // document.getElementById("API3").innerHTML = temp2;
                             document.getElementById(handle).innerHTML = temp2;
-                            return data;
+                            return;
                         }
-                        else {
+                        if (data.length == 0) {
+                            // console.log("hi2");
                             var URL =
-                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
+                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
                                 reg;
                             axios
                                 .get(URL)
                                 .then((response) => {
                                     API3Output.value = response.data.Response.DataItems;
+                                    console.log(API3Output.value);
 
                                     var temp2 = jsonToTableHtmlString(API3Output.value, {
                                         tableStyle:
@@ -489,9 +521,14 @@
                                         .then(
                                             console.log("API3 Data entered into Firestore.")
                                         )
-                                        .catch((e) => console.log(e));
+                                        .catch((e) => {
+                                            console.log(e);
+                                            });
                                 })
-                                .catch((e) => console.log(e));
+                                .catch((e) => {
+                                    document.getElementById(handle).innerHTML = "No Results";
+                                    console.log(e)
+                                });
                         }
                     })
                     .catch((e) => {

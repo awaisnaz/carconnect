@@ -8,7 +8,9 @@ git remote add origin https://github.com/awaisnazir21/car-connect.git
 git remote add origin https://github.com/teknikality-central/carconnect.git  
   
 FUTURE WORKS 
-Sorted tables in /dashboard  
+/dashboard: proceed:yes, not proceed:1.
+/dashboard: sorted tables  
+/dashboard: make camelcase to normal spaced
 Dashboard API3 call is not working for new registration number.  
 Documentation at README.md.   
 Admin Page: Comments functionality.    

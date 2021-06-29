@@ -2,7 +2,7 @@ var axios = require('axios');
 
 module.exports = function API1(reg) {
 
-    return new Promise((res, rej) => {
+    return new Promise((res, rej) => { 
 
         var data = JSON.stringify({ registrationNumber: `${reg}` });
 

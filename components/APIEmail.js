@@ -5,7 +5,7 @@ module.exports = function email(receiver_email, message) {
 	return new Promise((res, rej) => {
 
 		const nodemailer = require("nodemailer");
-		process.env.sender_email="info@carconnect.uk";
+		process.env.sender_email="info@carconnect.uk"; 
 		process.env.sender_password="CarConnect@202!";
 		// const sender_email = "awais.nazir.ch2@gmail.com";
 		// create reusable transporter object using the default SMTP transport
