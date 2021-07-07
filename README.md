@@ -9,6 +9,7 @@ git remote add origin https://github.com/teknikality-central/carconnect.git
   
 FUTURE WORKS  
 Move API keys to backend.
+Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.
 /dashboard: sorted tables  
 /dashboard: API3 call is not working for new registration number.   
 /dashboard: Comments functionality.    
