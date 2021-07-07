@@ -21,7 +21,7 @@ import Navbar from "@/components/AuthNavbar.vue";
 import FooterSmall from "@/components/FooterSmall.vue";
 import Register2 from "@/components/Register2.vue";
 
-import registerBg2 from "@/assets/register_bg_2.png";
+// import registerBg2 from "@/assets/register_bg_2.png";
 
 export default {
   setup(){
@@ -31,7 +31,7 @@ export default {
 
   data() {
     return {
-      registerBg2,
+      // registerBg2,
     };
   },
   components: {

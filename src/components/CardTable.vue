@@ -147,19 +147,24 @@
     </div>
 </template>
 <script>
-    import bootstrap from "@/assets/bootstrap.jpg";
-    import angular from "@/assets/angular.jpg";
-    import sketch from "@/assets/sketch.jpg";
-    import react from "@/assets/react.jpg";
-    import vue from "@/assets/react.jpg";
+    // import bootstrap from "@/assets/bootstrap.jpg";
+    // import angular from "@/assets/angular.jpg";
+    // import sketch from "@/assets/sketch.jpg";
+    // import react from "@/assets/react.jpg";
+    // import vue from "@/assets/react.jpg";
 
-    import team1 from "@/assets/team-1-800x800.jpg";
-    import team2 from "@/assets/team-2-800x800.jpg";
-    import team3 from "@/assets/team-3-800x800.jpg";
-    import team4 from "@/assets/team-4-470x470.png";
+    // import team1 from "@/assets/team-1-800x800.jpg";
+    // import team2 from "@/assets/team-2-800x800.jpg";
+    // import team3 from "@/assets/team-3-800x800.jpg";
+    // import team4 from "@/assets/team-4-470x470.png";
 
     import { ref } from "vue";
-    import firebase from "firebase";
+
+    // import firebase from "firebase";
+    import firebase from 'firebase/app';
+    import 'firebase/auth';
+    import 'firebase/firestore';
+
     import { onMounted } from "vue";
     import axios from "axios";
 
@@ -475,9 +480,15 @@
                     .then((snapshot) => {
                         var data = snapshot.docs.map((doc) => doc.data());
                         // console.log(data);
+                        // console.log(data.length == 0);
+                        // console.log(Object.keys(data[0]).length >= 1);
+                        // console.log(Object.keys(data[0]).length == 0);
+                        // console.log(data[0].constructor === Object);
+                        
+
                         // console.log(data.length);
                         // console.log(!(Object.keys(data[0]).length === 0 && data[0].constructor === Object));
-                        if (data.length >= 1){
+                        if (Object.keys(data[0]).length >= 1) {
                             // console.log("hi");
                             console.log("API3 Data fetched from Firestore.");
                             // console.log(data[0].FinanceRecordList[0]);
@@ -495,38 +506,42 @@
                             document.getElementById(handle).innerHTML = temp2;
                             return;
                         }
-                        if (data.length == 0) {
+                        else {
+                            // document.getElementById(handle).innerHTML = "<p style='color:white;'>API3 not available</p>";
                             // console.log("hi2");
-                            var URL =
-                                "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-                                reg;
+                            // var URL="https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM="+reg;
+                            var URL="https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM="+reg;
                             axios
                                 .get(URL)
                                 .then((response) => {
                                     API3Output.value = response.data.Response.DataItems;
-                                    console.log(API3Output.value);
-
-                                    var temp2 = jsonToTableHtmlString(API3Output.value, {
+                                    // console.log(response.data.Response.DataItems);
+                                    if(Object.keys(API3Output.value).length >= 1){
+                                        var temp2 = jsonToTableHtmlString(API3Output.value, {
                                         tableStyle:
                                             "color:white; background-color:#505050;overflow:auto;",
                                         thStyle: "color:white; background-color:#606060;",
                                         tdKeyStyle: "background-color:#606060;",
-                                    });
-                                    document.getElementById(handle).innerHTML = temp2;
+                                        });
+                                        document.getElementById(handle).innerHTML = temp2;
 
-                                    const db = firebase.firestore();
-                                    db.collection("API3")
-                                        .doc(reg)
-                                        .set(API3Output.value)
-                                        .then(
-                                            console.log("API3 Data entered into Firestore.")
-                                        )
-                                        .catch((e) => {
-                                            console.log(e);
-                                            });
+                                        const db = firebase.firestore();
+                                        db.collection("API3")
+                                            .doc(reg)
+                                            .set(API3Output.value)
+                                            .then(
+                                                console.log("API3 Data entered into Firestore.")
+                                            )
+                                            .catch((e) => {
+                                                console.log(e);
+                                                });
+                                    }
+                                else {
+                                    document.getElementById(handle).innerHTML = "<p style='color:white;'>No Results</p>";
+                                }
                                 })
                                 .catch((e) => {
-                                    document.getElementById(handle).innerHTML = "No Results";
+                                    document.getElementById(handle).innerHTML = "<p style='color:white;'>No Results</p>";
                                     console.log(e)
                                 });
                         }
@@ -595,15 +610,15 @@
 
         data() {
             return {
-                bootstrap,
-                angular,
-                sketch,
-                react,
-                vue,
-                team1,
-                team2,
-                team3,
-                team4,
+                // bootstrap,
+                // angular,
+                // sketch,
+                // react,
+                // vue,
+                // team1,
+                // team2,
+                // team3,
+                // team4,
             };
         },
         components: {},

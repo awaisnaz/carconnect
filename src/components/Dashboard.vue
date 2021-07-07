@@ -174,15 +174,18 @@ import Navbar from "@/components/AuthNavbar.vue";
 import FooterComponent from "@/components/Footer.vue";
 
 // import team2 from "@/assets/img/team-2-800x800.jpg";
-import team2 from "@/assets/logo_grey_subtitle_car_only.png";
+import team2 from "@/assets/logo2.png";
 import CardTable from "@/components/CardTable.vue";
 // import Tabs from "@/components/Tabs.vue";
 
 import {onBeforeMount } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import firebase from "firebase"; 
 
+// import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 export default {
   setup () {

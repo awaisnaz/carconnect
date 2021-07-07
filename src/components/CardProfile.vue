@@ -502,10 +502,14 @@
 </template>
 <script>
     // import team2 from "@/assets/img/team-2-800x800.jpg";
-    import team2 from "@/assets/logo_grey_subtitle_car_only.png";
+    import team2 from "@/assets/logo2.png";
     // import Vehicle from "@/components/Cards/Vehicle.vue";
 
-    import firebase from "firebase";
+    // import firebase from "firebase";
+    import firebase from 'firebase/app';
+    import 'firebase/auth';
+    import 'firebase/firestore';
+
     import axios from "axios";
 
     export default {

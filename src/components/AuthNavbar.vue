@@ -21,7 +21,7 @@
                             <!-- <img src="../assets/logo_grey_subtitle-removebg-preview.png" style="float: left; width: 30vw;  height: auto;"> -->
                             <!-- <img src="../assets/logo-black-red-yellow-cropped.jpg" style="float: left; width: 50%;  height: auto;"> -->
                             <img
-                                src="../assets/logo_19mar.png"
+                                src="../assets/logo.png"
                                 style="float: left;height:auto;min-width:100px;max-width:150px;"
                             />
                             <!-- <img src="../assets/logo_prev3.jpeg" style="float: left; width: 13vw;  height: auto;"> -->
@@ -302,7 +302,7 @@
     } */
 
     .inputReg {
-        background-image: url("@/assets/gb_eu.jpg");
+        background-image: url("@/assets/gb_eu.png");
         background-repeat: no-repeat;
         background-size: auto 100%;
         border: 2px solid #202020;

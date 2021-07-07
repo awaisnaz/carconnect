@@ -55,7 +55,7 @@
                                                     style="display:grid;grid-template-columns:repeat(auto-fit, minmax(0px, auto)) ;place-content:center;"
                                                 >
                                                     <div>
-                                                        <img src="@/assets/gb_eu.jpg" style="height:80px;"/>
+                                                        <img src="@/assets/gb_eu.png" style="height:80px;"/>
                                                     </div>
                                                     <div
                                                     >
@@ -360,7 +360,7 @@
                                 >
                                     <img
                                         alt="..."
-                                        src="@/assets/home2b.png"
+                                        src="@/assets/home1.png"
                                         class="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote class="relative p-8 mb-4">
@@ -430,7 +430,7 @@
                                 <img
                                     alt="..."
                                     class="max-w-full rounded-lg shadow-lg"
-                                    src="@/assets/home3b.png"
+                                    src="@/assets/home2.png"
                                 />
                             </div>
                             <div
@@ -1154,12 +1154,16 @@
     import Accordion from "@/components/Accordion.vue";
     // import FAQ from "@/components/FAQ.vue";
 
-    import team1 from "@/assets/team-1-800x800.jpg";
-    import team2 from "@/assets/team-2-800x800.jpg";
-    import team3 from "@/assets/team-3-800x800.jpg";
-    import team4 from "@/assets/team-4-470x470.png";
+    // import team1 from "@/assets/team-1-800x800.jpg";
+    // import team2 from "@/assets/team-2-800x800.jpg";
+    // import team3 from "@/assets/team-3-800x800.jpg";
+    // import team4 from "@/assets/team-4-470x470.png";
 
-    import firebase from "firebase";
+    // import firebase from "firebase";
+    import firebase from 'firebase/app';
+    import 'firebase/auth';
+    import 'firebase/firestore';
+
     import { ref } from "vue";
 
     // import Stickyfill from "stickyfilljs";
@@ -1304,10 +1308,10 @@
 
         data() {
             return {
-                team1,
-                team2,
-                team3,
-                team4,
+                // team1,
+                // team2,
+                // team3,
+                // team4,
                 APIEmail: this.$cookies.get("APIEmail"),
                 formSent: "",
                 regError: this.$cookies.get("regError"),

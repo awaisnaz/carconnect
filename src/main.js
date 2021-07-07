@@ -5,8 +5,13 @@ import VueCookies from 'vue3-cookies';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import firebase from "firebase";
-import "firebase/firestore";
+// import firebase from "firebase";
+// import "firebase/firestore";
+// import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 const firebaseConfig = {
   apiKey: "AIzaSyB_zrkBKkBXVN6d4Cx4y0iSM_Shc39o-PU",
   authDomain: "car-connect-e8da5.firebaseapp.com",

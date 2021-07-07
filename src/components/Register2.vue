@@ -121,10 +121,14 @@
   </div>
 </template>
 <script>
-import github from "@/assets/github.svg";
-import google from "@/assets/google.svg";
+// import github from "@/assets/github.svg";
+// import google from "@/assets/google.svg";
 
-import firebase from "firebase";
+// import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import {onBeforeMount } from "vue";
@@ -162,8 +166,8 @@ export default {
   
   data() {
     return {
-      github,
-      google,
+      // github,
+      // google,
     };
   },
 };

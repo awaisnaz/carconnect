@@ -374,7 +374,11 @@
 </template>
 
 <script>
-    import firebase from "firebase";
+    // import firebase from "firebase";
+    import firebase from 'firebase/app';
+    import 'firebase/auth';
+    import 'firebase/firestore';
+
     import axios from "axios";
     import nod from "nod-validate";
     import { onMounted } from "vue";
