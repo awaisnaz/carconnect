@@ -9,7 +9,7 @@
     "node": "16.0.0"
   },
   "scripts": {
-    "install": "git clone https://github.com/awaisnazir21/car-connect.git && rm -rf node_modules/ && rm -rf package-lock.json && npm install && tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css && npm run serve",
+    "start": "git clone https://github.com/awaisnazir21/car-connect.git && rm -rf node_modules/ && rm -rf package-lock.json && npm install && tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css && npm run serve",
     "serve": "vue-cli-service build --report && vue-cli-service lint && node server.js",
     "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main"
   },
