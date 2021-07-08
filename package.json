@@ -9,15 +9,9 @@
     "node": "16.0.0"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && gulp licenses",
-    "lint": "vue-cli-service lint",
-    "start": "node server.js",
-    "all": "vue-cli-service build --report && gulp licenses && vue-cli-service lint && node server.js",
-    "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main",
-    "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve",
-    "test": "TEST=1 && npm run all" 
+    "install": "git clone https://github.com/awaisnazir21/car-connect.git && rm -rf node_modules/ && rm -rf package-lock.json && npm install && tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css && npm run serve",
+    "serve": "vue-cli-service build --report && vue-cli-service lint && node server.js",
+    "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",

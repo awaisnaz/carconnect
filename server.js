@@ -1,5 +1,7 @@
 var API1 = require('./components/API1.js');
 var APIEmail = require('./components/APIEmail.js');
+// var config = require('./config.js');
+// console.log(config);
 
 const express = require("express");
 const path = require("path");

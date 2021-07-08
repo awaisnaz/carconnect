@@ -23,3 +23,6 @@ yarn-error.log*
 *.sw?
 
 commit.sh
+
+# project config files
+config.js

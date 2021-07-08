@@ -1,30 +1,8 @@
-MAIN COMMAND  
-git clone https://github.com/awaisnazir21/car-connect.git  
-npm install  
-npm run all  
+MAIN COMMANDS  
+npm run install  
+npm run serve  
 npm run git  
   
-git remote add origin https://github.com/awaisnazir21/car-connect.git  
-git remote add origin https://github.com/teknikality-central/carconnect.git  
-  
-FUTURE WORKS  
-Move API keys to backend.
-Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.
-/dashboard: sorted tables  
-/dashboard: API3 call is not working for new registration number.   
-/dashboard: Comments functionality.    
-  
-EMAIL CREDENTIALS  
-carconnect.central@gmail.com, Cardata@202!  
-  
-API2/3 CREDENTIALS  
-API2/3 test key: 87715f2c-f6a3-4f77-8527-94511f3ee5a4  
-API2/3 live key: fa6b2f50-90f0-4f58-af30-585e45457b2a  
-  
-APIs    
-API1: https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles   
-API2: var URL = "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM="+carValuation.value;    
-API3: var URL = "https://uk1.ukvehicledata.co.uk/api/datapackage/VdiCheckFull?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM="+carFullVDICheck.value;    
   
 FOLDER STRUCTURE  
 vue.config.js > configureWebpack.devServer.proxy // connects backend and frontend through proxy.  
@@ -54,4 +32,14 @@ src/Details.vue, Details2.vue, CardSettings.vue, CardProfile.vue // Details page
 src/Dashboard.vue, CardTable.vue // Admin Dashboard component.  
 src/Register.vue, Register2.vue // It is implemented fully, and stores useraccounts in firebase. But currently, it redirects to /login page and thus this page is no longer active. New users must get registered through firebase admin panel.  
 src/Login.vue, Login2.vue // For login into Admin Dashboard panel at /dashboard page.  
-
+  
+  
+FUTURE WORKS  
+Move API keys to backend.  
+Implement config.js  
+Implement GunDB. Replace Firebase.  
+Implement 30 minutes monitoring to check server uptime.  
+Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.  
+/dashboard: sorted tables   
+/dashboard: API3 call is not working for new registration number.   
+/dashboard: Comments functionality.    
