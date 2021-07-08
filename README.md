@@ -28,7 +28,7 @@ FOLDER STRUCTURE
 ./src/Login.vue, Login2.vue // For login into Admin Dashboard panel at /dashboard page.  
   
   
-FUTURE WORKS  
+FUTURE WORKS   
 Move API keys to backend.  
 Implement config.js  
 Implement GunDB. Replace Firebase.  
