@@ -11,7 +11,7 @@
   "scripts": {
     "init": "git clone https://github.com/awaisnazir21/car-connect.git && rm -rf node_modules/ && rm -rf package-lock.json && npm install && tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css && npm run serve",
     "dev": "vue-cli-service build --report && vue-cli-service lint",
-    "start": "vue-cli-service build --report && vue-cli-service lint && node server.js",
+    "start": "node server.js",
     "git": "git add . && git commit -m 'main' && git push -u origin main && git push -u origin2 main",
     "git-version": "git add . && git commit -m '1.18' && git checkout -b 1.18 && git push -u origin 1.18 && git push -u origin2 1.18"
   },
