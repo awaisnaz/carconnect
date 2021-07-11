@@ -1,1 +1,1 @@
-web: node server.js
+web: vue-cli-service build --report && vue-cli-service lint && node server.js
