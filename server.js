@@ -1,7 +1,8 @@
 var API1 = require('./components/API1.js');
 var APIEmail = require('./components/APIEmail.js');
-// var config = require('./config.js');
-// console.log(config);
+var config = require('./config.js');
+// console.log(config.api2.live);
+// console.log(config.api3.live);
 
 const express = require("express");
 const path = require("path");
@@ -80,13 +81,17 @@ app.post('/contact2', upload.array(), (req,res)=>{
 })
 
 app.get("/api2", function (req, res) {
-
-	// console.log(req.query.axiosRegNo);
-
-	axios.get("https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" + req.query.axiosRegNo)
+	axios.get(config.api2.live + req.query.axiosRegNo)
 		.then((response) => {
-			// console.log(response);
-			res.json(response);
+			res.json(response.data);
+		})
+		.catch((e) => console.log(e));
+});
+
+app.get("/api3", function (req, res) {
+	axios.get(config.api3.live + req.query.axiosRegNo)
+		.then((response) => {
+			res.json(response.data);
 		})
 		.catch((e) => console.log(e));
 });

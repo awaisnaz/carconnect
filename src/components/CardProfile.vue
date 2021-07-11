@@ -563,18 +563,9 @@
                         axiosRegNo: this.API1Value.registrationNumber
                     }
                 })
-                    .then((response) => {console.log("hi"); console.log(response)})
-                    .catch((e) => console.log(e));
-
-
-                var URL =
-                    "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
-                    this.API1Value.registrationNumber;
-                await axios
-                    .get(URL)
                     .then((response) => {
-
-                        console.log("hi2"); console.log(response);
+                        // console.log("hi"); 
+                        // console.log(response.data);
 
                         this.API2Value = response.data;
                         console.log("API2 Data fetced from the DVLA API website.");
@@ -599,8 +590,46 @@
                                 console.log("API2 Data entered into Firestore.")
                             )
                             .catch((e) => console.log(e));
-                    })
+
+
+                        })
                     .catch((e) => console.log(e));
+
+
+                // var URL =
+                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
+                //     this.API1Value.registrationNumber;
+                // await axios
+                //     .get(URL)
+                //     .then((response) => {
+
+                //         console.log("hi2"); console.log(response);
+
+                //         this.API2Value = response.data;
+                //         console.log("API2 Data fetced from the DVLA API website.");
+                //         this.ref = `${
+                //             this.API2Value.Response.DataItems.Vrm
+                //         }-${new Date().getFullYear()}`;
+                //         this.$cookies.set("ref", this.ref);
+                //         this.miles = this.API2Value.Response.DataItems.Mileage;
+                //         this.$cookies.set("miles", this.miles);
+                //         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
+                //         this.$cookies.set("desc", this.desc);
+                //         this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
+                //         this.$cookies.set("val1", this.val1);
+                //         this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
+                //         this.$cookies.set("val2", this.val2);
+
+                //         const db = firebase.firestore();
+                //         db.collection("API2")
+                //             .doc(this.API1Value.registrationNumber)
+                //             .set(this.API2Value)
+                //             .then(
+                //                 console.log("API2 Data entered into Firestore.")
+                //             )
+                //             .catch((e) => console.log(e));
+                //     })
+                //     .catch((e) => console.log(e));
             },
 
             async proceed() {

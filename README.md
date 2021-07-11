@@ -29,9 +29,8 @@ FOLDER STRUCTURE
   
   
 FUTURE WORKS   
-Make stable v1.16, upload it to heroku, then transfer its ownership.
-Move API keys to backend.  
-Implement config.js  
+Make stable v1.16, upload it to heroku, then transfer its ownership.  
+
 Implement GunDB. Replace Firebase.  
 Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.  
 /dashboard: sorted tables   
