@@ -29,9 +29,9 @@ FOLDER STRUCTURE
   
   
 FUTURE WORKS   
-Setup process.env variables in heroku.
-Implement GunDB. Replace Firebase.  
-Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.  
-/dashboard: sorted tables   
-/dashboard: API3 call is not working for new registration number. Key is not live.  
-/dashboard: Comments functionality.    
+Setup process.env variables in heroku.  
+Implement GunDB. Replace Firebase.   
+Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.   
+/dashboard: sorted tables    
+/dashboard: API3 call is not working for new registration number. Key is not live.   
+/dashboard: Comments functionality.     
