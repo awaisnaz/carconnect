@@ -29,11 +29,11 @@ FOLDER STRUCTURE
   
   
 FUTURE WORKS   
+Make stable v1.16, upload it to heroku, then transfer its ownership.
 Move API keys to backend.  
 Implement config.js  
 Implement GunDB. Replace Firebase.  
-Implement 30 minutes monitoring to check server uptime.  
 Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.  
 /dashboard: sorted tables   
-/dashboard: API3 call is not working for new registration number.   
+/dashboard: API3 call is not working for new registration number. Key is not live.  
 /dashboard: Comments functionality.    

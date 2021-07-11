@@ -555,38 +555,29 @@
             },
 
             async API2() {
-                // var match = JSON.parse(`{Vrm: ${API2Input.value}}`);
-                // console.log(match);
-                // var db = firebase.firestore();
-                // db.collection('API2').where("API2Input.value", "array-contains", match).get().then(snapshot => {
-                //     const data = snapshot.val();
-                //     data.forEach(doc => {
-                //       if (doc.exists) {
-                //         console.log("exist");
-                //       } else {
-                //         console.log("not exist");
-                //       }
-                //     });
-                //   })
-                //   .catch(error => {
-                //     console.log(error);
-                //   });
+                
+                // console.log(this.API1Value.registrationNumber);
 
-                // var URL =
-                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-                //     this.API1Value.registrationNumber;                
+                axios.get('/api2', {
+                    params: {
+                        axiosRegNo: this.API1Value.registrationNumber
+                    }
+                })
+                    .then((response) => {console.log("hi"); console.log(response)})
+                    .catch((e) => console.log(e));
+
+
                 var URL =
                     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=fa6b2f50-90f0-4f58-af30-585e45457b2a&key_VRM=" +
                     this.API1Value.registrationNumber;
                 await axios
                     .get(URL)
                     .then((response) => {
+
+                        console.log("hi2"); console.log(response);
+
                         this.API2Value = response.data;
                         console.log("API2 Data fetced from the DVLA API website.");
-                        // console.log(typeof this.API2Value);
-                        // console.log(this.API2Value);
-                        // console.log(this.API2Value.Response.DataItems.ValuationList.TradeAverage);
-
                         this.ref = `${
                             this.API2Value.Response.DataItems.Vrm
                         }-${new Date().getFullYear()}`;
@@ -597,37 +588,11 @@
                         this.$cookies.set("desc", this.desc);
                         this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
                         this.$cookies.set("val1", this.val1);
-                        // console.log(this.val1);
                         this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
                         this.$cookies.set("val2", this.val2);
-                        // console.log(this.val2);
-
-                        // this.$cookies.set(
-                        //     "valTrade",
-                        //     this.API2Value.Response.DataItems.ValuationList
-                        //         .TradeAverage
-                        // );
-                        // this.$cookies.set(
-                        //     "valPrivate",
-                        //     this.API2Value.Response.DataItems.ValuationList
-                        //         .PrivateAverage
-                        // );
-                        // this.$cookies.set(
-                        //     "ref",
-                        //     `${this.regNo}-${new Date().getFullYear()}`
-                        // );
-                        // this.$cookies.set(
-                        //     "miles",
-                        //     this.API2Value.Response.DataItems.Mileage
-                        // );
-                        // this.$cookies.set(
-                        //     "desc",
-                        //     this.API2Value.Response.DataItems.VehicleDescription
-                        // );
 
                         const db = firebase.firestore();
                         db.collection("API2")
-                            // .add(this.API2Value)
                             .doc(this.API1Value.registrationNumber)
                             .set(this.API2Value)
                             .then(
