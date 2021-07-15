@@ -29,6 +29,9 @@ FOLDER STRUCTURE
   
   
 FUTURE WORKS   
+/dashboard: solve Client "proceed": "yes" OR "no" issue. SOLVED.  
+/dashboard: solve search bar white input issue. SOLVED.  
+Hide firebase API key. Everyone puts Firebase API in clientside and just restricts the IP. That is the standard recommended by Google. I tried to put it in backend, but some issue due to asynchronous api fetching. This feature is still in ToDo list though.  
 Setup process.env variables in heroku.  
 Implement GunDB. Replace Firebase.   
 Install on AWS/GCP/Azure. Heroku is costly. 3 costs: storage, processing, bandwidth.   

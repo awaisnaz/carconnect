@@ -28,6 +28,7 @@ app.use(require('cors')());
 // app.use(cors());
 
 app.post('/submit', upload.array(), (req, res) => {
+	
 	API1(req.body.vehicle)
 		.then((response)=>{ 
 			res
@@ -94,6 +95,10 @@ app.get("/api3", function (req, res) {
 			res.json(response.data);
 		})
 		.catch((e) => console.log(e));
+});
+
+app.get("/firebase", function (req, res) {
+	res.json({apiKey: "AIzaSyB_zrkBKkBXVN6d4Cx4y0iSM_Shc39o-PU"});
 });
 
 app.get(/.*/, function (req, res) {

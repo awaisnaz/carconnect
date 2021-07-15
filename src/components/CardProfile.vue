@@ -638,7 +638,7 @@
                     .collection("APIClient")
                     .doc(this.regNo)
                     .update({
-                        proceed: "yes",
+                        Proceed: "yes",
                     })
                     .then(() => {
                         console.log("APIClient updated successfully!");

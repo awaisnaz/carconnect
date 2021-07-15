@@ -560,6 +560,9 @@
                     '"CarDescription": "' +
                     this.$cookies.get("desc") +
                     '",' +
+
+                    '"Proceed": "no",' +
+
                     '"CarWarnLights": "' +
                     this.$refs.warnLights.value +
                     '"' +

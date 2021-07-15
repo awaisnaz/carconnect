@@ -5,15 +5,24 @@ import VueCookies from 'vue3-cookies';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-// import firebase from "firebase";
-// import "firebase/firestore";
-// import firebase from "firebase";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
+// console.log("hi");
+// async function firebaseget(){
+//   let apikey = await axios.get('/firebase').then((res)=>{return res.data.apiKey;}).catch((e) => console.log(e));
+//   return apikey;
+// }
+// let apikey = firebaseget().then(console.log("hi3"));
+// console.log(apikey);
+// console.log("hi2");
+
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB_zrkBKkBXVN6d4Cx4y0iSM_Shc39o-PU",
+  apiKey: "AIzaSyB_zrkBKkBXVN6d4Cx4y0iSM_Shc39o-PU",  
   authDomain: "car-connect-e8da5.firebaseapp.com",
   projectId: "car-connect-e8da5",
   storageBucket: "car-connect-e8da5.appspot.com",
@@ -22,6 +31,8 @@ const firebaseConfig = {
   measurementId: "G-B1K3THS4VB"
 };
 firebase.initializeApp(firebaseConfig);
+
+
 
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -76,5 +87,5 @@ createApp(App)
   .use(VueScrollTo)
   .use(VueAxios, axios)
   
-  .mount("#app");
+  .mount("#app"); 
 

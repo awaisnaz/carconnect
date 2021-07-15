@@ -166,7 +166,7 @@
                                 }, {});
                         }
 
-                        var res2 = res.map(APIClientReduce);
+                        var res2 = res.map(APIClientReduce); 
                         const grid = new Grid({
                             columns: [
                                 {
@@ -192,7 +192,7 @@
                             resizable: true,
                             style: {
                                 container: {
-                                    color: "#ffffff",
+                                    color: "#000000",
                                     "background-color": "#606060",
                                     "border-radius": "0px",
                                 },
@@ -472,6 +472,29 @@
             onMounted(() => {
                 getData();
                 document.getElementById("AdminTwo").style.display = "none";
+
+                // axios.get('/firebase')
+                //     .then((res)=>{
+
+                //         var apikey = res.data.apiKey; 
+                //         console.log(apikey);
+                //         console.log(typeof apikey);
+
+                //         const firebaseConfig = {
+                //         apiKey: apikey,
+                //         authDomain: "car-connect-e8da5.firebaseapp.com",
+                //         projectId: "car-connect-e8da5",
+                //         storageBucket: "car-connect-e8da5.appspot.com",
+                //         messagingSenderId: "864993183927",
+                //         appId: "1:864993183927:web:810059a116a4f9d8992532",
+                //         measurementId: "G-B1K3THS4VB"
+                //         };
+                //         firebase.initializeApp(firebaseConfig);
+                //         console.log(firebaseConfig);
+                //         console.log(firebase);
+                        
+                //         })
+                //     .catch((e) => console.log(e));
             });
 
             return {
@@ -535,6 +558,7 @@
     .gridjs-pagination {
         color: #ffffff !important;
     }
+
 
     @import "gridjs/dist/theme/mermaid.css";
 
