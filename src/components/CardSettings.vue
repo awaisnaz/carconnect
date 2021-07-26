@@ -494,6 +494,9 @@
                 }]);
                 n.performCheck();
 
+                // console.log("hi");
+                this.API2();
+
                 var client =
                     "{" +
                     '"CarRegistrationNumber": "' +
@@ -602,7 +605,7 @@
                             document.getElementById("form-sent-90").style.display = "none";
                         }
                         if(this.formSent == "1") {
-                            this.API2();
+                            // this.API2();
                             var doc2 = document.getElementsByClassName("valuation");
                             for (var j = 0; j < doc2.length; j++) {
                                 doc2[j].style.display = "block";
@@ -634,7 +637,7 @@
             },
 
             async API2() {
-                axios.get('/api2', {
+                await axios.get('/api2', {
                     params: {
                         axiosRegNo: this.API1Value.registrationNumber
                     }
