@@ -385,8 +385,19 @@
     // import { ref } from 'vue';
     // import VueCookies from 'vue3-cookies';
 
+    // import WatchJS from 'melanke-watchjs';
+
+    // import axios from "axios";
+
     export default {
         setup() {
+
+
+            // function formSent() {
+            // }
+
+
+
             onMounted(() => {
 
                 // 
@@ -411,11 +422,11 @@
                 },{
                     selector: '.mobile1',
                     validate: /^.{10,20}$/,
-                    errorMessage: 'Please enter a valid Contact Number'
+                    errorMessage: 'Please enter a valid Mobile Number'
                 },{
                     selector: '.mobile2',
                     validate: 'same-as:.mobile1',
-                    errorMessage: 'The Contact Number does not match.'
+                    errorMessage: 'The Mobile Numbers do not match.'
                 },{
                     selector: '.town',
                     validate: 'presence',
@@ -492,6 +503,8 @@
                 ref: this.$cookies.get("ref"),
                 miles: this.$cookies.get("miles"),
                 desc: this.$cookies.get("desc"),
+                API1Value: this.$cookies.get("API1"),
+                API2Value: "",
                 // third: "",
             };
         },
@@ -606,6 +619,7 @@
                             document.getElementById("form-sent-90").style.display = "none";
                         }
                         if(this.formSent == "1") {
+                            this.API2();
                             var doc2 = document.getElementsByClassName("valuation");
                             for (var j = 0; j < doc2.length; j++) {
                                 doc2[j].style.display = "block";
@@ -636,6 +650,50 @@
                     .catch((e) => console.log(e));
             },
 
+            async API2() {
+                axios.get('/api2', {
+                    params: {
+                        axiosRegNo: this.API1Value.registrationNumber
+                    }
+                })
+                    .then((response) => {
+                        this.API2Value = response.data;
+                        console.log("API2 Data fetced from the DVLA API website.");
+                        this.ref = `${
+                            this.API2Value.Response.DataItems.Vrm
+                        }-${new Date().getFullYear()}`;
+                        this.$cookies.set("ref", this.ref);
+                        this.miles = this.API2Value.Response.DataItems.Mileage;
+                        this.$cookies.set("miles", this.miles);
+                        this.desc = this.API2Value.Response.DataItems.VehicleDescription;
+                        this.$cookies.set("desc", this.desc);
+                        this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
+                        this.$cookies.set("val1", this.val1);
+                        this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
+                        this.$cookies.set("val2", this.val2);
+
+                        let val1 = this.$cookies.get("val1");
+                        let val2 = this.$cookies.get("val2");
+                        let ref = this.$cookies.get("ref");
+                        let miles = this.$cookies.get("miles");
+                        let desc = this.$cookies.get("desc");
+                        document.getElementById("val").innerHTML = `£ ${val1} - ${val2}`;
+                        document.getElementById("ref").innerHTML = ref;
+                        document.getElementById("miles").innerHTML = miles;
+                        document.getElementById("desc").innerHTML = desc;
+
+                        const db = firebase.firestore();
+                        db.collection("API2")
+                            .doc(this.API1Value.registrationNumber)
+                            .set(this.API2Value)
+                            .then(
+                                console.log("API2 Data entered into Firestore.")
+                            )
+                            .catch((e) => console.log(e));
+                        })
+                    .catch((e) => console.log(e));
+            },
+
         },
 
         mounted (){
@@ -651,6 +709,7 @@
                 document.getElementById("form-sent-90").style.display = "none";
             }
             if(this.formSent == "1") {
+                // this.API2();
                 var doc2 = document.getElementsByClassName("valuation");
                 for (var j = 0; j < doc2.length; j++) {
                     doc2[j].style.display = "block";

@@ -112,7 +112,10 @@
                         <span
                             class="text-5xl text-blueGray-400"
                             style="color:#ff6745;font-weight: bold;"
-                            >£ {{val1}} - {{val2}}</span
+                            id="val"
+                            >
+                            <!-- £ {{val1}} - {{val2}} -->
+                            </span
                         >
                     </div>
             </div>
@@ -132,7 +135,10 @@
                         <span
                             class="text-xl text-blueGray-400"
                             style="color:#ff6745;font-weight: bold;white-space:nowrap;"
-                            >{{ ref }}</span
+                            id="ref"
+                            >
+                            <!-- {{ ref }} -->
+                            </span
                         >
                     </div>
                 </div>
@@ -147,7 +153,10 @@
                         <span
                             class="text-xl text-blueGray-400"
                             style="color:#ff6745;font-weight: bold;"
-                            >{{ miles }}</span
+                            id="miles"
+                            >
+                            <!-- {{ miles }} -->
+                            </span
                         >
                     </div>
                 </div>
@@ -162,7 +171,10 @@
                         <span
                             class="text-xl text-blueGray-400"
                             style="color:#ff6745;font-weight: bold;"
-                            >{{ desc }}</span
+                            id="desc"
+                            >
+                            <!-- {{ desc }} -->
+                            </span
                         >
                     </div>
                 </div>
@@ -510,23 +522,23 @@
     import 'firebase/auth';
     import 'firebase/firestore';
 
-    import axios from "axios";
+    // import axios from "axios";
 
     export default {
         data() {
             return {
                 team2,
                 API1Value: this.$cookies.get("API1"),
-                API2Value: "",
+                // API2Value: "",
                 regNo: "",
                 make: "",
                 model: "",
                 color: "",
-                val1: "",
-                val2: "",
-                ref: "",
-                miles: "",
-                desc: "",
+                // val1: this.$cookies.get("val1"),
+                // val2: this.$cookies.get("val2"),
+                // ref: this.$cookies.get("ref"),
+                // miles: this.$cookies.get("miles"),
+                // desc: this.$cookies.get("desc"),
                 tax: "",
                 mot: "",
                 formSent: this.$cookies.get("formSent"),
@@ -554,83 +566,7 @@
                     .catch((e) => console.log(e));
             },
 
-            async API2() {
-                
-                // console.log(this.API1Value.registrationNumber);
 
-                axios.get('/api2', {
-                    params: {
-                        axiosRegNo: this.API1Value.registrationNumber
-                    }
-                })
-                    .then((response) => {
-                        // console.log("hi"); 
-                        // console.log(response.data);
-
-                        this.API2Value = response.data;
-                        console.log("API2 Data fetced from the DVLA API website.");
-                        this.ref = `${
-                            this.API2Value.Response.DataItems.Vrm
-                        }-${new Date().getFullYear()}`;
-                        this.$cookies.set("ref", this.ref);
-                        this.miles = this.API2Value.Response.DataItems.Mileage;
-                        this.$cookies.set("miles", this.miles);
-                        this.desc = this.API2Value.Response.DataItems.VehicleDescription;
-                        this.$cookies.set("desc", this.desc);
-                        this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
-                        this.$cookies.set("val1", this.val1);
-                        this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
-                        this.$cookies.set("val2", this.val2);
-
-                        const db = firebase.firestore();
-                        db.collection("API2")
-                            .doc(this.API1Value.registrationNumber)
-                            .set(this.API2Value)
-                            .then(
-                                console.log("API2 Data entered into Firestore.")
-                            )
-                            .catch((e) => console.log(e));
-
-
-                        })
-                    .catch((e) => console.log(e));
-
-
-                // var URL =
-                //     "https://uk1.ukvehicledata.co.uk/api/datapackage/ValuationData?v=2&api_nullitems=1&auth_apikey=87715f2c-f6a3-4f77-8527-94511f3ee5a4&key_VRM=" +
-                //     this.API1Value.registrationNumber;
-                // await axios
-                //     .get(URL)
-                //     .then((response) => {
-
-                //         console.log("hi2"); console.log(response);
-
-                //         this.API2Value = response.data;
-                //         console.log("API2 Data fetced from the DVLA API website.");
-                //         this.ref = `${
-                //             this.API2Value.Response.DataItems.Vrm
-                //         }-${new Date().getFullYear()}`;
-                //         this.$cookies.set("ref", this.ref);
-                //         this.miles = this.API2Value.Response.DataItems.Mileage;
-                //         this.$cookies.set("miles", this.miles);
-                //         this.desc = this.API2Value.Response.DataItems.VehicleDescription;
-                //         this.$cookies.set("desc", this.desc);
-                //         this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
-                //         this.$cookies.set("val1", this.val1);
-                //         this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
-                //         this.$cookies.set("val2", this.val2);
-
-                //         const db = firebase.firestore();
-                //         db.collection("API2")
-                //             .doc(this.API1Value.registrationNumber)
-                //             .set(this.API2Value)
-                //             .then(
-                //                 console.log("API2 Data entered into Firestore.")
-                //             )
-                //             .catch((e) => console.log(e));
-                //     })
-                //     .catch((e) => console.log(e));
-            },
 
             async proceed() {
                 const db = firebase.firestore();
@@ -651,7 +587,7 @@
         },
         mounted() {
             this.API1();
-            this.API2();
+            // this.API2();
             this.formSent = this.$cookies.get("formSent");
             if (this.formSent == "0") {
                 var doc = document.getElementsByClassName("valuation");
@@ -662,6 +598,7 @@
                 document.getElementById("form-sent-90").style.display = "none";
             }
             if (this.formSent == "1") {
+                // this.API2();
                 var doc2 = document.getElementsByClassName("valuation");
                 for (var j = 0; j < doc2.length; j++) {
                     doc2[j].style.display = "block";

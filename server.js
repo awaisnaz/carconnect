@@ -82,7 +82,7 @@ app.post('/contact2', upload.array(), (req,res)=>{
 })
 
 app.get("/api2", function (req, res) {
-	axios.get(config.api2.live + req.query.axiosRegNo)
+	axios.get(config.api2.test + req.query.axiosRegNo)
 		.then((response) => {
 			res.json(response.data);
 		})
