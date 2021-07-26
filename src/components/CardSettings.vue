@@ -25,6 +25,7 @@
                 method="post"
                 action="/details"
                 @submit.prevent="firebaseDetailsSubmit"
+                id="form"
             >
                 <h6
                     class="text-blueGray-400 text-s mt-3 mb-6 font-bold uppercase form-91"
@@ -392,87 +393,41 @@
     export default {
         setup() {
 
-
-            // function formSent() {
-            // }
-
-
-
-            onMounted(() => {
-
-                // 
-                // console.log("hi");
-                // this.$cookies.set("formSent","0");
-
+            function nodcheck(){
                 var n = nod();
-
-                // We disable the submit button if there are errors.
                 n.configure({
                     submit: '.submit-btn',
                     disableSubmit: true
                 });
-
-                // n.classes.successClass = 'has-success';
-                // n.classes.errorClass = 'has-error';
-
                 n.add([{
                     selector: '.fullName',
                     validate: 'presence',
-                    errorMessage: 'Can\'t be empty'
+                    errorMessage: 'Can\'t be empty',
+                    triggerEvents: 'submit'
                 },{
                     selector: '.mobile1',
                     validate: /^.{10,20}$/,
-                    errorMessage: 'Please enter a valid Mobile Number'
+                    errorMessage: 'Please enter a valid Mobile Number',
+                    triggerEvents: 'submit'
                 },{
                     selector: '.mobile2',
                     validate: 'same-as:.mobile1',
-                    errorMessage: 'The Mobile Numbers do not match.'
+                    errorMessage: 'The Mobile Numbers do not match.',
+                    triggerEvents: 'submit'
                 },{
                     selector: '.town',
                     validate: 'presence',
-                    errorMessage: 'Can\'t be empty'
+                    errorMessage: 'Can\'t be empty',
+                    triggerEvents: 'submit'
                 }]);
+            }
+
+            onMounted(() => {
+                // nodcheck();
+                // document.getElementById("form").addEventListener('submit', nodcheck);
             });
-            // const firebaseDetailsSubmit = async () => {
-            //   user = "{"+
-            //     "\"name\": \""regNo+"\", "+
-            //     "\"email\": \""+email.value+"\", "+
-            //     "\"message\": \""+message.value+"\""+
-            //     "}";
-            //   user = JSON.parse(user);
-            //   // console.log(user);
-            //   const db = firebase.firestore();
-            //   await db
-            //     .collection('contactus')
-            //     // .doc('contactus')
-            //     // .set(user)
-            //     .add(user)
-            //     .then(
-            //       console.log("Data entered into Google Cloud DB")
-            //     )
-            //     .catch(e => console.log(e));
-
-            //     formSent.value = "Message sent successfully.";
-            // }
-
-            // var regNo = ref();
-            // var make = ref();
-            // var model = ref();
-            // var color = ref();
-
-            // regNo = this.$cookies.get('regNo');
-            // make = this.$cookies.get('make');
-            // model = this.$cookies.get('model');
-            // color = this.$cookies.get('color');
-
-            // console.log(regNo);
-
             return {
-                // firebaseDetailsSubmit,
-                // regNo,
-                // make,
-                // model,
-                // color,
+                nodcheck
             };
         },
 
@@ -505,12 +460,40 @@
                 desc: this.$cookies.get("desc"),
                 API1Value: this.$cookies.get("API1"),
                 API2Value: "",
-                // third: "",
             };
         },
 
         methods: {
             async firebaseDetailsSubmit() {
+
+                var n = nod();
+                n.configure({
+                    submit: '.submit-btn',
+                    disableSubmit: true
+                });
+                n.add([{
+                    selector: '.fullName',
+                    validate: 'presence',
+                    errorMessage: 'Can\'t be empty',
+                    triggerEvents: 'submit'
+                },{
+                    selector: '.mobile1',
+                    validate: /^.{10,20}$/,
+                    errorMessage: 'Please enter a valid Mobile Number',
+                    triggerEvents: 'submit'
+                },{
+                    selector: '.mobile2',
+                    validate: 'same-as:.mobile1',
+                    errorMessage: 'The Mobile Numbers do not match.',
+                    triggerEvents: 'submit'
+                },{
+                    selector: '.town',
+                    validate: 'presence',
+                    errorMessage: 'Can\'t be empty',
+                    triggerEvents: 'submit'
+                }]);
+                n.performCheck();
+
                 var client =
                     "{" +
                     '"CarRegistrationNumber": "' +
