@@ -494,191 +494,162 @@
                 }]);
                 n.performCheck();
 
-                // console.log("hi");
-                this.API2();
-
-                var client =
-                    "{" +
-                    '"CarRegistrationNumber": "' +
-                    this.regNo +
-                    '", ' +
-                    "\"CarMake\": \""+this.make+"\", "+
-                    "\"CarModel\": \""+this.model+"\", "+
-                    // "\"Car Color\": \""+this.color+"\", "+
-                    '"ClientName": "' +
-                    this.$refs.fullName.value +
-                    '", ' +
-                    '"ClientEmail": "' +
-                    this.$refs.email.value +
-                    '", ' +
-                    '"ClientMobile": "' +
-                    this.$refs.mobile1.value +
-                    '", ' +
-                    '"ClientAddress": "' +
-                    this.$refs.address.value +
-                    '", ' +
-                    '"ClientTown": "' +
-                    this.$refs.town.value +
-                    '", ' +
-                    '"ClientCounty": "' +
-                    this.$refs.county.value +
-                    '", ' +
-                    '"ClientPostCode": "' +
-                    this.$refs.post.value +
-                    '", ' +
-                    '"CarID": "' +
-                    new Date().getTime() + 
-                    '", ' +
-                    '"CarTimestamp": "' +
-                    new Date() +
-                    '", ' +
-                    '"CarMileage": "' +
-                    this.$refs.mileage.value +
-                    '", ' +
-                    '"CarFuelType": "' +
-                    this.fuel +
-                    '", ' +
-                    '"CarOwnershipTime": "' +
-                    this.$refs.howLong.value +
-                    '", ' +
-                    '"CarDetails": "' +
-                    this.$refs.details.value +
-                    '",' +
-                    '"CarScratchDents": "' +
-                    this.$refs.scratchDents.value +
-                    '",' +
-                    // '"CarMechElecDetails": "' +
-                    // this.$refs.mechElectrical.value +
-                    // '",' +
-                    '"CarValue1": "' +
-                    this.$cookies.get("val1") +
-                    '",' +
-                    '"CarValue2": "' +
-                    this.$cookies.get("val2") +
-                    '",' +
-                    '"CarDescription": "' +
-                    this.$cookies.get("desc") +
-                    '",' +
-
-                    '"Proceed": "no",' +
-
-                    '"CarWarnLights": "' +
-                    this.$refs.warnLights.value +
-                    '"' +
-                    "}";
-                // console.log(client);
-                client = JSON.parse(client);
-
-                // console.log(this.api1);
-                // console.log(typeof this.api1);
-                // var api1 = this.api1;
-                // var api1 = JSON.parse(this.api1);
-
-                const db = firebase.firestore();
-
-                await db
-                    .collection("APIClient")
-                    .doc(this.regNo)
-                    .set(client)
-                    // .add(client)
-                    .then(() => {
-                        console.log(
-                            "APIClient Data entered into Firestore."
-                        );
-                        var x = document.getElementsByClassName("form-91");
-                        for (var i = 0; i < x.length; i++) {
-                            x[i].style.display = "none";
-                        }
-
-                        document.getElementById("detail1").className += "w-full lg:w-6/12 px-4 left";
-                        document.getElementById("detail2").style.display = "none";
-
-                        this.$cookies.set("formSent","1");
-                        this.formSent = 1;
-
-                        if(this.formSent == "0") {
-                            var doc = document.getElementsByClassName("valuation");
-                            for (var k = 0; k < doc.length; k++) {
-                                doc[k].style.display = "none";
+                this.API2().then(()=>{
+                    var client =
+                        "{" +
+                        '"CarRegistrationNumber": "' +
+                        this.regNo +
+                        '", ' +
+                        "\"CarMake\": \""+this.make+"\", "+
+                        "\"CarModel\": \""+this.model+"\", "+
+                        '"ClientName": "' +
+                        this.$refs.fullName.value +
+                        '", ' +
+                        '"ClientEmail": "' +
+                        this.$refs.email.value +
+                        '", ' +
+                        '"ClientMobile": "' +
+                        this.$refs.mobile1.value +
+                        '", ' +
+                        '"ClientAddress": "' +
+                        this.$refs.address.value +
+                        '", ' +
+                        '"ClientTown": "' +
+                        this.$refs.town.value +
+                        '", ' +
+                        '"ClientCounty": "' +
+                        this.$refs.county.value +
+                        '", ' +
+                        '"ClientPostCode": "' +
+                        this.$refs.post.value +
+                        '", ' +
+                        '"CarID": "' +
+                        new Date().getTime() + 
+                        '", ' +
+                        '"CarTimestamp": "' +
+                        new Date() +
+                        '", ' +
+                        '"CarMileage": "' +
+                        this.$refs.mileage.value +
+                        '", ' +
+                        '"CarFuelType": "' +
+                        this.fuel +
+                        '", ' +
+                        '"CarOwnershipTime": "' +
+                        this.$refs.howLong.value +
+                        '", ' +
+                        '"CarDetails": "' +
+                        this.$refs.details.value +
+                        '",' +
+                        '"CarScratchDents": "' +
+                        this.$refs.scratchDents.value +
+                        '",' +
+                        '"CarValue1": "' +
+                        this.$cookies.get("val1") +
+                        '",' +
+                        '"CarValue2": "' +
+                        this.$cookies.get("val2") +
+                        '",' +
+                        '"CarDescription": "' +
+                        this.$cookies.get("desc") +
+                        '",' +
+                        '"Proceed": "no",' +
+                        '"CarWarnLights": "' +
+                        this.$refs.warnLights.value +
+                        '"' +
+                        "}";
+                    client = JSON.parse(client);
+                    const db = firebase.firestore();
+                    db
+                        .collection("APIClient")
+                        .doc(this.regNo)
+                        .set(client)
+                        .then(() => {
+                            console.log(
+                                "APIClient Data entered into Firestore."
+                            );
+                            var x = document.getElementsByClassName("form-91");
+                            for (var i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
                             }
-                            document.getElementById("form-sent-89").style.display = "none";
-                            document.getElementById("form-sent-90").style.display = "none";
-                        }
-                        if(this.formSent == "1") {
-                            // this.API2();
-                            var doc2 = document.getElementsByClassName("valuation");
-                            for (var j = 0; j < doc2.length; j++) {
-                                doc2[j].style.display = "block";
+                            document.getElementById("detail1").className += "w-full lg:w-6/12 px-4 left";
+                            document.getElementById("detail2").style.display = "none";
+                            this.$cookies.set("formSent","1");
+                            this.formSent = 1;
+                            if(this.formSent == "0") {
+                                var doc = document.getElementsByClassName("valuation");
+                                for (var k = 0; k < doc.length; k++) {
+                                    doc[k].style.display = "none";
+                                }
+                                document.getElementById("form-sent-89").style.display = "none";
+                                document.getElementById("form-sent-90").style.display = "none";
                             }
-                            document.getElementById("form-sent-89").style.display = "block";
-                            document.getElementById("form-sent-90").style.display = "none";
-                        }
+                            if(this.formSent == "1") {
+                                // this.API2();
+                                var doc2 = document.getElementsByClassName("valuation");
+                                for (var j = 0; j < doc2.length; j++) {
+                                    doc2[j].style.display = "block";
+                                }
+                                document.getElementById("form-sent-89").style.display = "block";
+                                document.getElementById("form-sent-90").style.display = "none";
+                            }
+                            document.getElementById('valuation').scrollIntoView();
+                            var doc3 = document.getElementsByClassName("valuation");
+                            for (var l = 0; l < doc3.length; l++) {
+                                doc3[l].style.display = "block";
+                            }
+                            axios.post('http://localhost:8080/contact2', {data: this.$data})
+                                .then(console.log("Email Sent to endpoint from Frontend. But not confirm from backend."))
+                                .catch((e) => console.log(e));
+                        })
+                        .catch((e) => console.log(e));
+                }).catch((e)=>console.log(e));
 
-
-                        // x = document.getElementsByClassName("form-92");
-                        // x[0].style.display = "initial"
-
-                        
-
-                        document.getElementById('valuation').scrollIntoView();
-
-                        var doc3 = document.getElementsByClassName("valuation");
-                        for (var l = 0; l < doc3.length; l++) {
-                            doc3[l].style.display = "block";
-                        }
-
-
-                        axios.post('http://localhost:8080/contact2', {data: this.$data})
-                            .then(console.log("Email Sent to endpoint from Frontend. But not confirm from backend."))
-                            .catch((e) => console.log(e));
-
-                    })
-                    .catch((e) => console.log(e));
+                
             },
 
             async API2() {
-                await axios.get('/api2', {
-                    params: {
-                        axiosRegNo: this.API1Value.registrationNumber
-                    }
-                })
-                    .then((response) => {
-                        this.API2Value = response.data;
-                        console.log("API2 Data fetced from the DVLA API website.");
-                        this.ref = `${
-                            this.API2Value.Response.DataItems.Vrm
-                        }-${new Date().getFullYear()}`;
-                        this.$cookies.set("ref", this.ref);
-                        this.miles = this.API2Value.Response.DataItems.Mileage;
-                        this.$cookies.set("miles", this.miles);
-                        this.desc = this.API2Value.Response.DataItems.VehicleDescription;
-                        this.$cookies.set("desc", this.desc);
-                        this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
-                        this.$cookies.set("val1", this.val1);
-                        this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
-                        this.$cookies.set("val2", this.val2);
+                return new Promise((res, rej) => { 
+                    axios.get('/api2', {
+                        params: {
+                            axiosRegNo: this.API1Value.registrationNumber
+                        }
+                    })
+                        .then((response) => {
+                            this.API2Value = response.data;
+                            console.log("API2 Data fetced from the DVLA API website.");
+                            this.ref = `${
+                                this.API2Value.Response.DataItems.Vrm
+                            }-${new Date().getFullYear()}`;
+                            this.$cookies.set("ref", this.ref);
+                            this.miles = this.API2Value.Response.DataItems.Mileage;
+                            this.$cookies.set("miles", this.miles);
+                            this.desc = this.API2Value.Response.DataItems.VehicleDescription;
+                            this.$cookies.set("desc", this.desc);
+                            this.val1 = this.API2Value.Response.DataItems.ValuationList.TradePoor;
+                            this.$cookies.set("val1", this.val1);
+                            this.val2 = this.API2Value.Response.DataItems.ValuationList.TradeAverage;
+                            this.$cookies.set("val2", this.val2);
 
-                        let val1 = this.$cookies.get("val1");
-                        let val2 = this.$cookies.get("val2");
-                        let ref = this.$cookies.get("ref");
-                        let miles = this.$cookies.get("miles");
-                        let desc = this.$cookies.get("desc");
-                        document.getElementById("val").innerHTML = `£ ${val1} - ${val2}`;
-                        document.getElementById("ref").innerHTML = ref;
-                        document.getElementById("miles").innerHTML = miles;
-                        document.getElementById("desc").innerHTML = desc;
+                            let val1 = this.$cookies.get("val1");
+                            let val2 = this.$cookies.get("val2");
+                            let ref = this.$cookies.get("ref");
+                            let miles = this.$cookies.get("miles");
+                            let desc = this.$cookies.get("desc");
+                            document.getElementById("val").innerHTML = `£ ${val1} - ${val2}`;
+                            document.getElementById("ref").innerHTML = ref;
+                            document.getElementById("miles").innerHTML = miles;
+                            document.getElementById("desc").innerHTML = desc;
 
-                        const db = firebase.firestore();
-                        db.collection("API2")
-                            .doc(this.API1Value.registrationNumber)
-                            .set(this.API2Value)
-                            .then(
-                                console.log("API2 Data entered into Firestore.")
-                            )
-                            .catch((e) => console.log(e));
-                        })
-                    .catch((e) => console.log(e));
-            },
+                            const db = firebase.firestore();
+                            db.collection("API2")
+                                .doc(this.API1Value.registrationNumber)
+                                .set(this.API2Value)
+                                .then(()=>{console.log("API2 Data entered into Firestore.");res(this.API2Value);})
+                                .catch((e) => {console.log(e);rej(e);});
+                            })
+                        .catch((e) => console.log(e));
+            })},
 
         },
 
