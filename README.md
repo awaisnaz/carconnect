@@ -31,5 +31,6 @@ FOLDER STRUCTURE
   
 FUTURE WORKS   
 Toggle config.apix.test/live  
+/server.js. Add same-site cookie config in axios so it doesn't raise harmless but still the alarm.  
 /dashboard: sorted tables    
 /dashboard: Comments functionality.     
